@@ -1,0 +1,2 @@
+class BusinessEvent < ApplicationRecord
+end

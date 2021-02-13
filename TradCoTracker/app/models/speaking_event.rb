@@ -1,0 +1,2 @@
+class SpeakingEvent < ApplicationRecord
+end
