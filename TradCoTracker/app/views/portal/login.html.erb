@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC>
+<html>
+
+    <%= stylesheet_link_tag "stylesLogin.css" %>
+
+    <body class="background">
+    
+    <div class="picture"></div>
+    <img src=<%= asset_path 'tradcoLogo.png' %> class="logo"></img>
+
+        <div class="wholeLogin">
+
+            <%= form_with url: "portal/view_points", method: :get do |form| %>
+            <div class="login">
+
+                <div class="loginText">
+                    <h3>Log in</h3>
+                </div>
+
+                <table>
+                    <tr>
+                        <td>Email</td>
+                        <td style="text-align:right"> <%= form.text_field :email %></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td style="text-align:right"> <%= form.password_field :password %></td>
+                    </tr>
+                </table>
+
+                <p></p>
+
+                <center><%= form.submit "Sign in" , class: "button" %></center>
+
+            </div>
+
+            <% end %>
+        </div>
+
+    </body>
+
+</html>

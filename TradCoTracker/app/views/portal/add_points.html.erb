@@ -1,0 +1,15 @@
+<%= link_to("<< Back to points", "view_points", :class => 'back-link') %>
+
+<h2>Add points</h2>
+
+<%= form_with url: "portal/view_points" do |form| %>
+
+    <!-- Maybe make this a drop down? -->
+    <p>Event: <%= form.text_field :event %> </p>
+    <p>Type: <%= form.select :type , [["Business","business"],["Speaking","speaking"]] %> </p>
+    <p>Points: <%= form.number_field :points %> </p>
+    <p>Date: <%= form.date_field :date %> </p>
+
+    <%= form.submit("Add points") %>
+    
+    <% end %>
