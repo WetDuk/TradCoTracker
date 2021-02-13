@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  speakingEventID: 
+  numOfPoints: 
+  submissionDate: 2021-02-13
+
+two:
+  speakingEventID: 
+  numOfPoints: 
+  submissionDate: 2021-02-13
