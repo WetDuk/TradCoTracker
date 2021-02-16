@@ -1,15 +1,60 @@
-<%= link_to("<< Back to points", "view_points", :class => 'back-link') %>
+<!DOCTYPE>
+<html>
 
-<h2>Add points</h2>
+    <%= stylesheet_link_tag "stylesAddPoints.css" %>
 
-<%= form_with url: "portal/view_points" do |form| %>
+    <body class="background">
 
-    <!-- Maybe make this a drop down? -->
-    <p>Event: <%= form.text_field :event %> </p>
-    <p>Type: <%= form.select :type , [["Business","business"],["Speaking","speaking"]] %> </p>
-    <p>Points: <%= form.number_field :points %> </p>
-    <p>Date: <%= form.date_field :date %> </p>
+        <%= button_to "Back to points", "view_points", :class => 'button', :method => :get %>
 
-    <%= form.submit("Add points") %>
-    
-    <% end %>
+        <div class="center">
+
+            <h2>Add points</h2>
+
+            <%= form_with url: "view_points" do |form| %>
+
+            <table>
+                <tr> <!-- Maybe make this a drop down? -->
+                    <td> 
+                        Event: 
+                    </td> 
+                    <td>
+                        <%= form.text_field :event %> 
+                    </td>
+                </tr> 
+                <tr></tr>
+                <tr>
+                    <td> 
+                        Type: 
+                    </td> 
+                    <td>
+                        <%= form.select :type , [["Business","business"],["Speaking","speaking"]] %> 
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td> 
+                        Points: 
+                    </td>
+                    <td>
+                        <%= form.number_field :points %> 
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td>
+                        Date: 
+                    </td>
+                    <td>
+                        <%= form.date_field :date %> 
+                    </td>
+                </tr>
+            </table>
+
+            <% end %>
+
+        </div>
+
+    </body>
+
+</html>
