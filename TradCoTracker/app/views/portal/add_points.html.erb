@@ -11,8 +11,8 @@
 
             <h2>Add points</h2>
 
-            <%= form_with url: "view_points" do |form| %>
-
+            <%= form_with url: "portal/view_points" do |form| %>
+                
             <table>
                 <tr> <!-- Maybe make this a drop down? -->
                     <td> 
@@ -22,7 +22,7 @@
                         <%= form.text_field :event %> 
                     </td>
                 </tr> 
-                <tr></tr>
+                <tr></tr> <!-- I added this here because the way I set up tables to look in css. I will probably fix later, this is just the best way I know how to do it right now -->
                 <tr>
                     <td> 
                         Type: 
