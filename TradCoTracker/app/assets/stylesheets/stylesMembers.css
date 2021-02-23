@@ -1,0 +1,16 @@
+.background
+{
+    background-color: #660000;
+}
+
+.user_area
+{
+    font-family: verdana;
+    background-color: white;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 10px;
+    padding: 10px;
+}
