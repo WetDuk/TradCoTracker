@@ -1,13 +1,13 @@
 class CreateMemberPoints < ActiveRecord::Migration[6.1]
   def change
     create_table :member_points do |t|
-      t.int :businessTableID
+      t.numeric  :businessTableID
       t.string :events
-      t.int :points
-      t.char :type
-      t.int :userID
-      t.int :speakingEventID
-      t.int :businessEventID
+      t.numeric  :points
+      t.string :type
+      t.numeric  :userID
+      t.numeric  :speakingEventID
+      t.numeric  :businessEventID
 
       t.timestamps
     end
