@@ -4,7 +4,7 @@ class CreateOrgEvents < ActiveRecord::Migration[6.1]
       t.daterange :upcomingActivities
       t.date :date
       t.string :name
-      t.bool :required
+      t.boolean :required
 
       t.timestamps
     end
