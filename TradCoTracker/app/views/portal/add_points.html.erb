@@ -1,0 +1,62 @@
+<!DOCTYPE>
+<html>
+
+    <%= stylesheet_link_tag "stylesAddPoints.css" %>
+
+    <body class="background">
+
+        <%= button_to "Back to points", "view_points", :class => 'button', :method => :get %>
+
+        <div class="center">
+
+            <h2>Add points</h2>
+
+            <%= form_with url: "portal/view_points" do |form| %>
+
+            <table>
+                <tr> <!-- Maybe make this a drop down? -->
+                    <td> 
+                        Event: 
+                    </td> 
+                    <td>
+                        <%= form.text_field :event %> 
+                    </td>
+                </tr> 
+                <tr></tr>
+                <tr>
+                    <td> 
+                        Type: 
+                    </td> 
+                    <td>
+                        <%= form.select :type , [["Business","business"],["Speaking","speaking"]] %> 
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td> 
+                        Points: 
+                    </td>
+                    <td>
+                        <%= form.number_field :points %> 
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td>
+                        Date: 
+                    </td>
+                    <td>
+                        <%= form.date_field :date %> 
+                    </td>
+                </tr>
+            </table>
+
+            <center><%= form.submit "Add Points" , class: "button2" %></center>
+
+            <% end %>
+
+        </div>
+
+    </body>
+
+</html>

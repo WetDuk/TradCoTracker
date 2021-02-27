@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html>
+
+    <%= stylesheet_link_tag "stylesCreateUser.css" %>
+
+    <body class="background">
+
+        <div class="center">
+
+            <h2>Sign up</h2>
+
+            <%= form_with url: root_path do |form| %>
+
+            <table>
+                <tr> <!-- Maybe make this a drop down? -->
+                    <td> 
+                        Name: 
+                    </td> 
+                    <td>
+                        <%= form.text_field :name %> 
+                    </td>
+                </tr> 
+                <tr></tr>
+                <tr>
+                    <td> 
+                        Username: 
+                    </td> 
+                    <td>
+                        <%= form.text_field :username %>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td> 
+                        Password: 
+                    </td>
+                    <td>
+                        <%= form.password_field :password %> 
+                    </td>
+                </tr>
+            </table>
+
+            <center><%= form.submit "Sign up" , class: "button" %></center>
+
+            <% end %>
+
+        </div>
+
+    </body>
+
+</html>
