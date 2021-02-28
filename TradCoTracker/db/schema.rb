@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_182401) do
     t.decimal "businessTableID"
     t.string "events"
     t.decimal "points"
-    t.string "type"
+    t.string "eventType"
     t.decimal "userID"
     t.decimal "speakingEventID"
     t.decimal "businessEventID"
