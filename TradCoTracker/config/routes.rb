@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :posts
   root 'portal#login'
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:new, :create]
+  resources :users, only: %i[new create]
 
   get '/login', to: 'portal#login'
   post '/login', to: 'portal#create'
