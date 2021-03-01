@@ -1,2 +1,68 @@
-<h1>Points#show</h1>
-<p>Find me in app/views/points/show.html.erb</p>
+<div class="points index">
+  <!DOCTYPE>
+  <html>
+
+      <%= stylesheet_link_tag "stylesPoints.css" %>
+
+      <body class="background">
+
+      <!-- had to put the buttons in a table because the ruby inserts are being dum and put the buttons on a new line -->
+          <table>
+              <tr>
+                  <td>
+                      <%= button_to "Add points", new_point_path, :class => 'button action new', :method => 'get' %>
+                  </td>
+                  <td>
+                      <div align="right"><%= button_to "Logout", "logout", :class => 'button', :method => :get %></div>
+                  </td>
+              </tr>
+          </table>
+
+          <div class="points_area">
+              <h2 class="header">These are your points</h2>
+              <div>
+                  <table>
+                      <!-- Table header -->
+                      <tr>
+                          <th>Event</th>
+                          <th>Type</th>
+                          <th>Points</th>
+                          <%# <th>Date</th> %>
+                      </tr>
+
+                      <!-- test rows to see style -->
+                      <% @points.each do |point| %>
+                        <tr>
+                          <td><%= point.events %></td>
+                          <td><%= point.eventType %></td>
+                          <td><%= point.points %></td>
+                        </tr>
+                      <% end %>
+
+                  </table>
+
+                  <!-- maybe add total business and speaking at the bottom of the table?? Will probably do later. Prabably gotta make two variables that update after every iteration of the loop-->
+                  <!-- < @totalSpeaking = 0 > -->
+                  <!-- < @totalBusiness = 0 > -->
+
+                  <div>
+                  <!-- This is a template for inserting into the table. Just replace this in the test row area.
+                  Gotta fix the ruby inserts
+                  < @points.each do |point| > 
+                          <tr> 
+                              <td> <= point.id > </td> 
+                              <td> <= point.event > </td> 
+                              <td> <= point.type > </td> 
+                              <td> <= point.points > </td> 
+                              <td> <= point.date > </td> 
+                          </tr> -->
+                  </div>
+
+              </div>
+          </div>
+
+      </body>
+
+  </html>
+
+</div>
