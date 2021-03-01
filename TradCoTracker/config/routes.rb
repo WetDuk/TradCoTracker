@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   root 'portal#login'
   get 'portal/logout'
   get 'portal/view_points'
