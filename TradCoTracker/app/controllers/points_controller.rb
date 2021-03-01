@@ -9,8 +9,6 @@ class PointsController < ApplicationController
   
   def new
     @point = Point.new
-    @business = BusinessEvent.new
-    @speaking = SpeakingEvent.new
   end
   
   def create
