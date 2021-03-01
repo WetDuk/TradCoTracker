@@ -13,6 +13,8 @@ class PointsController < ApplicationController
   
   def new
     @point = Point.new
+    @business = Business.new
+    @speaking = Speaking.new
   end
   
   def create
