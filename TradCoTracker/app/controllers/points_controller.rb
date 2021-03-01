@@ -1,5 +1,7 @@
 class PointsController < ApplicationController
   def index
+    @id = session[:user_id]
+    @user = User.find(@id)
     @points = Point.order('id ASC')
     @businessSum = Point.where(eventType: 'business').sum(:points)
     @speakingSum = Point.where(eventType: 'speaking').sum(:points)
