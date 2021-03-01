@@ -1,6 +1,8 @@
 class PointsController < ApplicationController
   def index
     @points = Point.order('id ASC')
+    @businessSum = Point.where(eventType: 'business').sum(:points)
+    @speakingSum = Point.where(eventType: 'speaking').sum(:points)
   end
   
   def show

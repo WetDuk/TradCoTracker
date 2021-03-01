@@ -5,6 +5,7 @@ one:
   isOfficer: false
   joinDate: 2021-03-01
   username: MyString
+  password: MyString
   email: MyString
 
 two:
@@ -12,4 +13,5 @@ two:
   isOfficer: false
   joinDate: 2021-03-01
   username: MyString
+  password: MyString
   email: MyString
