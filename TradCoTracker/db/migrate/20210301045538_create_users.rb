@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration[6.1]
   def change
     create_table :users do |t|
-      t.numeric :userID
+      t.integer :userID
       t.boolean :isOfficer
       t.date :joinDate
       t.string :username
