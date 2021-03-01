@@ -4,12 +4,14 @@ class PointsController < ApplicationController
     @id = session[:user_id]
     @user = User.find(@id)#I don't think this is working :P may have to change later
     @points = Point.order('id ASC')
-    @businessSum = Point.where(eventType: 'business').sum(:points)
-    @speakingSum = Point.where(eventType: 'speaking').sum(:points)
+    @business_sum = Point.where(eventType: 'Business').sum(:points)
+    @speaking_sum = Point.where(eventType: 'Speaking').sum(:points)
   end
   
   def show
-    @points = Point.order('id ASC')
+    @points = Point.order('id ASC').where(userID: session[:user_id])
+    @business_sum = Point.where(eventType: 'Business').sum(:points)
+    @speaking_sum = Point.where(eventType: 'Speaking').sum(:points)
   end
   
   def new
@@ -20,7 +22,10 @@ class PointsController < ApplicationController
   
   def create
     # Instantiate a new object using form parameters
+    @id = session[:user_id]
+    @user = User.find(@id)
     @point = Point.new(point_params)
+    @point.userID = @user.id
     # Save the object
     if @point.save
       # If save succeeds, redirect to the index action

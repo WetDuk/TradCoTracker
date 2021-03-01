@@ -11,7 +11,7 @@ class PortalController < ApplicationController
         @user = User.find_by(username: params[:username])
         if !!@user && (@user.password == params[:password])
             session[:user_id] = @user.id
-            redirect_to points_path
+            redirect_to point_path(session[:user_id])
         else
             redirect_to root_path
         end

@@ -5,12 +5,12 @@
 
     <body class="background">
     
-    <div class="picture"></div>
-    <img src=<%= asset_path 'tradcoLogo.png' %> class="logo"></img>
+        <div class="picture"></div>
+        <img src="assets/tradcoLogo.png" class="logo"></img>
 
         <div class="wholeLogin">
-
-            <%= form_tag '/login' do %>
+            <%# will need to change to point_path, once we have an ID of the user to point to%>
+            <%= form_tag "/login" do %>
             <div class="login">
 
                 <div class="loginText">
@@ -19,8 +19,8 @@
 
                 <table>
                     <tr>
-                        <td>Username</td>
-                        <td style="text-align:right"> <%= text_field_tag :username %></td>
+                        <td>Email</td>
+                        <td style="text-align:right"> <%= text_field_tag :email %></td>
                     </tr>
                     <tr>
                         <td>Password</td>
@@ -30,14 +30,15 @@
 
                 <p></p>
 
-                <center><%= submit_tag "Log in" , class: "button" %></center>
-                <% end %>
-                <center><%= button_to "Sign up", new_user_path, :class => 'button', :method => :get %></center>
+                <center><%= submit_tag "Sign in" , class: "button" %></center>
 
             </div>
 
+            <% end %>
         </div>
 
     </body>
 
 </html>
+
+<!-- chungus -->
