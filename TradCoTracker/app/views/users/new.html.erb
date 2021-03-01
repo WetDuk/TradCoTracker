@@ -9,15 +9,15 @@
 
             <h2>Sign up</h2>
 
-            <%= form_with url: root_path do |form| %>
+            <%= form_for @user do |form| %>
 
             <table>
                 <tr> <!-- Maybe make this a drop down? -->
                     <td> 
-                        Name: 
+                        Email: 
                     </td> 
                     <td>
-                        <%= form.text_field :name %> 
+                        <%= form.text_field :email %> 
                     </td>
                 </tr> 
                 <tr></tr>
@@ -40,7 +40,7 @@
                 </tr>
             </table>
 
-            <center><%= form.submit "Sign up" , class: "button" %></center>
+            <center><%= form.submit "Create Account" , class: "button" %></center>
 
             <% end %>
 

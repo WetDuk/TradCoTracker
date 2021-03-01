@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.boolean :isOfficer
       t.date :joinDate
       t.string :username
+      t.string :password
       t.string :email
 
       t.timestamps
