@@ -17,9 +17,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  database: TradCoTrackerDB
-  username: postgres
-  password: 'Amerman1234'
+  database: d1iu3e2mi1sn91
+  username: udobpsfytxpepb
+  password: 'c6ffca579f5b36edc3dc3238e479869bea04e3028a968bc7e92facaaa8728061'
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
