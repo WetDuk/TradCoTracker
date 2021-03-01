@@ -9,9 +9,8 @@
     <img src=<%= asset_path 'tradcoLogo.png' %> class="logo"></img>
 
         <div class="wholeLogin">
-            <%# will need to change to point_path, once we have an ID of the user to point to%>
-            <%= form_with url: points_path, method: :get do |form| %>
 
+            <%= form_tag '/login' do %>
             <div class="login">
 
                 <div class="loginText">
@@ -23,7 +22,6 @@
                         <td>Username</td>
                         <td style="text-align:right"> <%= text_field_tag :username %></td>
                     </tr>
-                    <tr></tr>
                     <tr>
                         <td>Password</td>
                         <td style="text-align:right"> <%= password_field_tag :password %></td>
