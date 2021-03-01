@@ -6,8 +6,6 @@ class PointsController < ApplicationController
       redirect_to(point_path(session[:user_id]))
     end
     @points = Point.order('id ASC')
-    @business_sum = Point.where(eventType: 'Business').sum(:points)
-    @speaking_sum = Point.where(eventType: 'Speaking').sum(:points)
   end
   
   def show
