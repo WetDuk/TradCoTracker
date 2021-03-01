@@ -15,7 +15,7 @@
   border-radius: 5px;
   background-color: white;
   padding: 20px;
-  height: 260px;
+  height: 290px;
   width: 400px;
 }
 
@@ -36,6 +36,28 @@
 }
 
 .button:hover 
+{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.3), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button1
+{
+    font-family: verdana;
+    display: block;
+    border-radius: 4px;
+    background-color: white;
+    border: none;
+    color: #660000;
+    font-size: 20px;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    margin-top: 2%;
+}
+
+.button1:hover 
 {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.3), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
