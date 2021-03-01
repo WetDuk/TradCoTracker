@@ -1,8 +1,10 @@
 class PointsController < ApplicationController
   def index
     #retrieves the current user from the session
-    @id = session[:user_id]
-    @user = User.find(@id)#I don't think this is working :P may have to change later
+    @user = User.find(session[:user_id])
+    if !@user.isOfficer 
+      redirect_to(point_path(session[:user_id]))
+    end
     @points = Point.order('id ASC')
     @business_sum = Point.where(eventType: 'Business').sum(:points)
     @speaking_sum = Point.where(eventType: 'Speaking').sum(:points)

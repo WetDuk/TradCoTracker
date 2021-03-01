@@ -1,7 +1,8 @@
 <!DOCTYPE>
 <html>
-
+    
     <!-- this pages is only visable to officers. -->
+    <%= button_to "Back", points_path, :class => 'button action new', :method => 'get' %>
 
     <%= stylesheet_link_tag "stylesMembers.css" %>
 
@@ -13,49 +14,33 @@
                 <table>
                     <!-- Table header -->
                     <tr>
-                        <th>Name</th>
+                        <th>ID</th>
                         <th>Username</th>
                         <th>Is Officer</th>
+                        <th>Total Speaking</th>
+                        <th>Total Business</th>
                         <th>Actions</th>
                     </tr>
 
-                    <!-- test rows to see style. remove once done-->
-                    <tr>
-                        <td>test</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <% @users.each do |user| %> 
+
+                        <% @business_sum = Point.where(eventType: 'Business', userID: user.id).sum(:points) %>
+                        <% @speaking_sum = Point.where(eventType: 'Speaking', userID: user.id).sum(:points) %>
+
+                        <tr>
+                            <td> <%= user.id %> </td>  
+                            <td> <%= user.username %> </td> 
+                            <td> <%= user.isOfficer %> </td> 
+                            <td> <%= @business_sum %> </td>
+                            <td> <%= @speaking_sum %> </td>
+                            <td>Under construction :|</td>
+                        </tr> 
+                    <% end %>
 
                 </table>
 
                 <div>
-                <!-- This is a template for inserting into the table. Just replace this in the test row area. -->
-                <!-- Gotta fix the ruby  because html gets mad :/ -->
-                <!-- < @users.each do |user| > -->
-                    <!--    <tr> -->
-                    <!--        <td> <= user.name > </td> -->
-                    <!--        <td> <= user.username > </td> -->
-                    <!--        <td> <= user.isOfficer > </td> -->
-                    <!--    </tr> -->
+
                 </div>
 
             </div>

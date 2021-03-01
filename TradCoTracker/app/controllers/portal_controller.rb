@@ -3,6 +3,10 @@ class PortalController < ApplicationController
         redirect_to(:controller => 'points')
     end 
 
+    def view_members
+        @users = User.order('id ASC')
+    end
+
     def new
     end
     
