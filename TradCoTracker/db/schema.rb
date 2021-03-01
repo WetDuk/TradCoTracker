@@ -10,17 +10,82 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 2021_02_11_065422) do
+=======
+ActiveRecord::Schema.define(version: 2021_03_01_012358) do
+>>>>>>> Stashed changes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+<<<<<<< Updated upstream
+  create_table "events", force: :cascade do |t|
+=======
+  create_table "business_events", force: :cascade do |t|
+    t.integer "businessEventID"
+    t.integer "numOfPoints"
+    t.date "submissionDate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "member_points", force: :cascade do |t|
+    t.decimal "businessTableID"
+    t.string "events"
+    t.decimal "points"
+    t.string "eventType"
+    t.decimal "userID"
+    t.decimal "speakingEventID"
+    t.decimal "businessEventID"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "org_events", force: :cascade do |t|
+    t.daterange "upcomingActivities"
+    t.date "date"
+    t.string "name"
+    t.boolean "required"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.integer "businessTableID"
+    t.string "events"
+    t.integer "points"
+    t.string "eventType"
+    t.integer "userID"
+    t.integer "speakingEventID"
+    t.integer "businessEventID"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "speaking_events", force: :cascade do |t|
+    t.integer "speakingEventID"
+    t.integer "numOfPoints"
+    t.date "submissionDate"
+>>>>>>> Stashed changes
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
+<<<<<<< Updated upstream
+=======
+    t.integer "userID"
+    t.boolean "isOfficer"
+    t.date "joinDate"
+    t.string "username"
+    t.string "email"
+>>>>>>> Stashed changes
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

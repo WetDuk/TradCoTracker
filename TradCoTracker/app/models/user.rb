@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-    has_many :member_points, class_name: "member_point", foreign_key: "reference_id"
+    has_many :points, class_name: "point", foreign_key: "reference_id"
 end
