@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 2021_02_13_183537) do
+=======
+ActiveRecord::Schema.define(version: 2021_03_01_010219) do
+>>>>>>> Stashed changes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +44,18 @@ ActiveRecord::Schema.define(version: 2021_02_13_183537) do
     t.date "date"
     t.string "name"
     t.boolean "required"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.integer "businessTableID"
+    t.string "events"
+    t.integer "points"
+    t.string "eventType"
+    t.integer "userID"
+    t.integer "speakingEventID"
+    t.integer "businessEventID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

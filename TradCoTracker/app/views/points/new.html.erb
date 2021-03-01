@@ -1,10 +1,7 @@
-<h1>MemberPoint#new</h1>
-<p>Find me in app/views/member_point/new.html.erb</p>
-
 <div class="subjects new">
   <h2>Create Subject</h2>
 
-  <%= form_for(@point, :url => member_point_index_path, :controller => 'post') do |f| %>
+  <%= form_for(@point, :url => points_path, :controller => 'post') do |f| %>
 
     <table summary="Subject form fields">
       <tr>

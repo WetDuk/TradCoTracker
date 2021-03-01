@@ -1,23 +1,25 @@
-class MemberPointController < ApplicationController
+class PointsController < ApplicationController
   def index
-    @points = MemberPoint.order('id ASC')
+    @points = Point.order('id ASC')
   end
   
   def show
-    @points = MemberPoint.order('id ASC')
+    @points = Point.order('id ASC')
   end
   
   def new
-    @point = MemberPoint.new
+    @point = Point.new
+    @business = BusinessEvent.new
+    @speaking = SpeakingEvent.new
   end
   
   def create
     # Instantiate a new object using form parameters
-    @point = MemberPoint.new(point_params)
+    @point = Point.new(point_params)
     # Save the object
     if @point.save
       # If save succeeds, redirect to the index action
-      redirect_to(points_path)
+      render('member_point')
     else
       # If save fails, redisplay the form so user can fix problems
       render('new')
@@ -25,11 +27,11 @@ class MemberPointController < ApplicationController
   end
   
   def edit
-    @point = MemberPoint.find(params[:id])
+    @point = Point.find(params[:id])
   end
   
   def update
-    @point = MemberPoint.find(params[:id])
+    @point = Point.find(params[:id])
     if @point.update(point_params)
       redirect_to(point_path(@point))
     else
@@ -38,18 +40,17 @@ class MemberPointController < ApplicationController
   end
   
   def delete
-    @point = MemberPoint.find(params[:id])
+    @point = Point.find(params[:id])
   end
   
   def destroy
-    @point = MemberPoint.find(params[:id])
+    @point = Point.find(params[:id])
     @point.destroy
     redirect_to(points_path)
   end
   
   private
     def point_params
-      params.permit(:points)
+      params.require(:points)
     end
 end
-
