@@ -19,7 +19,7 @@ class PointsController < ApplicationController
     # Save the object
     if @point.save
       # If save succeeds, redirect to the index action
-      render('member_point')
+      redirect_to(points_path)
     else
       # If save fails, redisplay the form so user can fix problems
       render('new')
@@ -51,6 +51,6 @@ class PointsController < ApplicationController
   
   private
     def point_params
-      params.require(:points)
+      params.require(:point).permit(:events, :eventType, :points)
     end
 end
