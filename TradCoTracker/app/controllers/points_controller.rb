@@ -1,5 +1,7 @@
 class PointsController < ApplicationController
   def index
+    @id = session[:user_id]
+    @user = User.find(@id)
     @points = Point.order('id ASC')
   end
   
