@@ -2,14 +2,14 @@ class PortalController < ApplicationController
     def index
         redirect_to(:controller => 'points')
     end 
-    
+
     def new
     end
     
     #creates a new session when the username is in the database and has the same password
     def create
         @user = User.find_by(username: params[:username])
-        if @user && (@user.password == params[:password])
+        if !!@user && (@user.password == params[:password])
             session[:user_id] = @user.id
             redirect_to points_path
         else
