@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'portal/logout'
   get 'portal/view_points'
   get 'portal/add_points'
+  get 'portal/create_user'
+  get 'portal/view_members'
 
   resources :points do
     member do

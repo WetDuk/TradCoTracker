@@ -1,0 +1,41 @@
+.background
+{
+    background-color: #660000;
+}
+
+.center
+{
+  font-family: verdana;
+  position: fixed;
+  display: block;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 35%;
+  left: 50%;
+  border-radius: 5px;
+  background-color: white;
+  padding: 20px;
+  height: 260px;
+  width: 400px;
+}
+
+.button
+{
+    font-family: verdana;
+    display: block;
+    border-radius: 4px;
+    background-color: #660000;
+    border: none;
+    color: white;
+    font-size: 20px;
+    width: 200px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    margin-top: 2%;
+}
+
+.button:hover 
+{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.3), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

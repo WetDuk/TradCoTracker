@@ -1,1 +1,16 @@
-<h2>You have been logged out</h2>
+<!DOCTYPE HTML PUBLIC>
+<html>
+
+    <%= stylesheet_link_tag "stylesLogout.css" %>
+
+    <body class="background">
+
+        <div class="center">
+            <h2>You have been logged out</h2>
+            <p>Return to login?</p>
+            <div align="center"><%= button_to "Back to Login", root_path, :class => 'button', :method => :get %><dov>
+        </div>
+
+    </body>
+
+</html>
