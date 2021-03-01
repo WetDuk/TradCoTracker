@@ -10,50 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_182401) do
+ActiveRecord::Schema.define(version: 2021_03_01_045548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "business_events", force: :cascade do |t|
-    t.decimal "businessEventID"
-    t.decimal "numOfPoints"
+  create_table "businesses", force: :cascade do |t|
+    t.integer "businessEventID"
+    t.integer "numOfPoints"
     t.date "submissionDate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "member_points", force: :cascade do |t|
-    t.decimal "businessTableID"
-    t.string "events"
-    t.decimal "points"
-    t.string "type"
-    t.decimal "userID"
-    t.decimal "speakingEventID"
-    t.decimal "businessEventID"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "org_events", force: :cascade do |t|
-    t.daterange "upcomingActivities"
-    t.date "date"
-    t.string "name"
+  create_table "orgs", force: :cascade do |t|
+    t.date "eventDate"
+    t.string "eventName"
     t.boolean "required"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "speaking_events", force: :cascade do |t|
-    t.decimal "speakingEventID"
-    t.decimal "numOfPoints"
+  create_table "points", force: :cascade do |t|
+    t.integer "businessTableID"
+    t.string "events"
+    t.integer "points"
+    t.string "eventType"
+    t.integer "userID"
+    t.integer "speakingEventID"
+    t.integer "businessEventID"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "speakings", force: :cascade do |t|
+    t.integer "speakingEventID"
+    t.integer "numOfPoints"
     t.date "submissionDate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.decimal "userID"
+    t.integer "userID"
     t.boolean "isOfficer"
     t.date "joinDate"
     t.string "username"

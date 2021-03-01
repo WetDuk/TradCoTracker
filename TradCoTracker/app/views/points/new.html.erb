@@ -1,0 +1,26 @@
+<div class="subjects new">
+  <h2>Create Subject</h2>
+
+  <%= form_for(@point, :url => points_path, :controller => 'post') do |f| %>
+
+    <table summary="Subject form fields">
+      <tr>
+        <th>Event</th>
+        <td><%= f.text_field(:events) %></td>
+      </tr>
+      <tr>
+        <th>Type</th>
+        <td><%= f.select :eventType , [["Business","business"],["Speaking","speaking"]] %></td>
+      </tr>
+      <tr>
+        <th>Points</th>
+        <td><%= f.number_field :points %></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Create Subject") %>
+    </div>
+
+  <% end %>
+</div>
