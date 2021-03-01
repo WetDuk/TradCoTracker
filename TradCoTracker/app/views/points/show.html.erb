@@ -13,6 +13,9 @@
                       <%= button_to "Add points", new_point_path, :class => 'button action new', :method => 'get' %>
                   </td>
                   <td>
+                      <center> <%= button_to "View all points", points_path, :class => 'button', :method => 'get' %> </center>
+                  </td>
+                  <td>
                       <div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div>
                   </td>
               </tr>

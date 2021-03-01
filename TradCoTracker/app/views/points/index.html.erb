@@ -9,12 +9,15 @@
       <!-- had to put the buttons in a table because the ruby inserts are being dum and put the buttons on a new line -->
           <table>
               <tr>
-                  <td>
-                      <%= button_to "Add points", new_point_path, :class => 'button action new', :method => 'get' %>
-                  </td>
-                  <td>
-                      <div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div>
-                  </td>
+                    <td>
+                        <%= button_to "Member points", point_path(session[:user_id]), :class => 'button action new', :method => 'get' %>
+                    </td>
+                    <td>
+                        <center><%= button_to "View users", portal_view_members_path, :class => 'button action new', :method => 'get' %></center>
+                    </td>
+                    <td>
+                        <div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div>
+                    </td>
               </tr>
           </table>
 
@@ -24,6 +27,7 @@
                   <table>
                       <!-- Table header -->
                       <tr>
+                          <th>Username</th>
                           <th>Event</th>
                           <th>Type</th>
                           <th>Points</th>
@@ -33,6 +37,8 @@
                       <!-- test rows to see style -->
                       <% @points.each do |point| %>
                         <tr>
+                            <% @currUser = User.find(point.userID) %>
+                          <td><%= @currUser.username%>
                           <td><%= point.events %></td>
                           <td><%= point.eventType %></td>
                           <td><%= point.points %></td>
@@ -40,24 +46,6 @@
                       <% end %>
 
                   </table>
-
-                  <!-- maybe add total business and speaking at the bottom of the table?? Will probably do later. Prabably gotta make two variables that update after every iteration of the loop-->
-                  <!-- < @totalSpeaking = 0 > -->
-                  <!-- < @totalBusiness = 0 > -->
-
-                  <div>
-                  <!-- This is a template for inserting into the table. Just replace this in the test row area.
-                  Gotta fix the ruby inserts
-                  < @points.each do |point| > 
-                          <tr> 
-                              <td> <= point.id > </td> 
-                              <td> <= point.event > </td> 
-                              <td> <= point.type > </td> 
-                              <td> <= point.points > </td> 
-                              <td> <= point.date > </td> 
-                          </tr> -->
-                  </div>
-
               </div>
           </div>
           <div class="points_area">
@@ -82,7 +70,6 @@
               </div>
           </div>
       </body>
-
   </html>
 
 </div>
