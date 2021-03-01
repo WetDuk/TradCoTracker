@@ -9,12 +9,14 @@ class PointsController < ApplicationController
   end
   
   def show
+    @id = session[:user_id]
     @points = Point.order('id ASC').where(userID: session[:user_id])
-    @business_sum = Point.where(eventType: 'Business').sum(:points)
-    @speaking_sum = Point.where(eventType: 'Speaking').sum(:points)
+    @business_sum = Point.where(eventType: 'Business', userID: session[:user_id]).sum(:points)
+    @speaking_sum = Point.where(eventType: 'Speaking', userID: session[:user_id]).sum(:points)
   end
   
   def new
+    @id = session[:user_id]
     @point = Point.new
     @business = Business.new
     @speaking = Speaking.new
@@ -29,7 +31,7 @@ class PointsController < ApplicationController
     # Save the object
     if @point.save
       # If save succeeds, redirect to the index action
-      redirect_to(points_path)
+      redirect_to(point_path(session[:user_id]))
     else
       # If save fails, redisplay the form so user can fix problems
       render('new')

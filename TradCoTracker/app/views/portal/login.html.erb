@@ -19,9 +19,10 @@
 
                 <table>
                     <tr>
-                        <td>Email</td>
-                        <td style="text-align:right"> <%= text_field_tag :email %></td>
+                        <td>Username</td>
+                        <td style="text-align:right"> <%= text_field_tag :username %></td>
                     </tr>
+                    <tr></tr>
                     <tr>
                         <td>Password</td>
                         <td style="text-align:right"> <%= password_field_tag :password %></td>
@@ -30,11 +31,13 @@
 
                 <p></p>
 
-                <center><%= submit_tag "Sign in" , class: "button" %></center>
+                <center><%= submit_tag "Login in" , class: "button" %></center>
+                <% end %>
+                <center><%= button_to "Sign up", new_user_path, :class => 'button', :method => :get %></center>
+
 
             </div>
-
-            <% end %>
+            
         </div>
 
     </body>

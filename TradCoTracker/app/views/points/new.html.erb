@@ -7,7 +7,7 @@
       <body class="background">
 
           <%# will need to change to point_path, once we have an ID of the user to point to%>
-          <%= button_to "Back to points", points_path, :class => 'button', :method => :get %>
+          <%= button_to "Back to points", point_path(@id), :class => 'button', :method => :get %>
 
           <div class="center">
 
