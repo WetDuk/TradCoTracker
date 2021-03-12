@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Clearance::Controller
     private
 
     #able to find the current use that is logged in
