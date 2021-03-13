@@ -1,0 +1,78 @@
+<html>
+
+    <!-- CSS and JS -->
+    <%= stylesheet_link_tag "stylesHome.css" %>
+    <!-- JS DUM! -->
+    <%# <%= javascript_pack_tag "navBarJS.js" %>
+
+    <body class="background">
+
+        <!-- Nav bar -->
+        <div id="mySidebar" class="sidebar">
+            <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <%= link_to "Home", portal_home_path, class: "active" %>
+            <%= link_to "My Points", point_path(session[:user_id]) %>
+            <%= link_to "Submit Points", new_point_path %>
+            <!-- Only officers can see these -->
+            <% if(@current_user.isOfficer) %>
+                <%= link_to "View All Points", points_path %>
+                <%= link_to "View All Users", portal_view_members_path %>
+                <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
+            <% end %>
+        </div>
+
+        <!-- Main content -->
+        <div id="main">
+            <!-- Nav bar open button -->
+            <table>
+                <tr>
+                    <td><button class = "openbtn button" onclick = "openNav()"> ☰ Menu </button></td>
+                    <td><div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div></td>
+                </tr>
+            </table>
+
+            <div class="grid-container">
+                <div>
+                    <div class="grid-child announcments">
+                        <ul>
+                            <li>
+                                <h4> Test announcment </h4>
+                                <p> This is the content of the announcment </p>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <h4> Test announcment </h4>
+                                <p> This is the content of the announcment </p>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <h4> Test announcment </h4>
+                                <p> This is the content of the announcment </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="grid-child calender">stuff</div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- JS is being omega dum >:( !!! Very angry!!! Rails is stupid! I hate this! JS doesn't seem to really work with rails so I had to make a little snippet in html-->
+        <script>
+            /* Open menu */
+            function openNav() {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            /* Close menu */
+            function closeNav() {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+            }
+        </script>
+    </body>
+</html>
