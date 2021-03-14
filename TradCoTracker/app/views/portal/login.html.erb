@@ -9,8 +9,8 @@
         <img src="assets/tradcoLogo.png" class="logo"></img>
 
         <div class="wholeLogin">
-
-            <%= form_with url: "portal/view_points", method: :get do |form| %>
+            <%# will need to change to point_path, once we have an ID of the user to point to%>
+            <%= form_tag "/login" do %>
             <div class="login">
 
                 <div class="loginText">
@@ -19,23 +19,25 @@
 
                 <table>
                     <tr>
-                        <td>Email</td>
-                        <td style="text-align:right"> <%= form.text_field :email %></td>
+                        <td>Username</td>
+                        <td style="text-align:right"> <%= text_field_tag :username %></td>
                     </tr>
                     <tr></tr>
                     <tr>
                         <td>Password</td>
-                        <td style="text-align:right"> <%= form.password_field :password %></td>
+                        <td style="text-align:right"> <%= password_field_tag :password %></td>
                     </tr>
                 </table>
 
                 <p></p>
 
-                <center><%= form.submit "Sign in" , class: "button" %></center>
+                <center><%= submit_tag "Login in" , class: "button" %></center>
+                <% end %>
+                <center><%= button_to "Sign up", new_user_path, :class => 'button', :method => :get %></center>
+
 
             </div>
-
-            <% end %>
+            
         </div>
 
     </body>

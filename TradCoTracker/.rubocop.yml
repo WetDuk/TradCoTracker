@@ -1,0 +1,18 @@
+# .rubocop.yml
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - "db/schema.rb"
+
+Metrics/AbcSize:
+  Exclude:
+    - "app/controllers/portal_controller.rb"
+
+AllCops:
+  Exclude:
+    - "bin/bundle"
+    - "node_modules/**/*"
+

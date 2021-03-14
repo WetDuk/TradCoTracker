@@ -1,0 +1,60 @@
+<!DOCTYPE>
+<html>
+
+    <%= stylesheet_link_tag "stylesCreateUser.css" %>
+
+    <body class="background">
+    <%= button_to "Back", root_path, :class => 'button1', :method => :get %>
+        <div class="center">
+
+            <h2>Sign up</h2>
+
+            <%= form_for @user do |form| %>
+
+            <table>
+                <tr> <!-- Maybe make this a drop down? -->
+                    <td> 
+                        Email: 
+                    </td> 
+                    <td>
+                        <%= form.text_field :email %> 
+                    </td>
+                </tr> 
+                <tr></tr>
+                <tr>
+                    <td> 
+                        Username: 
+                    </td> 
+                    <td>
+                        <%= form.text_field :username %>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td> 
+                        Password: 
+                    </td>
+                    <td>
+                        <%= form.password_field :password %> 
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td> 
+                        Officer: 
+                    </td>
+                    <td>
+                        <%= form.check_box :isOfficer %> 
+                    </td>
+                </tr>
+            </table>
+
+            <center><%= form.submit "Create Account" , class: "button" %></center>
+
+            <% end %>
+
+        </div>
+
+    </body>
+
+</html>

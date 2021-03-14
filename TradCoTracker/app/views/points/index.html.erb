@@ -1,0 +1,75 @@
+<div class="points index">
+  <!DOCTYPE>
+  <html>
+
+      <%= stylesheet_link_tag "stylesPoints.css" %>
+
+      <body class="background">
+
+      <!-- had to put the buttons in a table because the ruby inserts are being dum and put the buttons on a new line -->
+          <table>
+              <tr>
+                    <td>
+                        <%= button_to "Member points", point_path(session[:user_id]), :class => 'button action new', :method => 'get' %>
+                    </td>
+                    <td>
+                        <center><%= button_to "View users", portal_view_members_path, :class => 'button action new', :method => 'get' %></center>
+                    </td>
+                    <td>
+                        <div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div>
+                    </td>
+              </tr>
+          </table>
+
+          <div class="points_area">
+              <h2 class="header">These are your points</h2>
+              <div>
+                  <table>
+                      <!-- Table header -->
+                      <tr>
+                          <th>Username</th>
+                          <th>Event</th>
+                          <th>Type</th>
+                          <th>Points</th>
+                          <%# <th>Date</th> %>
+                      </tr>
+
+                      <!-- test rows to see style -->
+                      <% @points.each do |point| %>
+                        <tr>
+                            <% @currUser = User.find(point.userID) %>
+                          <td><%= @currUser.username%>
+                          <td><%= point.events %></td>
+                          <td><%= point.eventType %></td>
+                          <td><%= point.points %></td>
+                        </tr>
+                      <% end %>
+
+                  </table>
+              </div>
+          </div>
+          <div class="points_area">
+              <h2 class="header">Total points</h2>
+              <div>
+                  <table>
+                      <!-- Table header -->
+                      <tr>
+                          <th>Event Type</th>
+                          <th>Points</th>
+                          <%# <th>Date</th> %>
+                      </tr>
+                      <tr>
+                        <td>Speaking Event</td>
+                        <td><%=@speaking_sum%></td>
+                      </tr>
+                      <tr>
+                        <td>Business Event</td>
+                        <td><%=@business_sum%></td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+      </body>
+  </html>
+
+</div>
