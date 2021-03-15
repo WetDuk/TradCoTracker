@@ -2,7 +2,9 @@
 
 class UsersController < ApplicationController
   # This controller is what creates the new users for the database
-
+  def index
+    @users = User.search(params[:search])
+  end
   def new
     @user = User.new
   end

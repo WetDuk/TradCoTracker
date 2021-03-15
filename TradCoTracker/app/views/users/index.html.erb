@@ -1,0 +1,26 @@
+<h1>Find User</h1>
+    <%= form_tag users_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+    <%end%>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>ID</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user|%>
+      <tr>
+        <td><%= user.username %></td>
+        <td><%= user.userID %></td>
+        <td><%= user.email %></td>
+      </tr> 
+    <%end%>
+  <tbody>
+</table>
+  <br>

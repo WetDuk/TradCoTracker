@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
     create_table :users do |t|
       t.integer :userID
       t.boolean :isOfficer
-      t.date :joinDate
+      t.date  :joinDate
       t.string :username
       t.string :password
       t.string :email
