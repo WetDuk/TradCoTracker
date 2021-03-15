@@ -6,15 +6,13 @@ class PointsController < ApplicationController
     @user = User.find(session[:user_id])
     redirect_to(point_path(session[:user_id])) unless @user.isOfficer
     @points = Point.order('id ASC')
-    @business_sum = Point.where(eventType: 'Business').sum(:points)
-    @speaking_sum = Point.where(eventType: 'Speaking').sum(:points)
   end
 
   def show
     @id = session[:user_id]
     @points = Point.order('id ASC').where(userID: session[:user_id])
-    @business_sum = Point.where(eventType: 'Business', userID: session[:user_id]).sum(:points)
-    @speaking_sum = Point.where(eventType: 'Speaking', userID: session[:user_id]).sum(:points)
+    @business_sum = Point.where(eventType: 'Business', userID: session[:user_id]).sum(:pointAmount)
+    @speaking_sum = Point.where(eventType: 'Speaking', userID: session[:user_id]).sum(:pointAmount)
   end
 
   def new
@@ -66,6 +64,6 @@ class PointsController < ApplicationController
   private
 
   def point_params
-    params.require(:point).permit(:events, :eventType, :points)
+    params.require(:point).permit(:eventName, :eventType, :pointAmount)
   end
 end

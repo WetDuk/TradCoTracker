@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
-class CreateOrgs < ActiveRecord::Migration[6.1]
+class CreateCalendars < ActiveRecord::Migration[6.1]
   def change
-    create_table :orgs do |t|
+    create_table :calendars do |t|
       t.date :eventDate
       t.string :eventName
       t.boolean :required
