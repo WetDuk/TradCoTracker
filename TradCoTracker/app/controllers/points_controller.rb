@@ -8,6 +8,7 @@ class PointsController < ApplicationController
     @points = Point.order('id ASC')
     @business_sum = Point.where(eventType: 'Business').sum(:points)
     @speaking_sum = Point.where(eventType: 'Speaking').sum(:points)
+    @current_user = User.find_by(id: session[:user_id])
   end
 
   def show
@@ -15,6 +16,7 @@ class PointsController < ApplicationController
     @points = Point.order('id ASC').where(userID: session[:user_id])
     @business_sum = Point.where(eventType: 'Business', userID: session[:user_id]).sum(:points)
     @speaking_sum = Point.where(eventType: 'Speaking', userID: session[:user_id]).sum(:points)
+    @current_user = User.find_by(id: session[:user_id])
   end
 
   def new
@@ -22,6 +24,7 @@ class PointsController < ApplicationController
     @point = Point.new
     @business = Business.new
     @speaking = Speaking.new
+    @current_user = User.find_by(id: session[:user_id])
   end
 
   def create

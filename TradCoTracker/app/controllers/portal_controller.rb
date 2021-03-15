@@ -11,6 +11,7 @@ class PortalController < ApplicationController
 
   def view_members
     @users = User.order('id ASC')
+    @current_user = User.find_by(id: session[:user_id])
   end
 
   def new; end

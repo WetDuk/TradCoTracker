@@ -5,47 +5,70 @@
 
       <body class="background">
 
-      <!-- had to put the buttons in a table because the ruby inserts are being dum and put the buttons on a new line -->
-          <table>
-              <tr>
-                    <td>
-                        <%= button_to "Member points", point_path(session[:user_id]), :class => 'button action new', :method => 'get' %>
-                    </td>
-                    <td>
-                        <center><%= button_to "View users", portal_view_members_path, :class => 'button action new', :method => 'get' %></center>
-                    </td>
-                    <td>
-                        <div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div>
-                    </td>
-              </tr>
-          </table>
+        <!-- Nav bar -->
+        <div id="mySidebar" class="sidebar">
+            <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <%= link_to "Home", portal_home_path, class: "active" %>
+            <%= link_to "My Points", point_path(session[:user_id]) %>
+            <%= link_to "Submit Points", new_point_path %>
+            <!-- Only officers can see these -->
+            <% if(@current_user.isOfficer) %>
+                <%= link_to "View All Points", points_path %>
+                <%= link_to "View All Users", portal_view_members_path %>
+                <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
+            <% end %>
+        </div>
 
-          <div class="points_area">
-              <h2 class="header">These are your points</h2>
-              <div>
-                  <table>
-                      <!-- Table header -->
-                      <tr>
-                          <th>Username</th>
-                          <th>Event</th>
-                          <th>Type</th>
-                          <th>Points</th>
-                          <%# <th>Date</th> %>
-                      </tr>
+        <div id="main">
+            <!-- Nav bar open button -->
+            <table>
+                <tr>
+                    <td><button class = "openbtn button" onclick = "openNav()"> ☰ Menu </button></td>
+                    <td><div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div></td>
+                </tr>
+            </table>
 
-                      <!-- test rows to see style -->
-                      <% @points.each do |point| %>
+            <div class="points_area">
+                <h2 class="header">These are all points</h2>
+                <div>
+                    <table>
+                        <!-- Table header -->
                         <tr>
-                            <% @currUser = User.find(point.userID) %>
-                          <td><%= @currUser.username%>
-                          <td><%= point.events %></td>
-                          <td><%= point.eventType %></td>
-                          <td><%= point.points %></td>
+                            <th>Username</th>
+                            <th>Event</th>
+                            <th>Type</th>
+                            <th>Points</th>
+                            <%# <th>Date</th> %>
                         </tr>
-                      <% end %>
-                  </table>
-              </div>
-          </div>
+
+                        <!-- test rows to see style -->
+                        <% @points.each do |point| %>
+                            <tr>
+                                <% @currUser = User.find(point.userID) %>
+                            <td><%= @currUser.username%>
+                            <td><%= point.events %></td>
+                            <td><%= point.eventType %></td>
+                            <td><%= point.points %></td>
+                            </tr>
+                        <% end %>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- JS is being omega dum >:( !!! Very angry!!! Rails is stupid! I hate this! JS doesn't seem to really work with rails so I had to make a little snippet in html-->
+        <script>
+            /* Open menu */
+            function openNav() {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            /* Close menu */
+            function closeNav() {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+            }
+        </script>
       </body>
   </html>
 </div>

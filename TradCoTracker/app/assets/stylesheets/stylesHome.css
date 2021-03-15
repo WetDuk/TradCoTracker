@@ -62,12 +62,20 @@
     background-color: #b9b9b9;
 }
 
+/* .nav_active
+{
+    background-color: #8a8a8a;
+    color: #b9b9b9;
+} */
+
 
 /* Main content css */
 #main 
 {
     transition: margin-left .5s;
 }
+
+/* I hate css so much. I wish infinite pain and suffering on the creator */
 
 .grid-container
 {
@@ -94,6 +102,104 @@
     color: #660000;
 }
 
-li {
+li 
+{
+    display:inline-block;
+    border-top:2px solid gray;
     list-style-type: none;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    width: 93%;
 }
+
+/* Calendar */
+
+.calendar-month {
+    position: relative;
+    background-color: var(--grey-200);
+    border: solid 1px var(--grey-200);
+  }
+  
+  .calendar-month-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 10px;
+  }
+  
+  .calendar-month-header-selected-month {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .calendar-month-header-selectors {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80px;
+  }
+  
+  .calendar-month-header-selectors > * {
+    cursor: pointer;
+  }
+  
+  .day-of-week {
+    color: var(--grey-800);
+    font-size: 18px;
+    background-color: #fff;
+    padding-bottom: 5px;
+    padding-top: 10px;
+  }
+  
+  .day-of-week,
+  .days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+  
+  .day-of-week > * {
+    text-align: right;
+    padding-right: 5px;
+  }
+  
+  .days-grid {
+    height: 100%;
+    position: relative;
+    grid-column-gap: var(--grid-gap);
+    grid-row-gap: var(--grid-gap);
+    border-top: solid 1px var(--grey-200);
+  }
+  
+  .calendar-day {
+    position: relative;
+    min-height: 100px;
+    font-size: 16px;
+    background-color: #fff;
+    color: var(--grey-800);
+    padding: 5px;
+  }
+  
+  .calendar-day > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 2px;
+    width: var(--day-label-size);
+    height: var(--day-label-size);
+  }
+  
+  .calendar-day--not-current {
+    background-color: var(--grey-100);
+    color: var(--grey-300);
+  }
+  
+  .calendar-day--today {
+    padding-top: 4px;
+  }
+  
+  .calendar-day--today > span {
+    color: #fff;
+    border-radius: 9999px;
+    background-color: var(--grey-800);
+  }
