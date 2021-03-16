@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_03_15_014531) do
     t.string "username"
     t.string "email"
     t.decimal "min_points"
-    t.decimal "max_price"
+    t.decimal "max_points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
