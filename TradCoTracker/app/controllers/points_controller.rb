@@ -64,6 +64,6 @@ class PointsController < ApplicationController
   private
 
   def point_params
-    params.require(:point).permit(:eventName, :eventType, :pointAmount)
+    params.require(:point).permit(:eventName, :eventType, :pointAmount, :submissionDate)
   end
 end
