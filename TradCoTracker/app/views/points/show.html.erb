@@ -30,7 +30,7 @@
                           <th>Event</th>
                           <th>Type</th>
                           <th>Points</th>
-                          <%# <th>Date</th> %>
+                          <th>Date</th>
                       </tr>
 
                       <!-- test rows to see style -->
@@ -38,7 +38,8 @@
                         <tr>
                           <td><%= point.events %></td>
                           <td><%= point.eventType %></td>
-                          <td><%= point.points %></td>
+                          <td><%= point.pointAmount %></td>
+                          <td><%= point.submissionDate %>
                         </tr>
                       <% end %>
 
