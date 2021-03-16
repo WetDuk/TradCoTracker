@@ -24,8 +24,8 @@
 
                     <% @users.each do |user| %> 
 
-                        <% @business_sum = Point.where(eventType: 'Business', userID: user.id).sum(:points) %>
-                        <% @speaking_sum = Point.where(eventType: 'Speaking', userID: user.id).sum(:points) %>
+                        <% @business_sum = Point.where(eventType: 'Business', userID: user.id).sum(:pointAmount) %>
+                        <% @speaking_sum = Point.where(eventType: 'Speaking', userID: user.id).sum(:pointAmount) %>
 
                         <tr>
                             <td> <%= user.id %> </td>  
