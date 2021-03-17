@@ -75,31 +75,58 @@
     transition: margin-left .5s;
 }
 
-/* I hate css so much. I wish infinite pain and suffering on the creator */
-
-.grid-container
+.move_button
 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+    font-family: verdana;
+    display: block;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    background-color: #660000;
+    font-size: 20px;
+    width: 100px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    margin-top: 2%;
 }
 
-.grid-child
+/* I hate css so much. I wish infinite pain and suffering on the creator */
+
+.flex-container
 {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    height: 100%;
+    display: absolute;
+}
+
+.flex-child
+{
+    flex: 1;
     width: 100%;
     height: 100%;
     background-color: white;
     border-radius: 4px;
 }
 
+.flex-child:first-child
+{
+    margin-right: 20px;
+}
+
 .announcments
 {
     color: #660000;
+    height: 700px;
+    position:relative;
 }
 
 .calender
 {
     color: #660000;
+    height: 700px;
 }
 
 li 
@@ -112,94 +139,37 @@ li
     width: 93%;
 }
 
-/* Calendar */
+.list
+{
+    height: 600px;
+    overflow: auto;
+}
 
-.calendar-month {
-    position: relative;
-    background-color: var(--grey-200);
-    border: solid 1px var(--grey-200);
-  }
-  
-  .calendar-month-header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 10px;
-  }
-  
-  .calendar-month-header-selected-month {
-    font-size: 24px;
-    font-weight: 600;
-  }
-  
-  .calendar-month-header-selectors {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80px;
-  }
-  
-  .calendar-month-header-selectors > * {
-    cursor: pointer;
-  }
-  
-  .day-of-week {
-    color: var(--grey-800);
-    font-size: 18px;
-    background-color: #fff;
-    padding-bottom: 5px;
-    padding-top: 10px;
-  }
-  
-  .day-of-week,
-  .days-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-  }
-  
-  .day-of-week > * {
-    text-align: right;
-    padding-right: 5px;
-  }
-  
-  .days-grid {
-    height: 100%;
-    position: relative;
-    grid-column-gap: var(--grid-gap);
-    grid-row-gap: var(--grid-gap);
-    border-top: solid 1px var(--grey-200);
-  }
-  
-  .calendar-day {
-    position: relative;
-    min-height: 100px;
-    font-size: 16px;
-    background-color: #fff;
-    color: var(--grey-800);
-    padding: 5px;
-  }
-  
-  .calendar-day > span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    right: 2px;
-    width: var(--day-label-size);
-    height: var(--day-label-size);
-  }
-  
-  .calendar-day--not-current {
-    background-color: var(--grey-100);
-    color: var(--grey-300);
-  }
-  
-  .calendar-day--today {
-    padding-top: 4px;
-  }
-  
-  .calendar-day--today > span {
-    color: #fff;
-    border-radius: 9999px;
-    background-color: var(--grey-800);
-  }
+.form-control
+{
+    width: 100px;
+    height: 45px;
+    float: left;
+}
+
+.lead
+{
+    padding: 13px;
+}
+
+.card-header
+{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.table
+{
+    height: 500px;
+    width: 100%;
+}
+
+.calendar-body
+{
+    vertical-align: top;
+}
