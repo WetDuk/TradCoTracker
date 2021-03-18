@@ -1,2 +1,66 @@
-<h1>Points#edit</h1>
-<p>Find me in app/views/points/edit.html.erb</p>
+<div class="subjects new">
+    <!DOCTYPE>
+  <html>
+
+      <%= stylesheet_link_tag "stylesAddPoints.css" %>
+
+      <body class="background">
+
+          <%# will need to change to point_path, once we have an ID of the user to point to%>
+          <%= button_to "Back to points", point_path(session[:user_id]), :class => 'button', :method => :get %>
+
+          <div class="center">
+
+              <h2>Add points</h2>
+
+              <%= form_for(@point, :url => points_path, :controller => 'post') do |f| %>
+
+              <table>
+                  <tr> <!-- Maybe make this a drop down? -->
+                      <td> 
+                          Event: 
+                      </td> 
+                      <td>
+                          <%= f.text_field(:eventName) %> 
+                      </td>
+                  </tr> 
+                  <tr></tr>
+                  <tr>
+                      <td> 
+                          Type: 
+                      </td> 
+                      <td>
+                          <%= f.select :eventType , [["Business","Business"],["Speaking","Speaking"]] %> 
+                      </td>
+                  </tr>
+                  <tr></tr>
+                  <tr>
+                      <td> 
+                          Points: 
+                      </td>
+                      <td>
+                          <%= f.number_field :pointAmount %> 
+                      </td>
+                  </tr>
+                  <tr></tr>
+                  <tr>
+                      <td> 
+                          Date: 
+                      </td> 
+                      <td>
+                          <%= f.date_field :submissionDate %> 
+                      </td>
+                  </tr>
+                  <tr></tr>
+              </table>
+
+              <center><%= f.submit "Update Points" , class: "button2" %></center>
+
+              <% end %>
+
+          </div>
+
+      </body>
+
+  </html>
+</div>

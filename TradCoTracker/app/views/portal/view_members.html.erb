@@ -33,7 +33,11 @@
                             <td> <%= user.isOfficer %> </td> 
                             <td> <%= @business_sum %> </td>
                             <td> <%= @speaking_sum %> </td>
-                            <td>Under construction :|</td>
+                            <td class="actions">
+                                <%if user.id != session[:user_id]%>
+                                    <%= link_to('Delete', url_for(controller: :users, action: :delete, id: user.id), :confirm =>  "Are you sure?")%>
+                                <%end%>
+                            </td>
                         </tr> 
                     <% end %>
 

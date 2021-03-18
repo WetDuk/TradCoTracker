@@ -45,7 +45,7 @@ class PointsController < ApplicationController
   def update
     @point = Point.find(params[:id])
     if @point.update(point_params)
-      redirect_to(point_path(@point))
+      redirect_to(point_path(session[:user_id]))
     else
       render('edit')
     end
@@ -53,6 +53,8 @@ class PointsController < ApplicationController
 
   def delete
     @point = Point.find(params[:id])
+    @point.destroy
+    redirect_to(points_path)
   end
 
   def destroy

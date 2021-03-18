@@ -1,2 +1,15 @@
-<h1>Points#delete</h1>
-<p>Find me in app/views/points/delete.html.erb</p>
+<%= link_to("<< Back to List", points_path, :class => 'back-link') %>
+
+<div class="points delete">
+  <h2>Delete Point</h2>
+
+  <%= form_for(@point, :method => 'delete') do |f| %>
+
+    <p>Permantly Delete?</p>
+    <p><%= @point.title%>
+    <div class="form-buttons">
+      <%= f.submit("Delete Point") %>
+    </div>
+
+  <% end %>
+</div>

@@ -14,7 +14,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: %i[new create]
+  resources :users do
+    member do
+      get :delete
+    end
+  end
 
   get '/login', to: 'portal#login'
   post '/login', to: 'portal#create'

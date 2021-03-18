@@ -31,15 +31,20 @@
                           <th>Type</th>
                           <th>Points</th>
                           <th>Date</th>
+                          <th>Actions</th>
                       </tr>
 
                       <!-- test rows to see style -->
                       <% @points.each do |point| %>
                         <tr>
-                          <td><%= point.eventName %></td>
-                          <td><%= point.eventType %></td>
-                          <td><%= point.pointAmount %></td>
-                          <td><%= point.submissionDate %>
+                            <td><%= point.eventName %></td>
+                            <td><%= point.eventType %></td>
+                            <td><%= point.pointAmount %></td>
+                            <td><%= point.submissionDate %></td>
+                            <td>
+                                <%= link_to('Edit', url_for(controller: :points, action: :edit, id: point.id), :confirm =>  "Are you sure?")%>
+                                <%= link_to('Delete', url_for(controller: :points, action: :delete, id: point.id), :confirm =>  "Are you sure?")%>
+                            </td>
                         </tr>
                       <% end %>
 
