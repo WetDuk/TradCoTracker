@@ -18,6 +18,8 @@ class UserTest < ApplicationSystemTestCase
     fill_in 'Username', with: 'test1'
     fill_in 'Password', with: 'test' # Input data password
     click_on 'Sign in'
+    # rubocop:todo Layout/LineLength
     assert_selector 'h1', text: 'Sign in' # Expected out come account created redirected to sign page
+    # rubocop:enable Layout/LineLength
   end
 end

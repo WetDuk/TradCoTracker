@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 class PointController < ApplicationController
   def index
     @points = Point.order('id ASC')
   end
-  
+
   def show
     @points = Point.order('id ASC')
   end
-  
+
   def new
     @point = Point.new
   end
-  
+
   def create
     # Instantiate a new object using form parameters
     @point = Point.new(point_params)
@@ -23,11 +25,11 @@ class PointController < ApplicationController
       render('new')
     end
   end
-  
+
   def edit
     @point = Point.find(params[:id])
   end
-  
+
   def update
     @point = Point.find(params[:id])
     if @point.update(point_params)
@@ -36,20 +38,20 @@ class PointController < ApplicationController
       render('edit')
     end
   end
-  
+
   def delete
     @point = Point.find(params[:id])
   end
-  
+
   def destroy
     @point = Point.find(params[:id])
     @point.destroy
     redirect_to(points_path)
   end
-  
-  private
-    def point_params
-      params.require(:point).permit(:events, :eventType, :points)
-    end
-end
 
+  private
+
+  def point_params
+    params.require(:point).permit(:events, :eventType, :points)
+  end
+end

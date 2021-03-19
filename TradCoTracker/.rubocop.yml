@@ -3,9 +3,19 @@
 Style/Documentation:
   Enabled: false
 
+Layout/IndentationWidth:
+  Width: 2
+
+Naming/ClassAndModuleCamelCase:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 100
+
 Metrics/BlockLength:
   Exclude:
-    - "db/schema.rb"
+    - "config/**/*"
+    - "spec/**/*"
 
 Metrics/AbcSize:
   Exclude:
@@ -13,6 +23,14 @@ Metrics/AbcSize:
 
 AllCops:
   Exclude:
+    - "db/**/*"
+    - "script/**/*"
+    - "bin/**/*"
+    - "config/**/*"
+    - "bin/{rails,rake}"
+    - !ruby/regexp /old_and_unusued\.rb$/
+    - "tmp/**/*"
+    - "venddor/**/*"
+    - ".git/**/*"
     - "bin/bundle"
     - "node_modules/**/*"
-
