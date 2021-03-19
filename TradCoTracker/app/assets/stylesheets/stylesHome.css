@@ -1,0 +1,175 @@
+.background
+{
+  background-color: #660000;
+}
+
+
+/* Side bar css */
+.sidebar 
+{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar a 
+{
+    padding: 20px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover 
+{
+    color: #f1f1f1;
+    background-color: #b9b9b9;
+}
+
+.sidebar .closebtn 
+{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn 
+{
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+    color: #660000;
+    padding: 10px 15px;
+    border: none;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.openbtn:hover 
+{
+    background-color: #b9b9b9;
+}
+
+/* .nav_active
+{
+    background-color: #8a8a8a;
+    color: #b9b9b9;
+} */
+
+
+/* Main content css */
+#main 
+{
+    transition: margin-left .5s;
+}
+
+.move_button
+{
+    font-family: verdana;
+    display: block;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    background-color: #660000;
+    font-size: 20px;
+    width: 100px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    margin-top: 2%;
+}
+
+/* I hate css so much. I wish infinite pain and suffering on the creator */
+
+.flex-container
+{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    height: 100%;
+    display: absolute;
+}
+
+.flex-child
+{
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.flex-child:first-child
+{
+    margin-right: 20px;
+}
+
+.announcments
+{
+    color: #660000;
+    height: 700px;
+    position:relative;
+}
+
+.calendar
+{
+    color: #660000;
+    height: 700px;
+}
+
+li 
+{
+    display:inline-block;
+    border-top:2px solid gray;
+    list-style-type: none;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    width: 93%;
+}
+
+.list
+{
+    height: 600px;
+    overflow: auto;
+}
+
+.form-control
+{
+    width: 100px;
+    height: 45px;
+    float: left;
+}
+
+.lead
+{
+    padding: 13px;
+}
+
+.card-header
+{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.table
+{
+    height: 500px;
+    width: 100%;
+}
+
+.calendar-body
+{
+    vertical-align: top;
+}

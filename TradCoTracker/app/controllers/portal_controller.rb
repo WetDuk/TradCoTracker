@@ -5,8 +5,13 @@ class PortalController < ApplicationController
     redirect_to(controller: 'points')
   end
 
+  def home
+    @current_user = User.find_by(id: session[:user_id])
+  end
+
   def view_members
     @users = User.order('id ASC')
+    @current_user = User.find_by(id: session[:user_id])
   end
 
   def new; end
@@ -18,7 +23,7 @@ class PortalController < ApplicationController
       # Sudo global variables
       session[:user_id] = @user.id
       session[:user_isOfficer] = @user.isOfficer
-      redirect_to point_path(session[:user_id])
+      redirect_to portal_home_path
     else
       redirect_to root_path
     end
