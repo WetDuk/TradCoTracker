@@ -21,6 +21,7 @@ class PortalController < ApplicationController
   def create
     @user = User.find_by(username: params[:username])
       # Sudo global variables
+      if @user && (@user.authenticate(params[:password]))
       session[:user_id] = @user.id
       session[:user_isOfficer] = @user.isOfficer
       redirect_to portal_home_path

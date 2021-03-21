@@ -19,11 +19,12 @@ class UsersController < ApplicationController
   #end
   def create
     @user = User.new(user_params)
+    @user.email.downcase!
     # If user was able to save return to login
     if @user.save
       redirect_to(root_path)
     else # else reload new user
-     redirect_to new_user_path
+      redirect_to new_user_path
     end
   end
 
@@ -31,6 +32,6 @@ class UsersController < ApplicationController
 
   # These are the parameters for the user
   def user_params
-    params.require(:user).permit(:username, :password_digest, :email, :isOfficer)
+    params.require(:user).permit(:username, :password, :password_confirmation, :email, :isOfficer)
   end
 end
