@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  private
+  #before_action :authorized
+  helper_method :current_user
+  #helper_method :logged_in?
 
-  # able to find the current use that is logged in
   def current_user
     if session[:user_id]
       @current_user || User.find(session[:user_id])
