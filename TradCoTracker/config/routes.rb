@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'portal/view_points'
   get 'portal/add_points'
   get 'portal/view_members'
+  get 'portal/home'
 
   resources :points do
     member do

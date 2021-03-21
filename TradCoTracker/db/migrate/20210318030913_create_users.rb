@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CreateUsers < ActiveRecord::Migration[6.1]
-  def change
+  def change # rubocop:todo Metrics/MethodLength
     create_table :users do |t|
       t.boolean :isOfficer
       t.date :joinDate
