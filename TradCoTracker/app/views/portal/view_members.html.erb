@@ -34,6 +34,7 @@
                     <table>
                         <!-- Table header -->
                         <tr>
+
                             <th>ID</th>
                             <th>Username</th>
                             <th>Is Officer</th>
@@ -42,6 +43,7 @@
                             <th>Actions</th>
                         </tr>
 
+
                         <% @users.each do |user| %> 
 
                             <% @business_sum = Point.where(eventType: 'Business', userID: user.id).sum(:points) %>
@@ -49,12 +51,15 @@
 
                             <tr>
                                 <td> <%= user.id %> </td>  
-                                <td> <%= user.username %> </td> 
-                                <td> <%= user.isOfficer %> </td> 
-                                <td> <%= @business_sum %> </td>
-                                <td> <%= @speaking_sum %> </td>
-                                <td>Under construction :|</td>
-                            </tr> 
+                            <td> <%= user.username %> </td> 
+                            <td> <%= user.isOfficer %> </td> 
+                            <td> <%= @business_sum %> </td>
+                            <td> <%= @speaking_sum %> </td>
+                            <td class="actions">
+                                <%if user.id != session[:user_id]%>
+                                    <%= link_to('Delete', url_for(controller: :users, action: :delete, id: user.id), :confirm =>  "Are you sure?")%>
+                                <%end%>
+                            </td></tr> 
                         <% end %>
                     </table>
                 </div>
