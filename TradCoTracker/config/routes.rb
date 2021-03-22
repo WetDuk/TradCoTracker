@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get :deleteINDEX
       get :editSHOW
       get :editINDEX
-      get :updateINDEX
+      post :updateINDEX
     end
   end
 
