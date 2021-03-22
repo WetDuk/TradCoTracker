@@ -1,34 +1,56 @@
 <!DOCTYPE>
 <html>
-    
-    <!-- this pages is only visable to officers. -->
-    <%= button_to "Back", points_path, :class => 'button action new', :method => 'get' %>
 
     <%= stylesheet_link_tag "stylesMembers.css" %>
 
     <body class="background">
+        <!-- Nav bar -->
+        <div id="mySidebar" class="sidebar">
+            <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <%= link_to "Home", portal_home_path, class: "active" %>
+            <%= link_to "My Points", point_path(session[:user_id]) %>
+            <%= link_to "Submit Points", new_point_path %>
+            <!-- Only officers can see these -->
+            <% if(@current_user.isOfficer) %>
+                <%= link_to "View All Points", points_path %>
+                <%= link_to "View All Users", portal_view_members_path %>
+                <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
+            <% end %>
+        </div>
 
-        <div class="user_area">
-            <h2 class="header">Users</h2>
-            <div>
-                <table>
-                    <!-- Table header -->
-                    <tr>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Is Officer</th>
-                        <th>Total Speaking</th>
-                        <th>Total Business</th>
-                        <th>Actions</th>
-                    </tr>
+        <!-- Main content -->
+        <div id="main">
+            <!-- Nav bar open button -->
+            <table>
+                <tr>
+                    <td><button class = "openbtn button" onclick = "openNav()"> ☰ Menu </button></td>
+                    <td><div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div></td>
+                </tr>
+            </table>
 
-                    <% @users.each do |user| %> 
-
-                        <% @business_sum = Point.where(eventType: 'Business', userID: user.id).sum(:pointAmount) %>
-                        <% @speaking_sum = Point.where(eventType: 'Speaking', userID: user.id).sum(:pointAmount) %>
-
+            <div class="user_area">
+                <h2 class="header">Users</h2>
+                <div>
+                    <table>
+                        <!-- Table header -->
                         <tr>
-                            <td> <%= user.id %> </td>  
+
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Is Officer</th>
+                            <th>Total Speaking</th>
+                            <th>Total Business</th>
+                            <th>Actions</th>
+                        </tr>
+
+
+                        <% @users.each do |user| %> 
+
+                            <% @business_sum = Point.where(eventType: 'Business', userID: user.id).sum(:points) %>
+                            <% @speaking_sum = Point.where(eventType: 'Speaking', userID: user.id).sum(:points) %>
+
+                            <tr>
+                                <td> <%= user.id %> </td>  
                             <td> <%= user.username %> </td> 
                             <td> <%= user.isOfficer %> </td> 
                             <td> <%= @business_sum %> </td>
@@ -37,19 +59,24 @@
                                 <%if user.id != session[:user_id]%>
                                     <%= link_to('Delete', url_for(controller: :users, action: :delete, id: user.id), :confirm =>  "Are you sure?")%>
                                 <%end%>
-                            </td>
-                        </tr> 
-                    <% end %>
-
-                </table>
-
-                <div>
-
+                            </td></tr> 
+                        <% end %>
+                    </table>
                 </div>
-
             </div>
         </div>
-
+        <!-- JS is being omega dum >:( !!! Very angry!!! Rails is stupid! I hate this! JS doesn't seem to really work with rails so I had to make a little snippet in html-->
+        <script>
+            /* Open menu */
+            function openNav() {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            /* Close menu */
+            function closeNav() {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+            }
+        </script>
     </body>
-
 </html>

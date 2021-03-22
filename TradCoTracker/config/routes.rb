@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'portal/view_points'
   get 'portal/add_points'
   get 'portal/view_members'
+  get 'portal/home'
 
   resources :points do
     member do
@@ -14,11 +15,16 @@ Rails.application.routes.draw do
     end
   end
 
+
+  resources :searches
+
+
   resources :users do
     member do
       get :delete
     end
   end
+
 
   get '/login', to: 'portal#login'
   post '/login', to: 'portal#create'

@@ -1,97 +1,100 @@
 <div class="points index">
-  <!DOCTYPE>
-  <html>
+    <html>
 
-      <%= stylesheet_link_tag "stylesPoints.css" %>
+        <%= stylesheet_link_tag "stylesPoints.css" %>
 
-      <body class="background">
+        <body class="background">
 
-      <!-- had to put the buttons in a table because the ruby inserts are being dum and put the buttons on a new line -->
-          <table>
-              <tr>
-                  <td>
-                      <%= button_to "Add points", new_point_path, :class => 'button action new', :method => 'get' %>
-                  </td>
-                  <td>
-                      <center> <%= button_to "View all points", points_path, :class => 'button', :method => 'get' %> </center>
-                  </td>
-                  <td>
-                      <div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div>
-                  </td>
-              </tr>
-          </table>
+            <!-- Nav bar -->
+            <div id="mySidebar" class="sidebar">
+                <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <%= link_to "Home", portal_home_path, class: "active" %>
+                <%= link_to "My Points", point_path(session[:user_id]) %>
+                <%= link_to "Submit Points", new_point_path %>
+                <!-- Only officers can see these -->
+                <% if(@current_user.isOfficer) %>
+                    <%= link_to "View All Points", points_path %>
+                    <%= link_to "View All Users", portal_view_members_path %>
+                    <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
+                <% end %>
+            </div>
 
-          <div class="points_area">
-              <h2 class="header">These are your points</h2>
-              <div>
-                  <table>
-                      <!-- Table header -->
-                      <tr>
-                          <th>Event</th>
-                          <th>Type</th>
-                          <th>Points</th>
-                          <th>Date</th>
-                          <th>Actions</th>
-                      </tr>
+            <!-- Main content -->
+            <div id="main">
+                <!-- Nav bar open button -->
+                <table>
+                    <tr>
+                        <td><button class = "openbtn button" onclick = "openNav()"> ☰ Menu </button></td>
+                        <td><div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div></td>
+                    </tr>
+                </table>
 
-                      <!-- test rows to see style -->
-                      <% @points.each do |point| %>
-                        <tr>
-                            <td><%= point.eventName %></td>
-                            <td><%= point.eventType %></td>
-                            <td><%= point.pointAmount %></td>
-                            <td><%= point.submissionDate %></td>
-                            <td>
-                                <%= link_to('Edit', url_for(controller: :points, action: :edit, id: point.id), :confirm =>  "Are you sure?")%>
-                                <%= link_to('Delete', url_for(controller: :points, action: :delete, id: point.id), :confirm =>  "Are you sure?")%>
-                            </td>
-                        </tr>
-                      <% end %>
+                <div class="points_area">
+                    <h2 class="header">These are your points</h2>
+                    <div>
+                        <table>
+                            <!-- Table header -->
+                            <tr>
+                                <th>Event</th>
+                                <th>Type</th>
+                                <th>Points</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                          
+                            <!-- test rows to see style -->
+                            <% @points.each do |point| %>
+                              <tr>
+                                <td><%= point.eventName %></td>
+                                <td><%= point.eventType %></td>
+                                <td><%= point.pointAmount %></td>
+                                <td><%= point.submissionDate %></td>
+                                <td>
+                                    <%= link_to('Edit', url_for(controller: :points, action: :edit, id: point.id), :confirm =>  "Are you sure?")%>
+                                    <%= link_to('Delete', url_for(controller: :points, action: :delete, id: point.id), :confirm =>  "Are you sure?")%>
+                                </td>
+                              </tr>
+                            <% end %>
 
-                  </table>
+                        </table>
+                    </div>
+                </div>
+                <div class="points_area">
+                    <h2 class="header">Total points</h2>
+                    <div>
+                        <table>
+                            <!-- Table header -->
+                            <tr>
+                                <th>Event Type</th>
+                                <th>Points</th>
+                                <%# <th>Date</th> %>
+                            </tr>
+                            <tr>
+                                <td>Speaking Event</td>
+                                <td><%=@speaking_sum%></td>
+                            </tr>
+                            <tr>
+                                <td>Business Event</td>
+                                <td><%=@business_sum%></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
-                  <!-- maybe add total business and speaking at the bottom of the table?? Will probably do later. Prabably gotta make two variables that update after every iteration of the loop-->
-                  <!-- < @totalSpeaking = 0 > -->
-                  <!-- < @totalBusiness = 0 > -->
-
-                  <div>
-                  <!-- This is a template for inserting into the table. Just replace this in the test row area.
-                  Gotta fix the ruby inserts
-                  < @points.each do |point| > 
-                          <tr> 
-                              <td> <= point.id > </td> 
-                              <td> <= point.event > </td> 
-                              <td> <= point.type > </td> 
-                              <td> <= point.points > </td> 
-                              <td> <= point.date > </td> 
-                          </tr> -->
-                  </div>
-
-              </div>
-          </div>
-          <div class="points_area">
-              <h2 class="header">Total points</h2>
-              <div>
-                  <table>
-                      <!-- Table header -->
-                      <tr>
-                          <th>Event Type</th>
-                          <th>Points</th>
-                          <%# <th>Date</th> %>
-                      </tr>
-                      <tr>
-                        <td>Speaking Event</td>
-                        <td><%=@speaking_sum%></td>
-                      </tr>
-                      <tr>
-                        <td>Business Event</td>
-                        <td><%=@business_sum%></td>
-                      </tr>
-                  </table>
-              </div>
-          </div>
-      </body>
-
-  </html>
-
+            <!-- JS is being omega dum >:( !!! Very angry!!! Rails is stupid! I hate this! JS doesn't seem to really work with rails so I had to make a little snippet in html-->
+            <script>
+                /* Open menu */
+                function openNav() {
+                    document.getElementById("mySidebar").style.width = "250px";
+                    document.getElementById("main").style.marginLeft = "250px";
+                }
+                /* Close menu */
+                function closeNav() {
+                    document.getElementById("mySidebar").style.width = "0";
+                    document.getElementById("main").style.marginLeft= "0";
+                }
+            </script>
+        </body>
+    </html>
 </div>

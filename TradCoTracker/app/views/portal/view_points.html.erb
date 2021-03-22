@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE>
 <html>
 
@@ -80,3 +81,33 @@
     </body>
 
 </html>
+=======
+<%controller.redirect_to '/point/index.html' %>
+<%= link_to("Add new points", "add_points", :class => 'action new_points') %>
+
+<h2>These are your points</h2>
+<div>
+    <table>
+        <!-- Table header -->
+        <tr>
+            <th>Event</th>
+            <th>Type</th>
+            <th>Points</th>
+            <th>Date</th>
+        </tr>
+    </table>
+
+    <div>
+    <!-- This is where youll see points -->
+    <!-- Gotta fix the ruby inserts-->
+    <!-- < @points.each do |point| > -->
+        <!--    <tr> -->
+        <!--        <td> <= point.id > </td> -->
+        <!--        <td> <= point.event > </td> -->
+        <!--        <td> <= point.type > </td> -->
+        <!--        <td> <= point.points > </td> -->
+        <!--        <td> <= point.date > </td> -->
+        <!--    </tr> -->
+    </div>
+</div>
+>>>>>>> Stashed changes
