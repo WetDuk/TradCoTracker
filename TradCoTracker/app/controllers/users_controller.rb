@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   # This controller is what creates the new users for the database
-  #skip_before_action :authorized
+  skip_before_action :authorized
   def index
     @users = User.search(params[:search])
   end
@@ -32,6 +32,6 @@ class UsersController < ApplicationController
 
   # These are the parameters for the user
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation, :email, :isOfficer)
+    params.require(:user).permit(:password, :password_confirmation, :email, :isOfficer)
   end
 end
