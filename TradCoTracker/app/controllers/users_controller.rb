@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     @current_user = User.find_by(id: session[:user_id])
 
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.update(params.require(:user).permit(:username, :email, :isOfficer))
       redirect_to(portal_view_members_path)
     else
       render('edit')
@@ -64,14 +64,14 @@ class UsersController < ApplicationController
   def delete
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to(portal_view_members_path)
+    redirect_to(destroyUSER_point_path(params[:id]))
   end
 
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to(portal_view_members_path)
-  end
+  # def destroy
+  #   @user = User.find(params[:id])
+  #   @user.destroy
+  #   redirect_to(portal_view_members_path)
+  # end
 
   private
 

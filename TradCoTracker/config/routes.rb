@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get :editSHOW
       get :editINDEX
       post :updateINDEX
+      get :destroyUSER
     end
   end
 

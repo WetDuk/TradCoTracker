@@ -79,10 +79,9 @@ class PointsController < ApplicationController
     redirect_to(points_path)
   end
 
-  def destroy
-    @point = Point.find(params[:id])
-    @point.destroy
-    redirect_to(points_path)
+  def destroyUSER
+    Point.where(:userID => params[:id]).destroy_all
+    redirect_to(portal_view_members_path)
   end
 
   private
