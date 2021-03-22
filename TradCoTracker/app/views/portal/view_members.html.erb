@@ -58,6 +58,8 @@
                                 <td class="actions">
                                     <%if user.id != session[:user_id]%>
                                         <%= link_to('Delete', url_for(controller: :users, action: :delete, id: user.id), :confirm =>  "Are you sure?")%>
+                                    <%else%>
+                                        <%= link_to('Edit', url_for(controller: :users, action: :edit, id: user.id))%>
                                     <%end%>
                                 </td>
                             </tr> 
