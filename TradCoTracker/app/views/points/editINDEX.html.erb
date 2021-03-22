@@ -33,7 +33,7 @@
 
                     <h2>Add points</h2>
 
-                    <%= form_for(@point, :url => points_path, :controller => 'post') do |f| %>
+                    <%= form_for(@point, url_for(controller: :points, action: :updateINDEX, id: point.id), :method => 'post') do |f| %>
 
                     <table>
                         <tr>
@@ -74,10 +74,9 @@
                         <tr></tr>
                     </table>
 
-                    <center><%= f.submit "Add Points" , class: "button2" %></center>
+                    <center><%= f.submit "Update Points" , class: "button2" %></center>
 
                     <% end %>
-
                 </div>
             </div>
 
