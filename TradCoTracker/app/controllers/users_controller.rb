@@ -28,11 +28,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # def create
-  #  @user = User.new(params[:user])
-  #   @user.password = params[:password]
-  #  @user.save!
-  # end
+
   def create
     @current_user = User.find_by(id: session[:user_id])
 
@@ -45,12 +41,6 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     end
   end
-
-  # def edit
-  #   @current_user = User.find_by(id: session[:user_id])
-
-  #   @user = User.new
-  # end
 
   def update
     @current_user = User.find_by(id: session[:user_id])
@@ -75,17 +65,12 @@ class UsersController < ApplicationController
     redirect_to(destroy_user_point_path(params[:id]))
   end
 
-  # def destroy
-  #   @user = User.find(params[:id])
-  #   @user.destroy
-  #   redirect_to(portal_view_members_path)
-  # end
 
   private
 
   # These are the parameters for the user
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation,
+    params.require(:user).permit(:firstName, :lastName, :email, :password, :password_confirmation,
                                  :isOfficer)
   end
 end

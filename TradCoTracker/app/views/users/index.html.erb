@@ -50,11 +50,11 @@
             </thead>
 
             <tbody>
-              <% @users.each do |user|%>
+              <% @users.all.each do |user|%>
               <tr>
-                <td><%= user.firstname %></td>
-                <td><%= user.lastname %></td>
-                <td><%= user.email %></td>
+                <td><%= users.firstName %></td>
+                <td><%= users.lastName %></td>
+                <td><%= users.email %></td>
                 <td>0</td>
               </tr> 
               <%end%>
