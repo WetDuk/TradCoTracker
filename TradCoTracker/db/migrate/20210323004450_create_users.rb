@@ -3,8 +3,8 @@ class CreateUsers < ActiveRecord::Migration[6.1]
     create_table :users do |t|
       t.boolean :isOfficer
       t.string :joinDate
-      t.string :firstname
-      t.string :lastname
+      t.string :firstName
+      t.string :lastName
       t.string :email
       t.string :userID
       t.string :password_digest
