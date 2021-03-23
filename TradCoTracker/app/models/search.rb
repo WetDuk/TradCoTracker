@@ -3,8 +3,9 @@
 class Search < ApplicationRecord
   def search_users
     users = User.all
-    users = User.where(['username LIKE ?', "%#{username}%"]) if username.present?
+    users = User.where(['firstName LIKE ?', "%#{firstName}%"]) if firstName.present?
+    users = User.where(['lastName Like ?', "%#{lastName}%"]) if lastName.present?
     users = User.where(['email LIKE ?', "%#{email}%"]) if email.present?
-    users
+    return users
   end
 end
