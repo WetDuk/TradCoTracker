@@ -2,9 +2,6 @@
 
 class PortalController < ApplicationController
   skip_before_action :authorized, only: %i[login new create destroy]
-  def index
-    redirect_to(controller: 'points')
-  end
 
   def home
     @current_user = User.find_by(id: session[:user_id])

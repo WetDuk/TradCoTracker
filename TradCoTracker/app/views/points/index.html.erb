@@ -37,7 +37,7 @@
                         <!-- Table header -->
 
                         <tr>
-                            <th>Username</th>
+                            <th>Name</th>
                             <th>Event</th>
                             <th>Type</th>
                             <th>Points</th>
@@ -49,13 +49,13 @@
                         <% @points.each do |point| %>
                             <tr>
                                 <% @currUser = User.find(point.userID) %>
-                                <td><%= @currUser.username%>
+                                <td><%= @currUser.firstName%>
                                 <td><%= point.eventName %></td>
                                 <td><%= point.eventType %></td>
                                 <td><%= point.pointAmount %></td>
                                 <td><%= point.submissionDate%></td>
                                 <td>
-                                    <%= link_to('Edit', url_for(controller: :points, action: :edit_index, id: point.id))%>
+                                    <%# <%= link_to('Edit', url_for(controller: :points, action: :edit_index, id: point.id))%> 
                                     <%= link_to('Delete', url_for(controller: :points, action: :delete_index, id: point.id), :confirm =>  "Are you sure?")%>
                                 </td>
                             </tr>
