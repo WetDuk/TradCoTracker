@@ -33,7 +33,7 @@
 
                 <div class="center">
 
-                    <h2>Add points</h2>
+                    <h2>Edit User</h2>
 
  
                     <%= form_for (@user) do |form| %>
@@ -50,10 +50,19 @@
                             <tr></tr>
                             <tr>
                                 <td> 
-                                    Username: 
+                                    First Name: 
                                 </td> 
                                 <td>
-                                    <%= form.text_field :username %>
+                                    <%= form.text_field :firstName %>
+                                </td>
+                            </tr>
+                            <tr></tr>
+                            <tr>
+                                <td> 
+                                    Last Name: 
+                                </td> 
+                                <td>
+                                    <%= form.text_field :lastName %>
                                 </td>
                             </tr>
                             <tr></tr>

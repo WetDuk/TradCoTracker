@@ -36,7 +36,7 @@
                         <tr>
 
                             <th>ID</th>
-                            <th>Username</th>
+                            <th>Name</th>
                             <th>Is Officer</th>
                             <th>Total Speaking</th>
                             <th>Total Business</th>
@@ -51,7 +51,7 @@
                             
                             <tr>
                                 <td> <%= user.id %> </td>  
-                                <td> <%= user.username %> </td> 
+                                <td> <%= user.email %> </td> 
                                 <td> <%= user.isOfficer %> </td> 
                                 <td> <%= @business_sum %> </td>
                                 <td> <%= @speaking_sum %> </td>
@@ -59,7 +59,7 @@
                                     <%if user.id != session[:user_id]%>
                                         <%= link_to('Delete', url_for(controller: :users, action: :delete, id: user.id), :confirm =>  "Are you sure?")%>
                                     <%else%>
-                                        <%= link_to('Edit', url_for(controller: :users, action: :edit, id: user.id))%>
+                                        <%# <%= link_to('Edit', url_for(controller: :users, action: :edit, id: user.id))%>
                                     <%end%>
                                 </td>
                             </tr> 
