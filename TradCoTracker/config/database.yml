@@ -17,18 +17,19 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # database: d36ejeo6hcsrrr
-  # host: ec2-54-166-242-77.compute-1.amazonaws.com
-  # username: ruvmjpigzwolfq
-  # password: 8cdbb6391f1525c79ec5e275432f6f355f3357ece04b17c367c5985cd3c13bde
-  database: TradCoTrackerDB
-  username: postgres
-  password: postgres
+  database: d36ejeo6hcsrrr
+  host: ec2-54-166-242-77.compute-1.amazonaws.com
+  username: ruvmjpigzwolfq
+  password: 8cdbb6391f1525c79ec5e275432f6f355f3357ece04b17c367c5985cd3c13bde
+  #database: TradCoTrackerDB
+ # username: postgres
+ # password: postgres
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
 
+  
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -61,7 +62,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: TradCoTracker_test
+
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
