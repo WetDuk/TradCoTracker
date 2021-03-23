@@ -61,7 +61,7 @@ class PointsController < ApplicationController
   def update
     @point = Point.find(params[:id])
     if @point.update(point_params)
-      redirect_to()
+      redirect_to
     else
       render('edit')
     end
@@ -80,7 +80,7 @@ class PointsController < ApplicationController
   end
 
   def destroyUSER
-    Point.where(:userID => params[:id]).destroy_all
+    Point.where(userID: params[:id]).destroy_all
     redirect_to(portal_view_members_path)
   end
 

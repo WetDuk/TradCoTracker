@@ -1,3 +1,24 @@
+<html>
+    <%= stylesheet_link_tag "stylesHome.css" %>
+
+        <!-- Nav bar -->
+        <div id="mySidebar" class="sidebar">
+            <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <%= link_to "Home", portal_home_path, class: "nav_active" %>
+            <%= link_to "My Points", point_path(session[:user_id]) %>
+            <%= link_to "Submit Points", new_point_path %>
+            <%= link_to "Search Users", users_path%>
+
+            <!-- Only officers can see these -->
+            <% if(@current_user.isOfficer) %>
+                <%= link_to "View All Points", points_path %>
+                <%= link_to "View All Users", portal_view_members_path %>
+                <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
+            <% end %>
+        </div>
+
+<body class="background">
+<div class="points_area">
 <h1>Advanced Search</h1>
 
 <%= form_for @search, html: {class: "pure-form"} do |s| %>
@@ -24,4 +45,8 @@
   
   <div class="actions"> <%= s.submit "Search", class: "pure-button pure-button-primary"%></div>
 <% end %>
+
   <p><%= link_to "back", users_path%></p>
+  </div>
+  </body>
+  </html>

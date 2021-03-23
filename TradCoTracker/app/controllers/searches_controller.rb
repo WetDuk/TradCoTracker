@@ -2,6 +2,10 @@
 
 class SearchesController < ApplicationController
   def new
+    @user = User.find(session[:user_id])
+    redirect_to(point_path(session[:user_id])) unless @user.isOfficer
+    @points = Point.order('id ASC')
+    @current_user = User.find_by(id: session[:user_id])
     @search = Search.new
   end
 

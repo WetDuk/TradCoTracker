@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   # This controller is what creates the new users for the database
   def index
     @current_user = User.find_by(id: session[:user_id])
-
     @users = User.search(params[:search])
   end
 
