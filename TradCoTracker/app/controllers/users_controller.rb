@@ -5,14 +5,16 @@ class UsersController < ApplicationController
   skip_before_action :authorized
   def index
     @current_user = User.find_by(id: session[:user_id])
-    @users = User.search(params[:search])
+    @users = User.where(['firstname LIKE ?', "%#{params[:search]}%"])
+                 .or(User.where(['lastname LIKE ?', "%#{params[:search]}%"]))
+                 .or(User.where(['email LIKE ?', "%#{params[:search]}%"]))
   end
 
-  def index
-    @current_user = User.find_by(id: session[:user_id])
+  # def index
+  #   @current_user = User.find_by(id: session[:user_id])
 
-    @users = User.order('id ASC')
-  end
+  #   @users = User.order('id ASC')
+  # end
 
   def show
     @current_user = User.find_by(id: session[:user_id])
@@ -26,12 +28,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-
-  #def create
+  # def create
   #  @user = User.new(params[:user])
- #   @user.password = params[:password]
+  #   @user.password = params[:password]
   #  @user.save!
-  #end
+  # end
   def create
     @current_user = User.find_by(id: session[:user_id])
 
@@ -45,17 +46,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @current_user = User.find_by(id: session[:user_id])
+  # def edit
+  #   @current_user = User.find_by(id: session[:user_id])
 
-    @user = User.new
-  end
+  #   @user = User.new
+  # end
 
   def update
     @current_user = User.find_by(id: session[:user_id])
 
     @user = User.find(params[:id])
-    if @user.update(params.require(:user).permit( :email, :isOfficer))
+    if @user.update(params.require(:user).permit(:email, :isOfficer))
       redirect_to(portal_view_members_path)
     else
       render('edit')
@@ -71,7 +72,7 @@ class UsersController < ApplicationController
   def delete
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to(destroyUSER_point_path(params[:id]))
+    redirect_to(destroy_user_point_path(params[:id]))
   end
 
   # def destroy
@@ -84,6 +85,7 @@ class UsersController < ApplicationController
 
   # These are the parameters for the user
   def user_params
-    params.require(:user).permit(:password, :password_confirmation, :email, :isOfficer, :firstName, :lastName)
+    params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation,
+                                 :isOfficer)
   end
 end

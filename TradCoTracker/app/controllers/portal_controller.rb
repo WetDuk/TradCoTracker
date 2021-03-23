@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PortalController < ApplicationController
-  skip_before_action :authorized, only: [:login,:new, :create, :destroy]
+  skip_before_action :authorized, only: %i[login new create destroy]
   def index
     redirect_to(controller: 'points')
   end
@@ -20,8 +20,8 @@ class PortalController < ApplicationController
   # creates a new session when the username is in the database and has the same password
   def create
     @user = User.find_by(email: params[:email])
-      # Sudo global variables
-      if @user && (@user.authenticate(params[:password]))
+    # Sudo global variables
+    if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       session[:user_isOfficer] = @user.isOfficer
       redirect_to portal_home_path

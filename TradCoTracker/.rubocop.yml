@@ -18,8 +18,7 @@ Metrics/BlockLength:
     - "spec/**/*"
 
 Metrics/AbcSize:
-  Exclude:
-    - "app/controllers/portal_controller.rb"
+  Max: 20
 
 AllCops:
   Exclude:

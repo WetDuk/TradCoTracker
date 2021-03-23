@@ -39,17 +39,17 @@ class PointsController < ApplicationController
     end
   end
 
-  def editSHOW
+  def edit_show
     @current_user = User.find_by(id: session[:user_id])
     @point = Point.find(params[:id])
   end
 
-  def editINDEX
+  def edit_index
     @current_user = User.find_by(id: session[:user_id])
     @point = Point.find(params[:id])
   end
 
-  def updateINDEX
+  def update_index
     @point = Point.find(params[:id])
     if @point.update(point_params)
       redirect_to(points_path)
@@ -67,19 +67,19 @@ class PointsController < ApplicationController
     end
   end
 
-  def deleteSHOW
+  def delete_show
     @point = Point.find(params[:id])
     @point.destroy
     redirect_to(point_path(session[:user_id]))
   end
 
-  def deleteINDEX
+  def delete_index
     @point = Point.find(params[:id])
     @point.destroy
     redirect_to(points_path)
   end
 
-  def destroyUSER
+  def destroy_user
     Point.where(userID: params[:id]).destroy_all
     redirect_to(portal_view_members_path)
   end

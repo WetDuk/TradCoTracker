@@ -7,10 +7,10 @@
             <%= link_to "Home", portal_home_path, class: "nav_active" %>
             <%= link_to "My Points", point_path(session[:user_id]) %>
             <%= link_to "Submit Points", new_point_path %>
-            <%= link_to "Search Users", users_path%>
 
             <!-- Only officers can see these -->
             <% if(@current_user.isOfficer) %>
+                <%= link_to "Search Users", users_path%>
                 <%= link_to "View All Points", points_path %>
                 <%= link_to "View All Users", portal_view_members_path %>
                 <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->

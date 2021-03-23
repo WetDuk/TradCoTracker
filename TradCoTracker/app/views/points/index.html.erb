@@ -11,10 +11,10 @@
             <%= link_to "Home", portal_home_path, class: "active" %>
             <%= link_to "My Points", point_path(session[:user_id]) %>
             <%= link_to "Submit Points", new_point_path %>
-            <%= link_to "Search Users", users_path%>
 
             <!-- Only officers can see these -->
             <% if(@current_user.isOfficer) %>
+                <%= link_to "Search Users", users_path%>
                 <%= link_to "View All Points", points_path %>
                 <%= link_to "View All Users", portal_view_members_path %>
                 <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
@@ -55,8 +55,8 @@
                                 <td><%= point.pointAmount %></td>
                                 <td><%= point.submissionDate%></td>
                                 <td>
-                                    <%= link_to('Edit', url_for(controller: :points, action: :editINDEX, id: point.id))%>
-                                    <%= link_to('Delete', url_for(controller: :points, action: :deleteINDEX, id: point.id), :confirm =>  "Are you sure?")%>
+                                    <%= link_to('Edit', url_for(controller: :points, action: :edit_index, id: point.id))%>
+                                    <%= link_to('Delete', url_for(controller: :points, action: :delete_index, id: point.id), :confirm =>  "Are you sure?")%>
                                 </td>
                             </tr>
                         <% end %>

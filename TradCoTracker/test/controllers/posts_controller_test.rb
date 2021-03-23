@@ -3,19 +3,19 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
-  #setup do
+  # setup do
   #  @post = post(:one)
-  #end
+  # end
 
-  #test 'should get index' do
-   # get posts_url
+  # test 'should get index' do
+  # get posts_url
   #  assert_response :success
-  #end
+  # end
 
-  #test 'should get new' do
+  # test 'should get new' do
   #  get new_post_url
- #  assert_response :success
-  #end
+  #  assert_response :success
+  # end
 
   # test 'should create post' do
   #   assert_difference('Post.count') do

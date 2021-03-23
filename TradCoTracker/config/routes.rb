@@ -11,12 +11,12 @@ Rails.application.routes.draw do
 
   resources :points do
     member do
-      get :deleteSHOW
-      get :deleteINDEX
-      get :editSHOW
-      get :editINDEX
-      post :updateINDEX
-      get :destroyUSER
+      get :delete_show
+      get :delete_index
+      get :edit_show
+      get :edit_index
+      post :update_index
+      get :destroy_user
     end
   end
 

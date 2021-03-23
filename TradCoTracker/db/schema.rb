@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(version: 2021_03_23_004450) do
   create_table "users", force: :cascade do |t|
     t.boolean "isOfficer"
     t.string "joinDate"
-    t.string "firstName"
-    t.string "lastName"
+    t.string "firstname"
+    t.string "lastname"
     t.string "email"
     t.string "userID"
     t.string "password_digest"
