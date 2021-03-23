@@ -1,0 +1,243 @@
+{
+  "RSpec": {
+    "coverage": {
+      "C:/Users/katur/Documents/GitHub/TradCoTracker/TradCoTracker/test/controllers/events_controller_test.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/katur/Documents/GitHub/TradCoTracker/TradCoTracker/test/controllers/member_point_controller_test.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/katur/Documents/GitHub/TradCoTracker/TradCoTracker/test/controllers/points_controller_test.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/katur/Documents/GitHub/TradCoTracker/TradCoTracker/test/controllers/portal_controller_test.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "C:/Users/katur/Documents/GitHub/TradCoTracker/TradCoTracker/test/controllers/posts_controller_test.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/katur/Documents/GitHub/TradCoTracker/TradCoTracker/test/controllers/searches_controller_test.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/katur/Documents/GitHub/TradCoTracker/TradCoTracker/test/controllers/users_controller_test.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/katur/Documents/GitHub/TradCoTracker/TradCoTracker/test/models/business_test.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/katur/Documents/GitHub/TradCoTracker/TradCoTracker/test/models/org_test.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/katur/Documents/GitHub/TradCoTracker/TradCoTracker/test/models/post_test.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/katur/Documents/GitHub/TradCoTracker/TradCoTracker/test/models/search_test.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/katur/Documents/GitHub/TradCoTracker/TradCoTracker/test/models/speaking_test.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1616464605
+  }
+}

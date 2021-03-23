@@ -3,5 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "does not render the wrong template" do
+    get "/posts/new"
+    expect(response).to_not render_template(:show)
 end
+end
+
