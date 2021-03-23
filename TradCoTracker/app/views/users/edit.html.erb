@@ -1,7 +1,7 @@
-<div class="points index">
+<div class="subjects new">
     <html>
 
-        <%= stylesheet_link_tag "stylesPoints.css" %>
+        <%= stylesheet_link_tag "stylesAddPoints.css" %>
 
         <body class="background">
 
@@ -29,56 +29,45 @@
                     </tr>
                 </table>
 
-                <div class="points_area">
-                    <h2 class="header">These are your points</h2>
-                    <div>
-                        <table>
-                            <!-- Table header -->
-                            <tr>
-                                <th>Event</th>
-                                <th>Type</th>
-                                <th>Points</th>
-                                <th>Date</th>
-                                <th>Actions</th>
-                            </tr>
-                          
-                            <!-- test rows to see style -->
-                            <% @points.each do |point| %>
-                              <tr>
-                                <td><%= point.eventName %></td>
-                                <td><%= point.eventType %></td>
-                                <td><%= point.pointAmount %></td>
-                                <td><%= point.submissionDate %></td>
-                                <td>
-                                    <%= link_to('Edit', url_for(controller: :points, action: :editSHOW, id: point.id))%>
-                                    <%= link_to('Delete', url_for(controller: :points, action: :deleteSHOW, id: point.id), :confirm =>  "Are you sure?")%>
-                                </td>
-                              </tr>
-                            <% end %>
+                <div class="center">
 
-                        </table>
-                    </div>
-                </div>
-                <div class="points_area">
-                    <h2 class="header">Total points</h2>
-                    <div>
+                    <h2>Add points</h2>
+
+ 
+                    <%= form_for (@user) do |form| %>
+
                         <table>
-                            <!-- Table header -->
+                            <tr> <!-- Maybe make this a drop down? -->
+                                <td> 
+                                    Email: 
+                                </td> 
+                                <td>
+                                    <%= form.text_field :email %> 
+                                </td>
+                            </tr> 
+                            <tr></tr>
                             <tr>
-                                <th>Event Type</th>
-                                <th>Points</th>
-                                <%# <th>Date</th> %>
+                                <td> 
+                                    Username: 
+                                </td> 
+                                <td>
+                                    <%= form.text_field :username %>
+                                </td>
                             </tr>
+                            <tr></tr>
                             <tr>
-                                <td>Speaking Event</td>
-                                <td><%=@speaking_sum%></td>
-                            </tr>
-                            <tr>
-                                <td>Business Event</td>
-                                <td><%=@business_sum%></td>
+                                <td> 
+                                    Officer: 
+                                </td>
+                                <td>
+                                    <%= form.check_box :isOfficer %> 
+                                </td>
                             </tr>
                         </table>
-                    </div>
+
+                        <center><%= form.submit "Update Account" , class: "button2" %></center>
+
+                    <% end %>
                 </div>
             </div>
 

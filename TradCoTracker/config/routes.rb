@@ -11,12 +11,24 @@ Rails.application.routes.draw do
 
   resources :points do
     member do
-      get :delete
+      get :deleteSHOW
+      get :deleteINDEX
+      get :editSHOW
+      get :editINDEX
+      post :updateINDEX
+      get :destroyUSER
     end
   end
 
   resources :searches
-  resources :users, only: %i[new create index]
+
+
+  resources :users do
+    member do
+      get :delete
+    end
+  end
+
 
   get '/login', to: 'portal#login'
   post '/login', to: 'portal#create'

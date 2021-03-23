@@ -13,16 +13,14 @@ class PointsController < ApplicationController
     @current_user = User.find_by(id: session[:user_id])
     @id = session[:user_id]
     @points = Point.order('id ASC').where(userID: session[:user_id])
-    @business_sum = Point.where(eventType: 'Business', userID: session[:user_id]).sum(:points)
-    @speaking_sum = Point.where(eventType: 'Speaking', userID: session[:user_id]).sum(:points)
+    @business_sum = Point.where(eventType: 'Business', userID: session[:user_id]).sum(:pointAmount)
+    @speaking_sum = Point.where(eventType: 'Speaking', userID: session[:user_id]).sum(:pointAmount)
   end
 
   def new
     @current_user = User.find_by(id: session[:user_id])
     @id = session[:user_id]
     @point = Point.new
-    @business = Business.new
-    @speaking = Speaking.new
   end
 
   def create
@@ -41,27 +39,49 @@ class PointsController < ApplicationController
     end
   end
 
-  def edit
+  def editSHOW
+    @current_user = User.find_by(id: session[:user_id])
     @point = Point.find(params[:id])
   end
 
-  def update
+  def editINDEX
+    @current_user = User.find_by(id: session[:user_id])
+    @point = Point.find(params[:id])
+  end
+
+  def updateINDEX
     @point = Point.find(params[:id])
     if @point.update(point_params)
-      redirect_to(point_path(@point))
+      redirect_to(points_path)
     else
       render('edit')
     end
   end
 
-  def delete
+  def update
     @point = Point.find(params[:id])
+    if @point.update(point_params)
+      redirect_to()
+    else
+      render('edit')
+    end
   end
 
-  def destroy
+  def deleteSHOW
+    @point = Point.find(params[:id])
+    @point.destroy
+    redirect_to(point_path(session[:user_id]))
+  end
+
+  def deleteINDEX
     @point = Point.find(params[:id])
     @point.destroy
     redirect_to(points_path)
+  end
+
+  def destroyUSER
+    Point.where(:userID => params[:id]).destroy_all
+    redirect_to(portal_view_members_path)
   end
 
   private
