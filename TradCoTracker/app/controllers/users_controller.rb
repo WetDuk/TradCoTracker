@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   # This controller is what creates the new users for the database
+  skip_before_action :authorized
   def index
     @current_user = User.find_by(id: session[:user_id])
 
@@ -26,10 +27,17 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+
+  #def create
+  #  @user = User.new(params[:user])
+ #   @user.password = params[:password]
+  #  @user.save!
+  #end
   def create
     @current_user = User.find_by(id: session[:user_id])
 
     @user = User.new(user_params)
+    @user.email.downcase!
     # If user was able to save return to login
     if @user.save
       redirect_to(root_path)
@@ -77,6 +85,6 @@ class UsersController < ApplicationController
 
   # These are the parameters for the user
   def user_params
-    params.require(:user).permit(:username, :password, :email, :isOfficer)
+    params.require(:user).permit(:password, :password_confirmation, :email, :isOfficer)
   end
 end
