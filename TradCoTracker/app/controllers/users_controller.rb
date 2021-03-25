@@ -5,9 +5,7 @@ class UsersController < ApplicationController
   skip_before_action :authorized
   def index
     @current_user = User.find_by(id: session[:user_id])
-    @users = User.where(['firstname LIKE ?', "%#{params[:search]}%"])
-                 .or(User.where(['lastname LIKE ?', "%#{params[:search]}%"]))
-                 .or(User.where(['email LIKE ?', "%#{params[:search]}%"]))
+    @users = User.where(['email LIKE ?', "%#{params[:search]}%"])
   end
 
   # def index
