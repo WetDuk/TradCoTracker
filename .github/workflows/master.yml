@@ -25,14 +25,16 @@ jobs:
     name: Rubocop
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
       - name: Install Rubocop
         run: gem install rubocop
       - name: Check code
-        run: rubocop
+        run: |
+          rubocop
+          rubocop -A
 #   rspec-test:
 #     name: RSpec
 #     needs: rubocop-test
