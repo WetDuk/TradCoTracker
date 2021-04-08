@@ -1,28 +1,28 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'users', type: :feature do
   describe 'goes to root path' do
     it 'shows the right content' do
-    visit root_path
-    expect(page).to have_content('Password')
-  end
+      visit root_path
+      expect(page).to have_content('Password')
+    end
 
-  it 'shows the right content' do
+    it 'shows the right content' do
       visit new_user_path
       expect(page).to have_content('Password')
     end
 
-  it 'shows the right content' do
+    it 'shows the right content' do
       visit portal_view_members_path
       expect(page).to have_content('Password')
     end
   end
 end
 
-
 # Creating a user
 RSpec.describe 'Creating a user with', type: :feature do
-
   # Sunny day cases for creating a user
   scenario 'valid inputs for a non-officer' do
     visit root_path
@@ -85,12 +85,10 @@ RSpec.describe 'Creating a user with', type: :feature do
     # Once the user is created, if there is an error the page will reset. So we are checking if the page was reset
     expect(page).to have_content('Sign up')
   end
-
 end
 
 # loging in
 RSpec.describe 'Loging in user', type: :feature do
-
   # Sunny Day cases
   scenario 'valid login for a non-officer' do
     visit root_path
@@ -163,7 +161,6 @@ RSpec.describe 'Loging in user', type: :feature do
     click_on 'Login'
     expect(page).not_to have_content('Login')
   end
-
 end
 
 # Viewing users
