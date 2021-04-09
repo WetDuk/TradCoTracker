@@ -40,13 +40,14 @@ jobs:
     needs: rubocop-test
     runs-on: ubuntu-latest
     steps:
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: install
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+
       - name: Install postgres client
         run: sudo apt-get install libpq-dev
       - name: Install dependencies
@@ -77,3 +78,4 @@ jobs:
           heroku_app_name: "traditions-council-tracker"
           heroku_email: "tony.qing@tamu.edu"
           usedocker: true
+          dontuseforce: 1
