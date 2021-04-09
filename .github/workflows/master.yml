@@ -52,6 +52,7 @@ jobs:
         run: sudo apt-get install libpq-dev
       - name: Install dependencies
         run: |
+          bundler update mimemagic
           bundler install
           bundler exec rspec
       - name: Create database
@@ -77,5 +78,3 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "traditions-council-tracker"
           heroku_email: "tony.qing@tamu.edu"
-          usedocker: true
-          dontuseforce: 1
