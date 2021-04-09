@@ -70,7 +70,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.0.0
-      - with:
+        with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "traditions-council-tracker"
           heroku_email: "tony.qing@tamu.edu"
