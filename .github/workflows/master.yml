@@ -63,15 +63,21 @@ jobs:
         with:
           name: coverage-report
           path: coverage
+  
+name: Deploy
+on: 
+  push:
+    branches:
+      - master
+jobs:
   build:
-    name: "build"
     runs-on: ubuntu-latest
-    needs: rubocop-test
+    needs: [rubocop-test, rspec-test]
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.0.0
         with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: "traditions-council-tracker"
-          heroku_email: "tony.qing@tamu.edu"
-          usedocker: true
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: "traditions-council-tracker"
+        heroku_email: "tony.qing@tamu.edu"
+        usedocker: true
