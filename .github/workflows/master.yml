@@ -63,17 +63,8 @@ jobs:
         with:
           name: coverage-report
           path: coverage
-  
-name: Deploy
-
-on: 
-  push:
-    branches:
-      - master
-
-jobs:
   build:
-    name: "deploy to heroku"
+    name: "build"
     runs-on: ubuntu-latest
     needs: rubocop-test
     steps:
