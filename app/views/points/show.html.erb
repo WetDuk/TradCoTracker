@@ -14,10 +14,10 @@
 
                 <!-- Only officers can see these -->
                 <% if(@current_user.isOfficer) %>
+                    <!-- <%= link_to "Multiple Submit", multi_new_point_path%> -->
                     <%= link_to "Search Users", users_path%>
                     <%= link_to "View All Points", points_path %>
                     <%= link_to "View All Users", portal_view_members_path %>
-                    <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
                 <% end %>
             </div>
 
@@ -43,19 +43,19 @@
                                 <th>Date</th>
                                 <th>Actions</th>
                             </tr>
-                          
+                        
                             <!-- test rows to see style -->
                             <% @points.each do |point| %>
-                              <tr>
-                                <td><%= point.eventName %></td>
-                                <td><%= point.eventType %></td>
-                                <td><%= point.pointAmount %></td>
-                                <td><%= point.submissionDate %></td>
-                                <td>
-                                    <%# <%= link_to('Edit', url_for(controller: :points, action: :edit_show, id: point.id))%>
-                                    <%= link_to('Delete', url_for(controller: :points, action: :delete_show, id: point.id), :confirm =>  "Are you sure?")%>
-                                </td>
-                              </tr>
+                                <tr>
+                                    <td><%= point.eventName %></td>
+                                    <td><%= point.eventType %></td>
+                                    <td><%= point.pointAmount %></td>
+                                    <td><%= point.submissionDate %></td>
+                                    <td>
+                                        <%# <%= link_to('Edit', url_for(controller: :points, action: :edit_show, id: point.id))%>
+                                        <%= link_to('Delete', url_for(controller: :points, action: :delete_show, id: point.id), :confirm =>  "Are you sure?")%>
+                                    </td>
+                                </tr>
                             <% end %>
 
                         </table>

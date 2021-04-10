@@ -1,83 +1,82 @@
 <div class="points index">
-  <html>
+    <html>
 
-      <%= stylesheet_link_tag "stylesPoints.css" %>
+        <%= stylesheet_link_tag "stylesPoints.css" %>
 
-      <body class="background">
+        <body class="background">
 
-        <!-- Nav bar -->
-        <div id="mySidebar" class="sidebar">
-            <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <%= link_to "Home", portal_home_path, class: "active" %>
-            <%= link_to "My Points", point_path(session[:user_id]) %>
-            <%= link_to "Submit Points", new_point_path %>
+            <!-- Nav bar -->
+            <div id="mySidebar" class="sidebar">
+                <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <%= link_to "Home", portal_home_path, class: "active" %>
+                <%= link_to "My Points", point_path(session[:user_id]) %>
+                <%= link_to "Submit Points", new_point_path %>
 
-            <!-- Only officers can see these -->
-            <% if(@current_user.isOfficer) %>
-                <%= link_to "Search Users", users_path%>
-                <%= link_to "View All Points", points_path %>
-                <%= link_to "View All Users", portal_view_members_path %>
-                <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
-            <% end %>
-        </div>
+                <!-- Only officers can see these -->
+                <% if(@current_user.isOfficer) %>
+                    <!-- <%= link_to "Multiple Submit", multi_new_point_path%> -->
+                    <%= link_to "Search Users", users_path%>
+                    <%= link_to "View All Points", points_path %>
+                    <%= link_to "View All Users", portal_view_members_path %>
+                <% end %>
+            </div>
 
-        <div id="main">
-            <!-- Nav bar open button -->
-            <table>
-                <tr>
-                    <td><button class = "openbtn button" onclick = "openNav()"> ☰ Menu </button></td>
-                    <td><div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div></td>
-                </tr>
-            </table>
+            <div id="main">
+                <!-- Nav bar open button -->
+                <table>
+                    <tr>
+                        <td><button class = "openbtn button" onclick = "openNav()"> ☰ Menu </button></td>
+                        <td><div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div></td>
+                    </tr>
+                </table>
 
-            <div class="points_area">
-                <h2 class="header">These are all points</h2>
-                <div>
-                    <table>
-                        <!-- Table header -->
-
-                        <tr>
-                            <th>Name</th>
-                            <th>Event</th>
-                            <th>Type</th>
-                            <th>Points</th>
-                            <th>Date</th>
-                            <th>Actions</th>
-                        </tr>
-
-                      <!-- test rows to see style -->
-                        <% @points.each do |point| %>
+                <div class="points_area">
+                    <h2 class="header">These are all points</h2>
+                    <div>
+                        <table>
+                            <!-- Table header -->
                             <tr>
-                                <% @currUser = User.find(point.userID) %>
-                                <td><%= @currUser.firstName%>
-                                <td><%= point.eventName %></td>
-                                <td><%= point.eventType %></td>
-                                <td><%= point.pointAmount %></td>
-                                <td><%= point.submissionDate%></td>
-                                <td>
-                                    <%# <%= link_to('Edit', url_for(controller: :points, action: :edit_index, id: point.id))%> 
-                                    <%= link_to('Delete', url_for(controller: :points, action: :delete_index, id: point.id), :confirm =>  "Are you sure?")%>
-                                </td>
+                                <th>Name</th>
+                                <th>Event</th>
+                                <th>Type</th>
+                                <th>Points</th>
+                                <th>Date</th>
+                                <th>Actions</th>
                             </tr>
-                        <% end %>
-                    </table>
+
+                            <!-- test rows to see style -->
+                            <% @points.each do |point| %>
+                                <tr>
+                                    <% @currUser = User.find(point.userID) %>
+                                    <td><%= @currUser.firstName%>
+                                    <td><%= point.eventName %></td>
+                                    <td><%= point.eventType %></td>
+                                    <td><%= point.pointAmount %></td>
+                                    <td><%= point.submissionDate%></td>
+                                    <td>
+                                        <%# <%= link_to('Edit', url_for(controller: :points, action: :edit_index, id: point.id))%> 
+                                        <%= link_to('Delete', url_for(controller: :points, action: :delete_index, id: point.id), :confirm =>  "Are you sure?")%>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- JS is being omega dum >:( !!! Very angry!!! Rails is stupid! I hate this! JS doesn't seem to really work with rails so I had to make a little snippet in html-->
-        <script>
-            /* Open menu */
-            function openNav() {
-                document.getElementById("mySidebar").style.width = "250px";
-                document.getElementById("main").style.marginLeft = "250px";
-            }
-            /* Close menu */
-            function closeNav() {
-                document.getElementById("mySidebar").style.width = "0";
-                document.getElementById("main").style.marginLeft= "0";
-            }
-        </script>
-      </body>
-  </html>
+            <!-- JS is being omega dum >:( !!! Very angry!!! Rails is stupid! I hate this! JS doesn't seem to really work with rails so I had to make a little snippet in html-->
+            <script>
+                /* Open menu */
+                function openNav() {
+                    document.getElementById("mySidebar").style.width = "250px";
+                    document.getElementById("main").style.marginLeft = "250px";
+                }
+                /* Close menu */
+                function closeNav() {
+                    document.getElementById("mySidebar").style.width = "0";
+                    document.getElementById("main").style.marginLeft= "0";
+                }
+            </script>
+        </body>
+    </html>
 </div>
