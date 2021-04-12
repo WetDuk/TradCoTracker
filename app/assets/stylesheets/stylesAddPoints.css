@@ -18,21 +18,7 @@
   height: 355px;
   width: 400px;
 }
-.center_edit
-{
-  font-family: verdana;
-  position: fixed;
-  display: block;
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  top: 35%;
-  left: 50%;
-  border-radius: 5px;
-  background-color: white;
-  padding: 20px;
-  height: 290px;
-  width: 400px;
-}
+
 .button
 {
     font-family: verdana;
@@ -99,4 +85,19 @@ select
     border: none;
     border-radius: 4px;
     background-color: #f1f1f1;
+}
+
+#edit
+{
+    height: 290px;
+}
+
+#announcement
+{
+    height: 250px;
+}
+
+#long
+{
+    width: 220px;
 }

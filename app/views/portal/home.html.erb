@@ -16,9 +16,10 @@
 
             <!-- Only officers can see these -->
             <% if(@current_user.isOfficer) %>
-                <%= link_to "Search Users", users_path%>
                 <%= link_to "View All Points", points_path %>
                 <%= link_to "View All Users", portal_view_members_path %>
+                <%= link_to "Search Users", users_path%>
+                <%= link_to "Announcement", new_announcement_path%>
                 <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
             <% end %>
         </div>
@@ -36,55 +37,23 @@
             <!-- Page content -->
             <div class="flex-container">
                 <div class="flex-child announcments">
-                    <center><h1>Announcments</h1></center>
+                    <center><h1>Announcement </h1></center>
                     <ul class="list">
-                        <li class="announce">
-                            <span>March 14, 2021</span> 
-                            <h3> Test announcment </h3>
-                            <p> This is the content of the announcment </p>
-                        </li>
-                        <li class="announce">
-                            <span>March 15, 2021</span> 
-                            <h3> Test announcment </h3>
-                            <p> This is the content of the announcment </p>
-                        </li>
-                        <li class="announce">
-                            <span>March 16, 2021</span> 
-                            <h3> Test announcment </h3>
-                            <p> This is the content of the announcment </p>
-                        </li>
-                        <li class="announce">
-                            <span>March 14, 2021</span> 
-                            <h3> Test announcment </h3>
-                            <p> This is the content of the announcment </p>
-                        </li>
-                        <li class="announce">
-                            <span>March 15, 2021</span> 
-                            <h3> Test announcment </h3>
-                            <p> This is the content of the announcment </p>
-                        </li>
-                        <li class="announce">
-                            <span>March 16, 2021</span> 
-                            <h3> Test announcment </h3>
-                            <p> This is the content of the announcment </p>
-                        </li>
-                        <li class="announce">
-                            <span>March 14, 2021</span> 
-                            <h3> Test announcment </h3>
-                            <p> This is the content of the announcment </p>
-                        </li>
-                        <li class="announce">
-                            <span>March 15, 2021</span> 
-                            <h3> Test announcment </h3>
-                            <p> This is the content of the announcment </p>
-                        </li>
-                        <li class="announce">
-                            <span>March 16, 2021</span> 
-                            <h3> Test announcment </h3>
-                            <p> This is the content of the announcment </p>
-                        </li>
+                            <% @announcements.each do |announcement| %>
+                                <li class="announce">
+                                    <span><%= announcement.announceDate %></span>
+                                    <h3 style="text-align:left;">
+                                        <%= announcement.header %>
+                                    <span style="float:right;">
+                                        <%= link_to('×', url_for(controller: :announcements, action: :delete, id: announcement.id), :confirm =>  "Are you sure?")%>
+                                    </span>
+                                    </h3> 
+                                    <p><%= announcement.content %></p>
+                                </li>
+                            <%end%>
                     </ul>
                 </div>
+
                 <div class="felx-child calendar"><iframe src="https://calendar.google.com/calendar/embed?src=tcoutreach%40aggienetwork.com&ctz=America%2FChicago" style="border: 0" width="800" height="680" frameborder="0" scrolling="no"></iframe></div>
 
             </div>
