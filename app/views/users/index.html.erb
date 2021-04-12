@@ -78,7 +78,7 @@
                           </div>
                       </div>
                   <%else%>
-                      <%= link_to('Edit', url_for(controller: :users, action: :edit, id: user.id))%>
+                      <%= button_to "Edit", edit_user_path(user.id), :class => 'actions edit', :method => :get %>
                   <%end%>
                 </td>
               </tr> 
