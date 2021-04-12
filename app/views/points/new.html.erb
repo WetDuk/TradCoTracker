@@ -46,6 +46,17 @@
                 </div>
             </div>
 
+            <button class="tutbtn" id="tutbtn" onclick = "expand()"> Help </button>
+            <div class="tutorial" id="tutorial">
+                <div class="expand" id="expand">
+                    <h3>Adding points</h3>
+                    <p>This is where you can add new points to your account.</p>
+                    <Once>All you have to do is fill in the form with the event title, specify the type, the number of points, and the event date. 
+                    Once you click "Add Points" they will show up in your "My Points" tab.</p>
+                    <div align="right"><button class="tutclose" id="tutclose" onclick = "colapse()"> Close </button></div>
+                </div>
+            </div>
+
             <!-- JS is being omega dum >:( !!! Very angry!!! Rails is stupid! I hate this! JS doesn't seem to really work with rails so I had to make a little snippet in html-->
             <script>
                 /* Open menu */
@@ -57,6 +68,23 @@
                 function closeNav() {
                     document.getElementById("mySidebar").style.width = "0";
                     document.getElementById("main").style.marginLeft= "0";
+                }
+
+                /* Open tutorial */
+                function expand() {
+                    document.getElementById("tutbtn").style.display='none';
+                    document.getElementById("tutorial").style.width = "255px";
+                    document.getElementById("tutorial").style.height = "255px";
+                    document.getElementById("tutorial").style.border = "5px solid grey";
+                    document.getElementById("expand").style.display="block";
+                }
+                /* Close tutorial */
+                function colapse() {
+                    document.getElementById("tutbtn").style.display="block";
+                    document.getElementById("tutorial").style.width = "0";
+                    document.getElementById("tutorial").style.height = "0";
+                    document.getElementById("tutorial").style.border = "none";
+                    document.getElementById("expand").style.display="none";
                 }
             </script>
         </body>
