@@ -41,3 +41,4 @@ AllCops:
     - ".git/**/*"
     - "bin/bundle"
     - "node_modules/**/*"
+    - "Gemfile"
