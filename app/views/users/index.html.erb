@@ -68,6 +68,17 @@
       </div>
     </div>
 
+    <button class="tutbtn" id="tutbtn" onclick = "expand()"> Help </button>
+    <div class="tutorial" id="tutorial">
+        <div class="expand" id="expand">
+            <h3>User Search</h3>
+            <p>This is where you can search for specific users by their email.
+            Here you're able to see their first and last name, email and their points.</p>
+            <p>If you'd like use a more advanced search, click on the advanced search button.</p>
+            <div align="right"><button class="tutclose" id="tutclose" onclick = "colapse()"> Close </button></div>
+        </div>
+    </div>
+
 
     <script>
     /* Open menu */
@@ -80,6 +91,23 @@
     document.getElementById("mySidebar").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
     }
+
+    /* Open tutorial */
+      function expand() {
+          document.getElementById("tutbtn").style.display='none';
+          document.getElementById("tutorial").style.width = "255px";
+          document.getElementById("tutorial").style.height = "255px";
+          document.getElementById("tutorial").style.border = "5px solid grey";
+          document.getElementById("expand").style.display="block";
+      }
+      /* Close tutorial */
+      function colapse() {
+          document.getElementById("tutbtn").style.display="block";
+          document.getElementById("tutorial").style.width = "0";
+          document.getElementById("tutorial").style.height = "0";
+          document.getElementById("tutorial").style.border = "none";
+          document.getElementById("expand").style.display="none";
+      }
     </script>
   </body>
 </html>

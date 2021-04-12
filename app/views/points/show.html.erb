@@ -54,7 +54,17 @@
                                 <td><%= point.submissionDate %></td>
                                 <td>
                                     <%# <%= link_to('Edit', url_for(controller: :points, action: :edit_show, id: point.id))%>
-                                    <%= link_to('Delete', url_for(controller: :points, action: :delete_show, id: point.id), :confirm =>  "Are you sure?")%>
+                                    <button class="delete" id="delete" onclick="notice(<%= "\"" + point.id.to_s + "\"" %>)"> Delete </button>
+                                    <div class="notice" id="<%= point.id.to_s %>">
+                                        <div class="dim"></div>
+                                        <div class="center">
+                                            <h1>Warning!</h1>
+                                            <p>Are you sure you want to delete the user <b>"<%= point.eventName %>"</b> from the database? All their data will be lost.</p> 
+                                            <% @temp = "cancelNotice(\"" + point.id.to_s + "\")"%>
+                                            <%= link_to('Confirm', url_for(controller: :points, action: :delete_show, id: point.id), onclick: @temp)%>
+                                            <button class="close" id="close" onclick="cancelNotice(<%= "\"" + point.id.to_s + "\""  %>)"> Close </button>
+                                        </div>
+                                    </div>
                                 </td>
                               </tr>
                             <% end %>
@@ -85,6 +95,17 @@
                 </div>
             </div>
 
+            <button class="tutbtn" id="tutbtn" onclick = "expand()"> Help </button>
+            <div class="tutorial" id="tutorial">
+                
+                <div class="expand" id="expand">
+                    <h3>Your points</h3>
+                    <p>This is where you can see all of the points you have. You'll be able to see the total points you've accumulated so far as well.</p>
+                    <p>If you'd like to add points to your account, go to the "Submit Points" tab in the menu.</p>
+                    <div align="right"><button class="tutclose" id="tutclose" onclick = "colapse()"> Close </button></div>
+                </div>
+            </div>
+
             <!-- JS is being omega dum >:( !!! Very angry!!! Rails is stupid! I hate this! JS doesn't seem to really work with rails so I had to make a little snippet in html-->
             <script>
                 /* Open menu */
@@ -96,6 +117,31 @@
                 function closeNav() {
                     document.getElementById("mySidebar").style.width = "0";
                     document.getElementById("main").style.marginLeft= "0";
+                }
+
+                /* Open tutorial */
+                function expand() {
+                    document.getElementById("tutbtn").style.display='none';
+                    document.getElementById("tutorial").style.width = "255px";
+                    document.getElementById("tutorial").style.height = "255px";
+                    document.getElementById("tutorial").style.border = "5px solid grey";
+                    document.getElementById("expand").style.display="block";
+                }
+                /* Close tutorial */
+                function colapse() {
+                    document.getElementById("tutbtn").style.display="block";
+                    document.getElementById("tutorial").style.width = "0";
+                    document.getElementById("tutorial").style.height = "0";
+                    document.getElementById("tutorial").style.border = "none";
+                    document.getElementById("expand").style.display="none";
+                }
+
+                /* Delete notice */
+                function notice(a) {
+                    document.getElementById(a).style.display="block";
+                }
+                function cancelNotice(a) {
+                    document.getElementById(a).style.display="none";
                 }
             </script>
         </body>

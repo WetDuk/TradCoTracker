@@ -64,7 +64,17 @@
                                 <td> <%= @speaking_sum %> </td>
                                 <td class="actions">
                                     <%if user.id != session[:user_id]%>
-                                        <%= link_to('Delete', url_for(controller: :users, action: :delete, id: user.id), :confirm =>  "Are you sure?")%>
+                                        <button class="delete" id="delete" onclick="notice(<%= "\"" + user.email + "\"" %>)"> Delete </button>
+                                        <div class="notice" id="<%= user.email %>">
+                                            <div class="dim"></div>
+                                            <div class="center">
+                                                <h1>Warning!</h1>
+                                                <p>Are you sure you want to delete the user <b>"<%= user.email %>"</b> from the database? All their data will be lost.</p> 
+                                                <% @temp = "cancelNotice(\"" + user.email + "\")"%>
+                                                <%= link_to('Confirm', url_for(controller: :users, action: :delete, id: user.id), onclick: @temp)%>
+                                                <button class="close" id="close" onclick="cancelNotice(<%= "\"" + user.email + "\""  %>)"> Close </button>
+                                            </div>
+                                        </div>
                                     <%else%>
                                         <%= link_to('Edit', url_for(controller: :users, action: :edit, id: user.id))%>
                                     <%end%>
@@ -73,6 +83,16 @@
                         <% end %>
                     </table>
                 </div>
+            </div>
+        </div>
+
+        <button class="tutbtn" id="tutbtn" onclick = "expand()"> Help </button>
+        <div class="tutorial" id="tutorial">
+            <div class="expand" id="expand">
+                <h3>All Points</h3>
+                <p>This is where you can see all users currently on the website. From here, you are able to delete or edit any of the accounts listed.</p>
+                <p>To download this list into an excel file, just click "Export to CSV"</p>
+                <div align="right"><button class="tutclose" id="tutclose" onclick = "colapse()"> Close </button></div>
             </div>
         </div>
         <!-- JS is being omega dum >:( !!! Very angry!!! Rails is stupid! I hate this! JS doesn't seem to really work with rails so I had to make a little snippet in html-->
@@ -86,6 +106,31 @@
             function closeNav() {
                 document.getElementById("mySidebar").style.width = "0";
                 document.getElementById("main").style.marginLeft= "0";
+            }
+
+            /* Open tutorial */
+            function expand() {
+                document.getElementById("tutbtn").style.display='none';
+                document.getElementById("tutorial").style.width = "255px";
+                document.getElementById("tutorial").style.height = "255px";
+                document.getElementById("tutorial").style.border = "5px solid grey";
+                document.getElementById("expand").style.display="block";
+            }
+            /* Close tutorial */
+            function colapse() {
+                document.getElementById("tutbtn").style.display="block";
+                document.getElementById("tutorial").style.width = "0";
+                document.getElementById("tutorial").style.height = "0";
+                document.getElementById("tutorial").style.border = "none";
+                document.getElementById("expand").style.display="none";
+            }
+
+            /* Delete notice */
+            function notice(a) {
+                document.getElementById(a).style.display="block";
+            }
+            function cancelNotice(a) {
+                document.getElementById(a).style.display="none";
             }
         </script>
     </body>
