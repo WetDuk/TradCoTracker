@@ -7,15 +7,6 @@ class GroupsController < ApplicationController
     @point = Point.new
   end
 
-  def create
-    # Instantiate a new object using form parameters
-    # @id = session[:user_id]
-    # @user = User.find(@id)
-    @userstring = point_params[:userID]
-    @userarray = @userstring.split(',')
-    @userarray.each do |i|
-      @point = Point.new(point_params)
-      next unless User.find_by email: !i.nil?
 
     def create
         @test = 0
@@ -33,10 +24,6 @@ class GroupsController < ApplicationController
                 if(@point.save)
                    @test=1
                 else
-            #else
-            # If save fails, redisplay the form so user can fix problems
-            # render('new')
-              #  logger.debug "test #{i}}"
                 end
             end
         end
@@ -45,8 +32,6 @@ class GroupsController < ApplicationController
         redirect_to(portal_view_members_path)
         end
     end
-    redirect_to(portal_view_members_path)
-  end
 
   private
 
