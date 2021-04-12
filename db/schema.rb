@@ -30,14 +30,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_053901) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "calendars", force: :cascade do |t|
-    t.date "eventDate"
-    t.string "eventName"
-    t.boolean "required"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "points", force: :cascade do |t|
     t.string "eventName"
     t.string "eventType"
@@ -63,7 +55,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_053901) do
     t.decimal "max_points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "event"
   end
 
   create_table "speakings", force: :cascade do |t|

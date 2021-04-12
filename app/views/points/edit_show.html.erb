@@ -12,9 +12,9 @@
                 <%= link_to "My Points", point_path(session[:user_id]) %>
                 <%= link_to "Submit Points", new_point_path %>
 
-
                 <!-- Only officers can see these -->
                 <% if(@current_user.isOfficer) %>
+                    <%= link_to "Multiple Submit", new_group_path%>
                     <%= link_to "View All Points", points_path %>
                     <%= link_to "View All Users", portal_view_members_path %>
                     <%= link_to "Search Users", users_path%>
