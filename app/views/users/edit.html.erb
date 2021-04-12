@@ -31,7 +31,7 @@
                     </tr>
                 </table>
 
-                <div class="center">
+                <div class="center_edit">
 
                     <h2>Edit User</h2>
 
@@ -41,30 +41,30 @@
                         <table>
                             <tr> <!-- Maybe make this a drop down? -->
                                 <td> 
+                                    First Name: 
+                                </td> 
+                                <td>
+                                    <%= form.text_field :firstName %> 
+                                </td>
+                            </tr> 
+                            <tr></tr>
+                            <tr> <!-- Maybe make this a drop down? -->
+                                    <td> 
+                                        Last Name: 
+                                    </td> 
+                                    <td>
+                                        <%= form.text_field :lastName %> 
+                                    </td>
+                            </tr> 
+                            <tr></tr>
+                            <tr> <!-- Maybe make this a drop down? -->
+                                <td> 
                                     Email: 
                                 </td> 
                                 <td>
                                     <%= form.text_field :email %> 
                                 </td>
                             </tr> 
-                            <tr></tr>
-                            <tr>
-                                <td> 
-                                    First Name: 
-                                </td> 
-                                <td>
-                                    <%= form.text_field :firstName %>
-                                </td>
-                            </tr>
-                            <tr></tr>
-                            <tr>
-                                <td> 
-                                    Last Name: 
-                                </td> 
-                                <td>
-                                    <%= form.text_field :lastName %>
-                                </td>
-                            </tr>
                             <tr></tr>
                             <tr>
                                 <td> 
