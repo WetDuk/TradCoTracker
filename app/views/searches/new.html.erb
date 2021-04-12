@@ -55,7 +55,20 @@
 
   <p><%= link_to "back", users_path%></p>
   </div>
+  
   </div>
+   <button class="tutbtn" id="tutbtn" onclick = "expand()"> Help </button>
+    <div class="tutorial" id="tutorial">
+        <div class="expand" id="expand">
+            <h3>Advanced Search</h3>
+            <p>This is where you can fine tune your search by name, email, or points.
+            All the fields are optional so you can decide which way to filter the search.</p>
+
+            <p>The results will show the full name, email, business points, as well as speaking points
+
+            <div align="right"><button class="tutclose" id="tutclose" onclick = "colapse()"> Close </button></div>
+        </div>
+    </div>
    <script>
     /* Open menu */
     function openNav() {
