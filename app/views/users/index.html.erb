@@ -50,6 +50,7 @@
                 <th>Email</th>
                 <th>Total Business</th>
                 <th>Total Speaking</th>
+                <th>Actions </th>
               </tr>
             </thead>
 
@@ -63,6 +64,23 @@
                 <td><%= user.email %></td>
                 <td><%= @business_sum%></td>
                 <td><%= @speaking_sum%></td>
+                <td class="actions">
+                  <%if user.id != session[:user_id]%>
+                      <button class="delete" id="delete" onclick="notice(<%= "\"" + user.email + "\"" %>)"> Delete </button>
+                      <div class="notice" id="<%= user.email %>">
+                          <div class="dim"></div>
+                          <div class="center">
+                              <h1>Warning!</h1>
+                              <p>Are you sure you want to delete the user <b>"<%= user.email %>"</b> from the database? All their data will be lost.</p> 
+                              <% @temp = "cancelNotice(\"" + user.email + "\")"%>
+                              <%= link_to('Confirm', url_for(controller: :users, action: :delete, id: user.id), onclick: @temp)%>
+                              <button class="close" id="close" onclick="cancelNotice(<%= "\"" + user.email + "\""  %>)"> Close </button>
+                          </div>
+                      </div>
+                  <%else%>
+                      <%= button_to "Edit", edit_user_path(user.id), :class => 'actions edit', :method => :get %>
+                  <%end%>
+                </td>
               </tr> 
               <%end%>
             <tbody>

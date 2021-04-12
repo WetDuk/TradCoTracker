@@ -2,22 +2,30 @@
     <%= stylesheet_link_tag "stylesHome.css" %>
 
         <!-- Nav bar -->
-        <div id="mySidebar" class="sidebar">
-            <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <%= link_to "Home", portal_home_path, class: "nav_active" %>
-            <%= link_to "My Points", point_path(session[:user_id]) %>
-            <%= link_to "Submit Points", new_point_path %>
+  <div id="mySidebar" class="sidebar">
+      <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <%= link_to "Home", portal_home_path, class: "nav_active" %>
+      <%= link_to "My Points", point_path(session[:user_id]) %>
+      <%= link_to "Submit Points", new_point_path %>
 
-            <!-- Only officers can see these -->
-            <% if(@current_user.isOfficer) %>
-                <%= link_to "Search Users", users_path%>
-                <%= link_to "View All Points", points_path %>
-                <%= link_to "View All Users", portal_view_members_path %>
-                <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
-            <% end %>
-        </div>
-
+      <!-- Only officers can see these -->
+      <% if(@current_user.isOfficer) %>
+          <%= link_to "Search Users", users_path%>
+          <%= link_to "View All Points", points_path %>
+          <%= link_to "View All Users", portal_view_members_path %>
+          <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
+      <% end %>
+  </div>
+<div id="main">
 <body class="background">
+
+      <table>
+      <tr>
+      <td><button class = "openbtn button" onclick = "openNav()"> ☰ Menu </button></td>
+      <td><div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div></td>
+      </tr>
+      </table>
+
 <div class="points_area">
 <h1>Advanced Search</h1>
 
@@ -47,5 +55,48 @@
 
   <p><%= link_to "back", users_path%></p>
   </div>
+  
+  </div>
+   <button class="tutbtn" id="tutbtn" onclick = "expand()"> Help </button>
+    <div class="tutorial" id="tutorial">
+        <div class="expand" id="expand">
+            <h3>Advanced Search</h3>
+            <p>This is where you can fine tune your search by name, email, or points.
+            All the fields are optional so you can decide which way to filter the search.</p>
+
+            <p>The results will show the full name, email, business points, as well as speaking points
+
+            <div align="right"><button class="tutclose" id="tutclose" onclick = "colapse()"> Close </button></div>
+        </div>
+    </div>
+   <script>
+    /* Open menu */
+    function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    }
+    /* Close menu */
+    function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    }
+
+    /* Open tutorial */
+      function expand() {
+          document.getElementById("tutbtn").style.display='none';
+          document.getElementById("tutorial").style.width = "255px";
+          document.getElementById("tutorial").style.height = "255px";
+          document.getElementById("tutorial").style.border = "5px solid grey";
+          document.getElementById("expand").style.display="block";
+      }
+      /* Close tutorial */
+      function colapse() {
+          document.getElementById("tutbtn").style.display="block";
+          document.getElementById("tutorial").style.width = "0";
+          document.getElementById("tutorial").style.height = "0";
+          document.getElementById("tutorial").style.border = "none";
+          document.getElementById("expand").style.display="none";
+      }
+    </script>
   </body>
   </html>
