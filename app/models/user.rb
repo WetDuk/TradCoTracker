@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   has_secure_password
   def self.to_csv
-    attributes = %w[Name Email Officer Speaking Business]
+    attributes = %w[Name Email Officer Business Speaking]
     CSV.generate(headers: true) do |csv|
       csv << attributes
 

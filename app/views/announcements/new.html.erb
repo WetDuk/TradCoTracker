@@ -14,9 +14,10 @@
 
                 <!-- Only officers can see these -->
                 <% if(@current_user.isOfficer) %>
-                    <%= link_to "Search Users", users_path%>
-                    <%= link_to "View All Points", points_path %>
-                    <%= link_to "View All Users", portal_view_members_path %>
+                <%= link_to "View All Points", points_path %>
+                <%= link_to "View All Users", portal_view_members_path %>
+                <%= link_to "Search Users", users_path%>
+                <%= link_to "Announcement", new_announcement_path%>
                     <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
                 <% end %>
             </div>
@@ -31,54 +32,43 @@
                     </tr>
                 </table>
 
-                <div class="center" id="edit">
+                <div class="center" id="announcement">
 
-                    <h2>Edit User</h2>
+                    <h2>Add points</h2>
 
- 
-                    <%= form_for (@user) do |form| %>
+                    <%= form_for(@announcement) do |f| %>
 
-                        <table>
-                            <tr> <!-- Maybe make this a drop down? -->
-                                <td> 
-                                    First Name: 
-                                </td> 
-                                <td>
-                                    <%= form.text_field :firstName %> 
-                                </td>
-                            </tr> 
-                            <tr></tr>
-                            <tr> <!-- Maybe make this a drop down? -->
-                                    <td> 
-                                        Last Name: 
-                                    </td> 
-                                    <td>
-                                        <%= form.text_field :lastName %> 
-                                    </td>
-                            </tr> 
-                            <tr></tr>
-                            <tr> <!-- Maybe make this a drop down? -->
-                                <td> 
-                                    Email: 
-                                </td> 
-                                <td>
-                                    <%= form.text_field :email %> 
-                                </td>
-                            </tr> 
-                            <tr></tr>
-                            <tr>
-                                <td> 
-                                    Officer: 
-                                </td>
-                                <td>
-                                    <%= form.check_box :isOfficer %> 
-                                </td>
-                            </tr>
+                    <table summary="Announcement form fields">
+                    <tr>
+                        <td> 
+                            Header:
+                        </td> 
+                        <td>
+                            <%= f.text_field(:header) %>
+                        </td>
+                    </tr> 
+                    <tr></tr><tr>
+                        <td> 
+                            Content:
+                        </td> 
+                        <td>
+                           <%= f.text_field(:content) %> 
+                        </td>
+                    </tr> 
+                    <tr></tr><tr>
+                        <td> 
+                            Date:
+                        </td> 
+                        <td>
+                            <%= f.date_field(:announceDate) %>
+                        </td>
+                    </tr> 
+                    <tr></tr>
                         </table>
-
-                        <center><%= form.submit "Update Account" , class: "button2" %></center>
+                        <center><%= f.submit("Add Announcement" , class: "button2", id: "long") %></center>
 
                     <% end %>
+
                 </div>
             </div>
 
