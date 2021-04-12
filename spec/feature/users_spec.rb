@@ -209,6 +209,9 @@ end
 #   end
 # end
 
+
+
+
 # Deleting user
 RSpec.describe 'Deletinging users', type: :feature do
   scenario 'with an officer account' do
