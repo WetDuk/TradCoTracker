@@ -64,7 +64,6 @@
                                 <td> <%= @speaking_sum %> </td>
                                 <td>
                                     <%if user.id != session[:user_id]%>
-                                        <%= button_to "Edit", edit_index_point_path(user.id), :class => 'actions edit', :method => :get %>
                                         <button class="actions delete" id="delete" onclick="notice(<%= "\"" + user.email + "\"" %>)"> Delete </button>
                                         <div class="notice" id="<%= user.email %>">
                                             <div class="dim"></div>
