@@ -10,9 +10,9 @@ class PointsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv{ 
+      format.csv  do
         send_data @points.to_csv
-      }
+      end
     end
   end
 

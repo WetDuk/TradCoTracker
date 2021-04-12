@@ -20,6 +20,9 @@ Metrics/BlockLength:
 Metrics/AbcSize:
   Max: 20
 
+Metrics/MethodLength:
+  Max: 50
+
 AllCops:
   Exclude:
     - "db/**/*"
@@ -33,3 +36,4 @@ AllCops:
     - ".git/**/*"
     - "bin/bundle"
     - "node_modules/**/*"
+    - "spec/*/"

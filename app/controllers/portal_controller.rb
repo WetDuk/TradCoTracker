@@ -12,9 +12,9 @@ class PortalController < ApplicationController
     @current_user = User.find_by(id: session[:user_id])
     respond_to do |format|
       format.html
-      format.csv{ 
+      format.csv  do
         send_data @users.to_csv
-      }
+      end
     end
   end
 
