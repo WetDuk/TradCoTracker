@@ -14,10 +14,11 @@
 
                 <!-- Only officers can see these -->
                 <% if(@current_user.isOfficer) %>
-                <%= link_to "View All Points", points_path %>
-                <%= link_to "View All Users", portal_view_members_path %>
-                <%= link_to "Search Users", users_path%>
-                <%= link_to "Announcement", new_announcement_path%>
+                    <%= link_to "Multiple Submit", new_group_path%>
+                    <%= link_to "Search Users", users_path%>
+                    <%= link_to "View All Points", points_path %>
+                    <%= link_to "View All Users", portal_view_members_path %>
+                    <%= link_to "Announcement", new_announcement_path%>
                 <% end %>
             </div>
 
