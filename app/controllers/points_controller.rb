@@ -7,6 +7,13 @@ class PointsController < ApplicationController
     redirect_to(point_path(session[:user_id])) unless @user.isOfficer
     @points = Point.order('id ASC')
     @current_user = User.find_by(id: session[:user_id])
+
+    respond_to do |format|
+      format.html
+      format.csv  do
+        send_data @points.to_csv
+      end
+    end
   end
 
   def show
