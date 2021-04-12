@@ -14,11 +14,10 @@
 
                 <!-- Only officers can see these -->
                 <% if(@current_user.isOfficer) %>
-                    <%= link_to "View All Points", points_path %>
-                    <%= link_to "View All Users", portal_view_members_path %>
-                    <%= link_to "Search Users", users_path%>
-                    <%= link_to "Announcement", new_announcement_path%>
-                    <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
+                <%= link_to "View All Points", points_path %>
+                <%= link_to "View All Users", portal_view_members_path %>
+                <%= link_to "Search Users", users_path%>
+                <%= link_to "Announcement", new_announcement_path%>
                 <% end %>
             </div>
 
@@ -53,8 +52,8 @@
                                 <td><%= point.pointAmount %></td>
                                 <td><%= point.submissionDate %></td>
                                 <td>
-                                    <button class="show" id="show" onclick="comment(<%= "\"" + point.id.to_s + "\"" %>)">Show</button>
-                                    <div class="notice" id="<%= point.id.to_s %>">
+                                    <button class="actions show" id="show" onclick="comment(<%= "\"" + point.id.to_s + "\"" %>)">Show</button>
+                                    <div class="notice" id="show<%= point.id.to_s %>">
                                         <div class="dim"></div>
                                         <div class="center">
                                             <p><%= point.comments %></p> 
@@ -62,16 +61,20 @@
                                             <button class="close" id="close" onclick="cancelComment(<%= "\"" + point.id.to_s + "\""  %>)">Close</button>
                                         </div>
                                     </div>
-                                    <%= link_to('Edit', url_for(controller: :points, action: :edit_show, id: point.id))%>
-                                    <button class="delete" id="delete" onclick="notice(<%= "\"" + point.id.to_s + "\"" %>)"> Delete </button>
+                                    <%= button_to "Edit", edit_index_point_path(point.id), :class => 'actions edit', :method => :get %>
+                                    <button class="actions delete" id="delete" onclick="notice(<%= "\"" + point.id.to_s + "\"" %>)"> Delete </button>
                                     <div class="notice" id="<%= point.id.to_s %>">
                                         <div class="dim"></div>
                                         <div class="center">
                                             <h1>Warning!</h1>
-                                            <p>Are you sure you want to delete the user <b>"<%= point.eventName %>"</b> from the database? All their data will be lost.</p> 
+                                            <p>Are you sure you want to delete the point <b>"<%= point.eventName %>"</b> from the database? All their data will be lost.</p> 
                                             <% @temp = "cancelNotice(\"" + point.id.to_s + "\")"%>
-                                            <%= link_to('Confirm', url_for(controller: :points, action: :delete_show, id: point.id), onclick: @temp)%>
-                                            <button class="close" id="close" onclick="cancelNotice(<%= "\"" + point.id.to_s + "\""  %>)"> Close </button>
+                                            <table>
+                                                <tr>
+                                                    <td><div align="right"><%= button_to "Confirm", delete_show_point_path(point.id), :class => 'close', :method => :get %></div></td>
+                                                    <td><button class="close" id="close" onclick="cancelNotice(<%= "\"" + point.id.to_s + "\""  %>)"> Close </button></td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
                                 </td>
@@ -153,10 +156,10 @@
                     document.getElementById(a).style.display="none";
                 }
                 function comment(a) {
-                    document.getElementById(a).style.display="block";
+                    document.getElementById("show"+a).style.display="block";
                 }
                 function cancelComment(a) {
-                    document.getElementById(a).style.display="none";
+                    document.getElementById("show"+a).style.display="none";
                 }
             </script>
         </body>
