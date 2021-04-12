@@ -70,7 +70,7 @@ RSpec.describe 'Creating a user with', type: :feature do
     fill_in 'user_email', with: 'test@gmail.com'
     fill_in 'user_password_confirmation', with: 'test'
     click_on 'Create Account'
-    # Once the user is created, if there is an error the page will reset. So we are checking if the page was reset
+    # Once the user is created, if there is an error the page will reset.
     expect(page).to have_content('Sign up')
   end
 
@@ -82,7 +82,7 @@ RSpec.describe 'Creating a user with', type: :feature do
     fill_in 'user_email', with: 'test@gmail.com'
     fill_in 'user_password', with: 'test'
     click_on 'Create Account'
-    # Once the user is created, if there is an error the page will reset. So we are checking if the page was reset
+    # Once the user is created, if there is an error the page will reset.
     expect(page).to have_content('Sign up')
   end
 end
