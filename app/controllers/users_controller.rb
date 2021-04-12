@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     @current_user = User.find_by(id: session[:user_id])
 
     @user = User.find(params[:id])
-    if @user.update(params.require(:user).permit(:email, :isOfficer))
+    if @user.update(user_params)
       redirect_to(portal_view_members_path)
     else
       render('edit')

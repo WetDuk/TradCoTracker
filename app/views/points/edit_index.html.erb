@@ -12,10 +12,9 @@
                 <%= link_to "My Points", point_path(session[:user_id]) %>
                 <%= link_to "Submit Points", new_point_path %>
 
-
                 <!-- Only officers can see these -->
                 <% if(@current_user.isOfficer) %>
-                     <%= link_to "Search Users", users_path%>
+                    <%= link_to "Search Users", users_path%>
                     <%= link_to "View All Points", points_path %>
                     <%= link_to "View All Users", portal_view_members_path %>
                     <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
@@ -36,51 +35,13 @@
 
                     <h2>Add points</h2>
 
-                    <%= form_for(@point, :url => point_path(@point), :controller => 'post') do |f| %>
+                    <%= form_for(@point, :url => url_for(controller: :points, action: :update_index, id: @point.id), :method => 'post') do |f| %>
 
-                    <table>
-                        <tr>
-                            <td> 
-                                Event: 
-                            </td> 
-                            <td>
-                                <%= f.text_field(:eventName) %> 
-                            </td>
-                        </tr> 
-                        <tr></tr>
-                        <tr>
-                            <td> 
-                                Type: 
-                            </td> 
-                            <td>
-                                <%= f.select :eventType , [["Business","Business"],["Speaking","Speaking"]] %> 
-                            </td>
-                        </tr>
-                        <tr></tr>
-                        <tr>
-                            <td> 
-                                Points: 
-                            </td>
-                            <td>
-                                <%= f.number_field :pointAmount %> 
-                            </td>
-                        </tr>
-                        <tr></tr>
-                        <tr>
-                            <td> 
-                                Date: 
-                            </td>
-                            <td>
-                                <%= f.date_field :submissionDate %> 
-                            </td>
-                        </tr>
-                        <tr></tr>
-                    </table>
+                        <%= render(:partial => 'form', :locals => {:f => f}) %>
 
                     <center><%= f.submit "Update Points" , class: "button2" %></center>
 
                     <% end %>
-
                 </div>
             </div>
 
