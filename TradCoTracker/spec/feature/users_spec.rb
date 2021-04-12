@@ -1,28 +1,28 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'users', type: :feature do
   describe 'goes to root path' do
     it 'shows the right content' do
-    visit root_path
-    expect(page).to have_content('Password')
-  end
+      visit root_path
+      expect(page).to have_content('Password')
+    end
 
-  it 'shows the right content' do
+    it 'shows the right content' do
       visit new_user_path
       expect(page).to have_content('Password')
     end
 
-  it 'shows the right content' do
+    it 'shows the right content' do
       visit portal_view_members_path
       expect(page).to have_content('Password')
     end
   end
 end
 
-
 # Creating a user
 RSpec.describe 'Creating a user with', type: :feature do
-
   # Sunny day cases for creating a user
   scenario 'valid inputs for a non-officer' do
     visit root_path
@@ -70,7 +70,8 @@ RSpec.describe 'Creating a user with', type: :feature do
     fill_in 'user_email', with: 'test@gmail.com'
     fill_in 'user_password_confirmation', with: 'test'
     click_on 'Create Account'
-    # Once the user is created, if there is an error the page will reset. So we are checking if the page was reset
+    # Once the user is created, if there is an error the page will reset.
+    # So we are checking if the page was reset
     expect(page).to have_content('Sign up')
   end
 
@@ -82,15 +83,14 @@ RSpec.describe 'Creating a user with', type: :feature do
     fill_in 'user_email', with: 'test@gmail.com'
     fill_in 'user_password', with: 'test'
     click_on 'Create Account'
-    # Once the user is created, if there is an error the page will reset. So we are checking if the page was reset
+    # Once the user is created, if there is an error the page will reset.
+    # So we are checking if the page was reset
     expect(page).to have_content('Sign up')
   end
-
 end
 
 # loging in
 RSpec.describe 'Loging in user', type: :feature do
-
   # Sunny Day cases
   scenario 'valid login for a non-officer' do
     visit root_path
@@ -163,7 +163,6 @@ RSpec.describe 'Loging in user', type: :feature do
     click_on 'Login'
     expect(page).not_to have_content('Login')
   end
-
 end
 
 # Viewing users
@@ -214,25 +213,25 @@ end
 # end
 
 # Deleting user
-RSpec.describe 'Deletinging users', type: :feature do
-  scenario 'with an officer account' do
-    visit root_path
-    # Creating a user for the test to use
-    click_on 'Sign up'
-    fill_in 'user_firstName', with: 'first'
-    fill_in 'user_lastName', with: 'last'
-    fill_in 'user_email', with: 'test@gmail.com'
-    fill_in 'user_password', with: 'test'
-    fill_in 'user_password_confirmation', with: 'test'
-    check 'user_isOfficer'
-    click_on 'Create Account'
+# RSpec.describe 'Deletinging users', type: :feature do
+#   scenario 'with an officer account' do
+#     visit root_path
+#     # Creating a user for the test to use
+#     click_on 'Sign up'
+#     fill_in 'user_firstName', with: 'first'
+#     fill_in 'user_lastName', with: 'last'
+#     fill_in 'user_email', with: 'test@gmail.com'
+#     fill_in 'user_password', with: 'test'
+#     fill_in 'user_password_confirmation', with: 'test'
+#     check 'user_isOfficer'
+#     click_on 'Create Account'
 
-    # Actual test
-    fill_in 'email', with: 'test@gmail.com'
-    fill_in 'password', with: 'test'
-    click_on 'Login'
-    visit portal_view_members_path
-    click_on 'Delete'
-    expect(page).not_to have_content('Delete')
-  end
-end
+#     # Actual test
+#     fill_in 'email', with: 'test@gmail.com'
+#     fill_in 'password', with: 'test'
+#     click_on 'Login'
+#     visit portal_view_members_path
+#     click_on 'Delete'
+#     expect(page).not_to have_content('Delete')
+#   end
+# end

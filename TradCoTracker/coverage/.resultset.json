@@ -1,8 +1,10 @@
 {
   "RSpec": {
     "coverage": {
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/spec/feature/points_spec.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/spec/feature/points_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           null,
@@ -90,7 +92,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/spec/rails_helper.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/spec/rails_helper.rb": {
         "lines": [
           null,
           null,
@@ -162,7 +164,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/environment.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/environment.rb": {
         "lines": [
           null,
           null,
@@ -173,7 +175,7 @@
           1
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/application.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/application.rb": {
         "lines": [
           null,
           null,
@@ -201,7 +203,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/boot.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/boot.rb": {
         "lines": [
           null,
           null,
@@ -211,7 +213,7 @@
           1
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/environments/test.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/environments/test.rb": {
         "lines": [
           null,
           null,
@@ -276,7 +278,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/initializers/application_controller_renderer.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/initializers/application_controller_renderer.rb": {
         "lines": [
           null,
           null,
@@ -289,7 +291,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/initializers/assets.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -309,7 +311,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/initializers/backtrace_silencers.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -323,7 +325,7 @@
           1
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/initializers/content_security_policy.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -358,7 +360,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/initializers/cookies_serializer.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/initializers/cookies_serializer.rb": {
         "lines": [
           null,
           null,
@@ -369,7 +371,7 @@
           1
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/initializers/filter_parameter_logging.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -381,7 +383,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/initializers/inflections.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -402,7 +404,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/initializers/mime_types.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -411,7 +413,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/initializers/permissions_policy.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -427,7 +429,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/initializers/wrap_parameters.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -447,7 +449,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/config/routes.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/config/routes.rb": {
         "lines": [
           null,
           null,
@@ -496,7 +498,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/helpers/application_helper.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -504,7 +506,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/helpers/events_helper.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/helpers/events_helper.rb": {
         "lines": [
           null,
           null,
@@ -512,7 +514,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/helpers/point_helper.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/helpers/point_helper.rb": {
         "lines": [
           null,
           null,
@@ -520,7 +522,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/helpers/points_helper.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/helpers/points_helper.rb": {
         "lines": [
           null,
           null,
@@ -528,7 +530,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/helpers/portal_helper.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/helpers/portal_helper.rb": {
         "lines": [
           null,
           null,
@@ -536,7 +538,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/helpers/posts_helper.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/helpers/posts_helper.rb": {
         "lines": [
           null,
           null,
@@ -544,7 +546,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/helpers/searches_helper.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/helpers/searches_helper.rb": {
         "lines": [
           null,
           null,
@@ -552,7 +554,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/helpers/users_helper.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/helpers/users_helper.rb": {
         "lines": [
           null,
           null,
@@ -560,8 +562,10 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/spec/feature/users_spec.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/spec/feature/users_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -584,10 +588,8 @@
           null,
           null,
           null,
-          null,
           1,
           null,
-          null,
           1,
           1,
           1,
@@ -634,6 +636,7 @@
           1,
           1,
           1,
+          null,
           null,
           1,
           null,
@@ -647,15 +650,14 @@
           1,
           1,
           null,
-          1,
           null,
+          1,
           null,
           null,
           null,
           null,
           1,
           null,
-          null,
           1,
           1,
           null,
@@ -730,7 +732,6 @@
           null,
           null,
           null,
-          null,
           1,
           1,
           1,
@@ -778,31 +779,31 @@
           null,
           null,
           null,
-          1,
-          1,
-          1,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
           null,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/controllers/portal_controller.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/controllers/portal_controller.rb": {
         "lines": [
           null,
           null,
@@ -810,113 +811,111 @@
           1,
           null,
           1,
-          7,
+          6,
           null,
           null,
           1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          9,
+          null,
+          9,
+          6,
+          6,
+          6,
+          null,
           3,
-          3,
           null,
           null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/controllers/application_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
           1,
           null,
           null,
           1,
+          20,
+          19,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          20,
+          null,
+          null,
+          1,
+          20,
+          null,
+          null,
+          1
+        ]
+      },
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/controllers/users_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          15,
+          null,
+          15,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          12,
+          null,
+          12,
+          12,
+          null,
+          12,
           10,
           null,
-          10,
-          7,
-          7,
-          7,
-          null,
-          3,
-          null,
-          null,
-          null,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null
-        ]
-      },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/controllers/application_controller.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          24,
-          23,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          24,
-          null,
-          null,
-          1,
-          24,
-          null,
-          null,
-          1
-        ]
-      },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/controllers/users_controller.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          null,
-          null,
-          1,
-          16,
-          null,
-          16,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          13,
-          null,
-          13,
-          13,
-          null,
-          13,
-          11,
-          null,
           2,
           null,
           null,
@@ -945,9 +944,9 @@
           null,
           null,
           1,
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
           null,
           null,
           null,
@@ -960,13 +959,13 @@
           null,
           null,
           1,
-          13,
+          12,
           null,
           null,
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/models/user.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/models/user.rb": {
         "lines": [
           null,
           null,
@@ -975,7 +974,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/models/application_record.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -984,7 +983,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/controllers/points_controller.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/controllers/points_controller.rb": {
         "lines": [
           null,
           null,
@@ -1068,8 +1067,8 @@
           null,
           null,
           1,
-          1,
-          1,
+          0,
+          0,
           null,
           null,
           1,
@@ -1080,7 +1079,7 @@
           null
         ]
       },
-      "C:/Users/casua/OneDrive/Documents/CSCE431/project/TradCoTracker/TradCoTracker/app/models/point.rb": {
+      "C:/Users/casua/OneDrive/Documents/CSCE431/TradCoTracker/TradCoTracker/app/models/point.rb": {
         "lines": [
           null,
           null,
@@ -1089,6 +1088,6 @@
         ]
       }
     },
-    "timestamp": 1616493517
+    "timestamp": 1618194725
   }
 }
