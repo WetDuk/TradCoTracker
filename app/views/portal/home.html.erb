@@ -6,25 +6,21 @@
     <%# <%= javascript_pack_tag "navBarJS.js" %>
 
     <body class="background">
+            <!-- Nav bar -->
+            <div id="mySidebar" class="sidebar">
+                <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <%= link_to "Home", portal_home_path, class: "active" %>
+                <%= link_to "My Points", point_path(session[:user_id]) %>
+                <%= link_to "Submit Points", new_point_path %>
 
-        <!-- Nav bar -->
-        <div id="mySidebar" class="sidebar">
-            <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <%= link_to "Home", portal_home_path, class: "nav_active" %>
-            <%= link_to "My Points", point_path(session[:user_id]) %>
-            <%= link_to "Submit Points", new_point_path %>
-
-            <!-- Only officers can see these -->
-            <% if(@current_user.isOfficer) %>
-
-                <%= link_to "View All Points", points_path %>
-                <%= link_to "View All Users", portal_view_members_path %>
-                <%= link_to "Search Users", users_path%>
-                <%= link_to "Announcement", new_announcement_path%>
-                <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
-
-            <% end %>
-        </div>
+                <!-- Only officers can see these -->
+                <% if(@current_user.isOfficer) %>
+                    <%= link_to "Multiple Submit", new_group_path%>
+                    <%= link_to "Search Users", users_path%>
+                    <%= link_to "View All Points", points_path %>
+                    <%= link_to "View All Users", portal_view_members_path %>
+                <% end %>
+            </div>
 
         <!-- Main -->
         <div id="main">

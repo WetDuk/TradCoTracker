@@ -17,10 +17,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  database: d36ejeo6hcsrrr
-  host: ec2-54-166-242-77.compute-1.amazonaws.com
-  username: ruvmjpigzwolfq
-  password: 8cdbb6391f1525c79ec5e275432f6f355f3357ece04b17c367c5985cd3c13bde
+  database: deuuohpejgblu5
+  host: ec2-50-16-108-41.compute-1.amazonaws.com
+  username: mukxrwjqokqemj
+  password: d13b23bb7fc8e80e3e1c7c8c7ce40f7f2c8eae1aee6631fe6279fa4b6a314c92
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:

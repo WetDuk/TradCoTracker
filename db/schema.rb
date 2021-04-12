@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_04_11_175217) do
+ActiveRecord::Schema.define(version: 2021_04_12_053901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,14 +26,6 @@ ActiveRecord::Schema.define(version: 2021_04_11_175217) do
   create_table "businesses", force: :cascade do |t|
     t.integer "pointTotal"
     t.date "submissionDate"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "calendars", force: :cascade do |t|
-    t.date "eventDate"
-    t.string "eventName"
-    t.boolean "required"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -64,7 +55,6 @@ ActiveRecord::Schema.define(version: 2021_04_11_175217) do
     t.decimal "max_points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "event"
   end
 
   create_table "speakings", force: :cascade do |t|

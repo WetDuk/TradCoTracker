@@ -12,13 +12,14 @@
                 <%= link_to "My Points", point_path(session[:user_id]) %>
                 <%= link_to "Submit Points", new_point_path %>
 
-            <!-- Only officers can see these -->
-            <% if(@current_user.isOfficer) %>
-                <%= link_to "Search Users", users_path%>
-                <%= link_to "View All Points", points_path %>
-                <%= link_to "View All Users", portal_view_members_path %>
-            <% end %>
-        </div>
+                <!-- Only officers can see these -->
+                <% if(@current_user.isOfficer) %>
+                    <%= link_to "Multiple Submit", new_group_path%>
+                    <%= link_to "Search Users", users_path%>
+                    <%= link_to "View All Points", points_path %>
+                    <%= link_to "View All Users", portal_view_members_path %>
+                <% end %>
+            </div>
 
         <div id="main">
             <!-- Nav bar open button -->
@@ -51,22 +52,25 @@
                             <th>Actions</th>
                         </tr>
 
-                <div class="points_area">
-                    <h2 class="header">These are all points</h2>
-                    <div>
-                        <table>
-                            <!-- Table header -->
-                            <tr>
+               <div class="points_area">
+                <h2 class="header">These are all points</h2>
+                <div>
+                    <table>
+                        <!-- Table header -->
 
+
+
+                      <!-- test rows to see style -->
+                        <% @points.each do |point| %>
+                            <tr>
                                 <% @currUser = User.find(point.userID) %>
-                                <td><%= @currUser.firstName.to_s + " " + @currUser.lastName.to_s%>
-                                <td><%= @currUser.email%>
+                                <td><%= @currUser.firstName%>
                                 <td><%= point.eventName %></td>
                                 <td><%= point.eventType %></td>
                                 <td><%= point.pointAmount %></td>
                                 <td><%= point.submissionDate%></td>
                                 <td>
-                                    <%= link_to('Edit', url_for(controller: :points, action: :edit_index, id: point.id))%> 
+                                    <%# <%= link_to('Edit', url_for(controller: :points, action: :edit_index, id: point.id))%> 
                                     <button class="delete" id="delete" onclick="notice(<%= "\"" + point.id.to_s + "\"" %>)"> Delete </button>
                                     <div class="notice" id="<%= point.id.to_s %>">
                                         <div class="dim"></div>
@@ -74,30 +78,15 @@
                                             <h1>Warning!</h1>
                                             <p>Are you sure you want to delete the user <b>"<%= point.eventName %>"</b> from the database? All their data will be lost.</p> 
                                             <% @temp = "cancelNotice(\"" + point.id.to_s + "\")"%>
-                                            <%= link_to('Confirm', url_for(controller: :points, action: :delete_index, id: point.id), onclick: @temp)%>
+                                            <%= link_to('Delete', url_for(controller: :points, action: :delete_index, id: point.id), onclick: @temp)%>
                                             <button class="close" id="close" onclick="cancelNotice(<%= "\"" + point.id.to_s + "\""  %>)"> Close </button>
                                         </div>
                                     </div>
+                                    
                                 </td>
                             </tr>
-
-                            <!-- test rows to see style -->
-                            <% @points.each do |point| %>
-                                <tr>
-                                    <% @currUser = User.find(point.userID) %>
-                                    <td><%= @currUser.firstName%>
-                                    <td><%= point.eventName %></td>
-                                    <td><%= point.eventType %></td>
-                                    <td><%= point.pointAmount %></td>
-                                    <td><%= point.submissionDate%></td>
-                                    <td>
-                                        <%= link_to('Edit', url_for(controller: :points, action: :edit_index, id: point.id))%> 
-                                        <%= link_to('Delete', url_for(controller: :points, action: :delete_index, id: point.id), :confirm =>  "Are you sure?")%>
-                                    </td>
-                                </tr>
-                            <% end %>
-                        </table>
-                    </div>
+                        <% end %>
+                    </table>
                 </div>
             </div>
 
