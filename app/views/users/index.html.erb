@@ -1,4 +1,6 @@
 <html>
+<p id="notice"><%= notice %></p>
+
   <%= stylesheet_link_tag "stylesHome.css" %>
 
   <body class="background">
@@ -128,6 +130,19 @@
           document.getElementById("tutorial").style.height = "0";
           document.getElementById("tutorial").style.border = "none";
           document.getElementById("expand").style.display="none";
+      }
+
+      function notice(a) {
+          document.getElementById(a).style.display="block";
+      }
+      function cancelNotice(a) {
+          document.getElementById(a).style.display="none";
+      }
+      function comment(a) {
+          document.getElementById("show"+a).style.display="block";
+      }
+      function cancelComment(a) {
+          document.getElementById("show"+a).style.display="none";
       }
     </script>
   </body>
