@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :searches
-
+  resources :groups
 
   resources :users do
     member do

@@ -14,7 +14,6 @@
 
                 <!-- Only officers can see these -->
                 <% if(@current_user.isOfficer) %>
-                    <!-- <%= link_to "Multiple Submit", multi_new_point_path%> -->
                     <%= link_to "Search Users", users_path%>
                     <%= link_to "View All Points", points_path %>
                     <%= link_to "View All Users", portal_view_members_path %>
@@ -35,7 +34,7 @@
 
                     <h2>Add points</h2>
 
-                    <%= form_for(@point, :url => url_for(controller: :points, action: :update_index, id: @point.id), :method => 'post') do |f| %>
+                    <%= form_for(@point, :url => point_path(@point), :controller => 'post') do |f| %>
 
                     <table>
                         <tr>
@@ -79,6 +78,7 @@
                     <center><%= f.submit "Update Points" , class: "button2" %></center>
 
                     <% end %>
+
                 </div>
             </div>
 

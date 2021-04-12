@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_many :points, class_name: 'point', foreign_key: 'id'
-
   has_secure_password
   def self.to_csv
     attributes = %w[ID Name Officer Speaking Business]
