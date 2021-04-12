@@ -35,3 +35,38 @@
     opacity: 40%;
     background-color: black;
 }
+
+.close
+{
+    border-radius: 4px;
+    border: none;
+    position: relative;
+    background-color: #660000;
+    color: white;
+    padding: 5px;
+}
+
+.actions
+{
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 3px;
+    border: none;
+    float: left;
+    margin-left: 2px;
+}
+
+.delete
+{
+    background-color:#ff6e6e;
+}
+
+.edit
+{
+    background-color:#fdff71;
+}
+
+.show
+{
+    background-color:#71ff71;
+}
