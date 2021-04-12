@@ -28,7 +28,7 @@
             <!-- Nav bar button -->
             <table>
                 <tr>
-                    <td><button class = "openbtn button" onclick = "openNav()"> ☰ Menu </button></td>
+                    <td><button class = "openbtn button" id="menubtn" onclick = "openNav()"> ☰ Menu </button></td>
                     <td><div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div></td>
                 </tr>
             </table>
@@ -85,8 +85,19 @@
                         </li>
                     </ul>
                 </div>
-                <div class="felx-child calendar"><iframe src="https://calendar.google.com/calendar/embed?src=tcoutreach%40aggienetwork.com&ctz=America%2FChicago" style="border: 0" width="800" height="700" frameborder="0" scrolling="no"></iframe></div>
+                <div class="felx-child calendar"><iframe src="https://calendar.google.com/calendar/embed?src=tcoutreach%40aggienetwork.com&ctz=America%2FChicago" style="border: 0" width="800" height="680" frameborder="0" scrolling="no"></iframe></div>
 
+            </div>
+        </div>
+
+        <button class="tutbtn" id="tutbtn" onclick = "expand()"> Help </button>
+        <div class="tutorial" id="tutorial">
+            <div class="expand" id="expand">
+                <h3>Howdy!</h3>
+                <p>Welcome to TradoCoTracker.</p>
+                <p>This is the home page where you can see the announcments and events on the calendar.</p>
+                <p>If you click the menu button you can see the various tabs you can visit.</p>
+                <div align="right"><button class="tutclose" id="tutclose" onclick = "colapse()"> Close </button></div>
             </div>
         </div>
 
@@ -94,6 +105,7 @@
         <script>
             /* Open menu */
             function openNav() {
+                document.getElementById("menubtn").style.visibility='hidden';
                 document.getElementById("mySidebar").style.width = "250px";
                 document.getElementById("main").style.marginLeft = "250px";
             }
@@ -101,88 +113,26 @@
             function closeNav() {
                 document.getElementById("mySidebar").style.width = "0";
                 document.getElementById("main").style.marginLeft= "0";
+                document.getElementById("menubtn").style.visibility='visible';
             }
 
-            /* Calendar */
-
-            let today = new Date();
-            let currentMonth = today.getMonth();
-            let currentYear = today.getFullYear();
-            let selectYear = document.getElementById("year");
-            let selectMonth = document.getElementById("month");
-
-            let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-            let monthAndYear = document.getElementById("monthAndYear");
-            showCalendar(currentMonth, currentYear);
-
-
-            function next() {
-                currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
-                currentMonth = (currentMonth + 1) % 12;
-                showCalendar(currentMonth, currentYear);
+            /* Open tutorial */
+            function expand() {
+                document.getElementById("tutbtn").style.display='none';
+                document.getElementById("tutorial").style.width = "255px";
+                document.getElementById("tutorial").style.height = "255px";
+                document.getElementById("tutorial").style.border = "5px solid grey";
+                document.getElementById("expand").style.display="block";
+                document.getElementById("tutclose").style.display="block";
             }
-
-            function previous() {
-                currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-                currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
-                showCalendar(currentMonth, currentYear);
-            }
-
-            function jump() {
-                currentYear = parseInt(selectYear.value);
-                currentMonth = parseInt(selectMonth.value);
-                showCalendar(currentMonth, currentYear);
-            }
-
-            function showCalendar(month, year) {
-
-                let firstDay = (new Date(year, month)).getDay();
-                let daysInMonth = 32 - new Date(year, month, 32).getDate();
-
-                let tbl = document.getElementById("calendar-body"); // body of the calendar
-
-                // clearing all previous cells
-                tbl.innerHTML = "";
-
-                // filing data about month and in the page via DOM.
-                monthAndYear.innerHTML = months[month] + " " + year;
-                selectYear.value = year;
-                selectMonth.value = month;
-
-                // creating all cells
-                let date = 1;
-                for (let i = 0; i < 6; i++) {
-                    // creates a table row
-                    let row = document.createElement("tr");
-
-                    //creating individual cells, filing them up with data.
-                    for (let j = 0; j < 7; j++) {
-                        if (i === 0 && j < firstDay) {
-                            let cell = document.createElement("td");
-                            let cellText = document.createTextNode("");
-                            cell.appendChild(cellText);
-                            row.appendChild(cell);
-                        }
-                        else if (date > daysInMonth) {
-                            break;
-                        }
-
-                        else {
-                            let cell = document.createElement("td");
-                            let cellText = document.createTextNode(date);
-                            if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                                cell.classList.add("bg-info");
-                            } // color today's date
-                            cell.appendChild(cellText);
-                            row.appendChild(cell);
-                            date++;
-                        }
-                    }
-
-                    tbl.appendChild(row); // appending each row into calendar body.
-                }
-
+            /* Close tutorial */
+            function colapse() {
+                document.getElementById("tutbtn").style.display="block";
+                document.getElementById("tutorial").style.width = "0";
+                document.getElementById("tutorial").style.height = "0";
+                document.getElementById("tutorial").style.border = "none";
+                document.getElementById("expand").style.display="none";
+                document.getElementById("tutclose").style.display="none";
             }
         </script>
     </body>

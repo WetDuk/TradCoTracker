@@ -1,52 +1,99 @@
 <html>
-    <%= stylesheet_link_tag "stylesHome.css" %>
+  <%= stylesheet_link_tag "stylesHome.css" %>
 
-        <!-- Nav bar -->
-        <div id="mySidebar" class="sidebar">
-            <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <%= link_to "Home", portal_home_path, class: "nav_active" %>
-            <%= link_to "My Points", point_path(session[:user_id]) %>
-            <%= link_to "Submit Points", new_point_path %>
+  <!-- Nav bar -->
+  <div id="mySidebar" class="sidebar">
+    <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <%= link_to "Home", portal_home_path, class: "nav_active" %>
+    <%= link_to "My Points", point_path(session[:user_id]) %>
+    <%= link_to "Submit Points", new_point_path %>
 
-            <!-- Only officers can see these -->
-            <% if(@current_user.isOfficer) %>
-                <%= link_to "Search Users", users_path%>
-                <%= link_to "View All Points", points_path %>
-                <%= link_to "View All Users", portal_view_members_path %>
-                <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
-            <% end %>
+    <!-- Only officers can see these -->
+    <% if(@current_user.isOfficer) %>
+      <%= link_to "Search Users", users_path%>
+      <%= link_to "View All Points", points_path %>
+      <%= link_to "View All Users", portal_view_members_path %>
+  <% end %>
+  </div>
+
+  <body class="background">
+    <!-- Main content -->
+    <div id="main">
+      <table>
+          <tr>
+              <td><button class = "openbtn button" onclick = "openNav()"> ☰ Menu </button></td>
+              <td><div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div></td>
+          </tr>
+      </table>
+      <div class="points_area">
+        <h1 class="header">Advanced Search</h1>
+
+        <%= form_for @search, html: {class: "pure-form"} do |s| %>
+        
+        <div class="field">
+          <%= s.label :username %><br />
+          <%= s.text_field :username%>
         </div>
 
-<body class="background">
-<div class="points_area">
-<h1>Advanced Search</h1>
+          <div class="field">
+          <%= s.label :email %><br />
+          <%= s.text_field :email%>
+        </div>
 
-<%= form_for @search, html: {class: "pure-form"} do |s| %>
-  
-  <div class="field">
-    <%= s.label :username %><br />
-    <%= s.text_field :username%>
-  </div>
+          <div class="field">
+          <%= s.label :min_points %><br />
+          <%= s.text_field :min_points%>
+        </div>
 
-    <div class="field">
-    <%= s.label :email %><br />
-    <%= s.text_field :email%>
-  </div>
+          <div class="field">
+          <%= s.label :max_points %><br />
+          <%= s.text_field :max_points%>
+        </div>
+        
+        <div class="actions"> <%= s.submit "Search", class: "pure-button pure-button-primary"%></div>
+        <% end %>
 
-    <div class="field">
-    <%= s.label :min_points %><br />
-    <%= s.text_field :min_points%>
-  </div>
+        <p><%= link_to "back", users_path%></p>
+      </div>
+    </div>
 
-    <div class="field">
-    <%= s.label :max_points %><br />
-    <%= s.text_field :max_points%>
-  </div>
-  
-  <div class="actions"> <%= s.submit "Search", class: "pure-button pure-button-primary"%></div>
-<% end %>
+    <button class="tutbtn" id="tutbtn" onclick = "expand()"> Help </button>
+    <div class="tutorial" id="tutorial">
+        <div class="expand" id="expand">
+            <h3>Advanced Search</h3>
+            <p>This is a more advanced search where you can look up a user by username, email, min points, and or max points.</p>
+            <div align="right"><button class="tutclose" id="tutclose" onclick = "colapse()"> Close </button></div>
+        </div>
+    </div>
 
-  <p><%= link_to "back", users_path%></p>
-  </div>
+    <script>
+      /* Open menu */
+      function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      }
+      /* Close menu */
+      function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+      }
+
+      /* Open tutorial */
+      function expand() {
+          document.getElementById("tutbtn").style.display='none';
+          document.getElementById("tutorial").style.width = "255px";
+          document.getElementById("tutorial").style.height = "255px";
+          document.getElementById("tutorial").style.border = "5px solid grey";
+          document.getElementById("expand").style.display="block";
+      }
+      /* Close tutorial */
+      function colapse() {
+          document.getElementById("tutbtn").style.display="block";
+          document.getElementById("tutorial").style.width = "0";
+          document.getElementById("tutorial").style.height = "0";
+          document.getElementById("tutorial").style.border = "none";
+          document.getElementById("expand").style.display="none";
+      }
+    </script>
   </body>
-  </html>
+</html>
