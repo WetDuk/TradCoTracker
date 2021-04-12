@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Point < ApplicationRecord
+  belongs_to :user, class_name: 'user', foreign_key: 'user_id'
   def self.to_csv
     attributes = %w[Name Event Type Points Date Comments]
     CSV.generate(headers: true) do |csv|
