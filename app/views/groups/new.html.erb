@@ -35,32 +35,15 @@
 
                     <h2>Add points</h2>
 
-                    <%= form_for(@point, :url => points_path, :controller => 'post') do |f| %>
+                    <%= form_for(@point, :url => groups_path, :controller => 'post') do |f| %>
 
                     <table>
                         <tr>
                             <td> 
-                                Email 1: 
+                                Emails: 
                             </td> 
                             <td> 
                                 <%= f.text_field(:userID) %> 
-                            </td>
-                        </tr> 
-                        <tr></tr>
-                        <tr>
-                            <td> 
-                                Email 2: 
-                            </td> 
-                            <td>
-                                @Html.TextBox("txtAmount")  
-                            </td>
-                        </tr> 
-                        <tr></tr>
-                        <tr>
-                            <td> 
-                                Email 3: 
-                            </td> 
-                            <td>
                             </td>
                         </tr> 
                         <tr></tr>
