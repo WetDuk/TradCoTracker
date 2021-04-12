@@ -213,6 +213,7 @@ end
 
 
 # Deleting user
+<<<<<<< HEAD
 # RSpec.describe 'Deletinging users', type: :feature do
 #   scenario 'with an officer account' do
 #     visit root_path
@@ -235,3 +236,27 @@ end
 #     expect(page).not_to have_content('Delete')
 #   end
 # end
+=======
+RSpec.describe 'Deletinging users', type: :feature do
+  scenario 'with an officer account' do
+    visit root_path
+    # Creating a user for the test to use
+    click_on 'Sign up'
+    fill_in 'user_firstName', with: 'first'
+    fill_in 'user_lastName', with: 'last'
+    fill_in 'user_email', with: 'test14@gmail.com'
+    fill_in 'user_password', with: 'test'
+    fill_in 'user_password_confirmation', with: 'test'
+    check 'user_isOfficer'
+    click_on 'Create Account'
+
+    # Actual test
+    fill_in 'email', with: 'test14@gmail.com'
+    fill_in 'password', with: 'test'
+    click_on 'Login'
+    visit portal_view_members_path
+    first(:link, "Delete").click
+    expect(page).not_to have_content('Deleted')
+  end
+end
+>>>>>>> f219478b0c35d5daeeb54b5205f3272955d34447
