@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   has_many :points, class_name: 'point', foreign_key: 'id'
-
+  validates_uniqueness_of :email
   has_secure_password
   def self.to_csv
     attributes = %w[ID Name Officer Speaking Business]
