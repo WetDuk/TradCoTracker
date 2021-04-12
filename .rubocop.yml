@@ -22,10 +22,16 @@ Metrics/BlockLength:
     - "spec/**/*"
 
 Metrics/AbcSize:
-  Max: 20
+  Max: 50
 
 Metrics/MethodLength:
   Max: 50
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Max: 10
 
 AllCops:
   Exclude:
@@ -42,3 +48,4 @@ AllCops:
     - "bin/bundle"
     - "node_modules/**/*"
     - "Gemfile"
+    
