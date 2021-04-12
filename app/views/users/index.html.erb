@@ -35,7 +35,6 @@
           <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "Search" %>
           <%end%>
-          <%= link_to "Advanced Search", new_search_path%>
         </div>
         <!-- Nav bar -->
         <div class="points_area">
@@ -52,11 +51,14 @@
 
             <tbody>
               <% @users.each do |user|%>
+              <% @business_sum = Point.where(eventType: 'Business', userID: user.id).sum(:pointAmount) %>
+              <% @speaking_sum = Point.where(eventType: 'Speaking', userID: user.id).sum(:pointAmount) %>
               <tr>
                 <td><%= user.firstName %></td>
                 <td><%= user.lastName %></td>
                 <td><%= user.email %></td>
-                <td>0</td>
+                <td><%= @business_sum%></td>
+                <td><%= @speaking_sum%></td>
               </tr> 
               <%end%>
             <tbody>

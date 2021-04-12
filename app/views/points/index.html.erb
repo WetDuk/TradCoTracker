@@ -31,13 +31,19 @@
             </table>
 
             <div class="points_area">
-                <h2 class="header">These are all points</h2>
+                <h2 class="header" style="text-align:center;">
+                    These are all points
+                <span style="float:right;">
+                    <a href="/points.csv">Export to CSV</a>
+                </span>
+                </h2>
                 <div>
                     <table>
                         <!-- Table header -->
 
                         <tr>
                             <th>Name</th>
+                            <th>Email</th>
                             <th>Event</th>
                             <th>Type</th>
                             <th>Points</th>
@@ -49,13 +55,14 @@
                         <% @points.each do |point| %>
                             <tr>
                                 <% @currUser = User.find(point.userID) %>
-                                <td><%= @currUser.firstName%>
+                                <td><%= @currUser.firstName.to_s + " " + @currUser.lastName.to_s%>
+                                <td><%= @currUser.email%>
                                 <td><%= point.eventName %></td>
                                 <td><%= point.eventType %></td>
                                 <td><%= point.pointAmount %></td>
                                 <td><%= point.submissionDate%></td>
                                 <td>
-                                    <%# <%= link_to('Edit', url_for(controller: :points, action: :edit_index, id: point.id))%> 
+                                    <%= link_to('Edit', url_for(controller: :points, action: :edit_index, id: point.id))%> 
                                     <%= link_to('Delete', url_for(controller: :points, action: :delete_index, id: point.id), :confirm =>  "Are you sure?")%>
                                 </td>
                             </tr>

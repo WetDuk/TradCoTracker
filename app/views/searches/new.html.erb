@@ -22,11 +22,6 @@
 <h1>Advanced Search</h1>
 
 <%= form_for @search, html: {class: "pure-form"} do |s| %>
-  
-  <div class="field">
-    <%= s.label :username %><br />
-    <%= s.text_field :username%>
-  </div>
 
     <div class="field">
     <%= s.label :Name %><br />
@@ -36,6 +31,7 @@
     <%= s.label :email %><br />
     <%= s.text_field :email%>
   </div>
+
 
     <div class="field">
     <%= s.label :min_points %><br />

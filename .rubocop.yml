@@ -6,6 +6,10 @@ Style/Documentation:
 Layout/IndentationWidth:
   Width: 2
 
+Layout/EndOfLine: # Rubocop doesn't like the "frozen_string_literal: true" that it automatically adds
+  Exclude:
+    - "**/**/*"
+
 Naming/ClassAndModuleCamelCase:
   Enabled: true
 
@@ -23,6 +27,9 @@ Metrics/BlockLength:
 Metrics/AbcSize:
   Max: 100
 
+Metrics/MethodLength:
+  Max: 50
+
 AllCops:
   Exclude:
     - "spec/**/*"
@@ -33,7 +40,8 @@ AllCops:
     - "bin/{rails,rake}"
     - !ruby/regexp /old_and_unusued\.rb$/
     - "tmp/**/*"
-    - "venddor/**/*"
+    - "vendor/**/*"
     - ".git/**/*"
     - "bin/bundle"
     - "node_modules/**/*"
+    - "Gemfile"

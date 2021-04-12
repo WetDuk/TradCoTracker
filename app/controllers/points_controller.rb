@@ -7,6 +7,13 @@ class PointsController < ApplicationController
     redirect_to(point_path(session[:user_id])) unless @user.isOfficer
     @points = Point.order('id ASC')
     @current_user = User.find_by(id: session[:user_id])
+
+    respond_to do |format|
+      format.html
+      format.csv  do
+        send_data @points.to_csv
+      end
+    end
   end
 
   def show
@@ -61,7 +68,7 @@ class PointsController < ApplicationController
   def update
     @point = Point.find(params[:id])
     if @point.update(point_params)
-      redirect_to
+      redirect_to(point_path(:id))
     else
       render('edit')
     end
@@ -87,6 +94,6 @@ class PointsController < ApplicationController
   private
 
   def point_params
-    params.require(:point).permit(:eventName, :eventType, :pointAmount, :submissionDate)
+    params.require(:point).permit(:eventName, :eventType, :pointAmount, :submissionDate, :comments)
   end
 end
