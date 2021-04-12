@@ -220,18 +220,18 @@ RSpec.describe 'Deletinging users', type: :feature do
     click_on 'Sign up'
     fill_in 'user_firstName', with: 'first'
     fill_in 'user_lastName', with: 'last'
-    fill_in 'user_email', with: 'test@gmail.com'
+    fill_in 'user_email', with: 'test14@gmail.com'
     fill_in 'user_password', with: 'test'
     fill_in 'user_password_confirmation', with: 'test'
     check 'user_isOfficer'
     click_on 'Create Account'
 
     # Actual test
-    fill_in 'email', with: 'test@gmail.com'
+    fill_in 'email', with: 'test14@gmail.com'
     fill_in 'password', with: 'test'
     click_on 'Login'
     visit portal_view_members_path
-    click_on 'Delete'
-    expect(page).not_to have_content('Delete')
+    first(:link, "Delete").click
+    expect(page).not_to have_content('Deleted')
   end
 end
