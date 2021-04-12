@@ -70,7 +70,7 @@
                                             <h1>Warning!</h1>
                                             <p>Are you sure you want to delete the user <b>"<%= point.eventName %>"</b> from the database? All their data will be lost.</p> 
                                             <% @temp = "cancelNotice(\"" + point.id.to_s + "\")"%>
-                                            <%= link_to('Delete', url_for(controller: :points, action: :delete_index, id: point.id), onclick: @temp)%>
+                                            <%= link_to('Confirm', url_for(controller: :points, action: :delete_index, id: point.id), onclick: @temp)%>
                                             <button class="close" id="close" onclick="cancelNotice(<%= "\"" + point.id.to_s + "\""  %>)"> Close </button>
                                         </div>
                                     </div>
