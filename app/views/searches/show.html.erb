@@ -1,17 +1,18 @@
 <h1>Search Results</h1>
-<p><%= link_to 'Back', users_path %></p>
-<% if @search.search_users.empty? %>
+    <p><%= link_to 'Back', new_search_path %></p>
+    <% if @search.search_users.empty? %>
 
-<p> No Records Found </p>
+    <p> No Records Found </p>
 
-<%else%>
+    <%else%>
 
-<%@search.search_users.each do |c| %>
-<br>
-<div class="div">
-<h1> <%= c.username %></h1>
-<p>Email: <%=c.email%></p>
-<p>ID: <%= c.userID %> </p>
-</div>
-<%end%>
+    <%@search.search_users.each do |c| %>
+    <br>
+    <div class="div">
+        <p>First Name: <%=c["firstName"]%></p>
+        <p>Last Name: <%=c["lastName"]%></p>
+        <p>Business Points: <%= c["business"] %> </p>
+        <p>Speaking Points: <%= c["speaking"] %> </p>
+    </div>
+    <%end%>
 <%end%>

@@ -21,6 +21,6 @@ class SearchesController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:username, :email, :min_point, :max_point, :event)
+    params.require(:search).permit(:firstName, :lastName, :email, :min_points, :max_points)
   end
 end
