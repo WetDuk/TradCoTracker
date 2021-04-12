@@ -12,6 +12,8 @@ class GroupsController < ApplicationController
         @id = session[:user_id]
         @user = User.find(@id)
         @point = Point.new(point_params)
+        @users = point_params[0]
+        @point.userID = User.find_by!(email: @users)
         # Save the object
         if @point.save
             # If save succeeds, redirect to the index action
@@ -25,6 +27,6 @@ class GroupsController < ApplicationController
     private
 
     def point_params
-        params.require(:point).permit(:eventName, :eventType, :pointAmount, :submissionDate)
+        params.require(:point).permit(:userID, :eventName, :eventType, :pointAmount, :submissionDate)
     end
 end
