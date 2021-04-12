@@ -68,7 +68,7 @@ class PointsController < ApplicationController
   def update
     @point = Point.find(params[:id])
     if @point.update(point_params)
-      redirect_to
+      redirect_to(point_path(:id))
     else
       render('edit')
     end
@@ -94,6 +94,6 @@ class PointsController < ApplicationController
   private
 
   def point_params
-    params.require(:point).permit(:eventName, :eventType, :pointAmount, :submissionDate)
+    params.require(:point).permit(:eventName, :eventType, :pointAmount, :submissionDate, :comments)
   end
 end
