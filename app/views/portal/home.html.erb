@@ -37,7 +37,7 @@
             <!-- Page content -->
             <div class="flex-container">
                 <div class="flex-child announcments">
-                    <center><h1>Announcement </h1></center>
+                    <center><h1>Announcements</h1></center>
                     <ul class="list">
                             <% @announcements.each do |announcement| %>
                                 <li class="announce">
@@ -45,7 +45,9 @@
                                     <h3 style="text-align:left;">
                                         <%= announcement.header %>
                                     <span style="float:right;">
+                                    <% if(@current_user.isOfficer) %>
                                         <%= link_to('×', url_for(controller: :announcements, action: :delete, id: announcement.id), :confirm =>  "Are you sure?")%>
+                                    <% end %>
                                     </span>
                                     </h3> 
                                     <p><%= announcement.content %></p>
