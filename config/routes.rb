@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 Rails.application.routes.draw do
   resources :posts
@@ -8,7 +7,8 @@ Rails.application.routes.draw do
   get 'portal/add_points'
   get 'portal/view_members'
   get 'portal/home'
-
+  post 'portal/home'
+  
   resources :points do
     member do
       get :delete_show
@@ -17,6 +17,12 @@ Rails.application.routes.draw do
       get :edit_index
       post :update_index
       get :destroy_user
+    end
+  end
+
+  resources :announcements do
+    member do
+      get :delete
     end
   end
 

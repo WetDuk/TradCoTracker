@@ -5,6 +5,7 @@ class PortalController < ApplicationController
 
   def home
     @current_user = User.find_by(id: session[:user_id])
+    @announcements = Announcement.order('id ASC')
   end
 
   def view_members

@@ -2,7 +2,7 @@
 
 class Point < ApplicationRecord
   def self.to_csv
-    attributes = %w[Name Event Type Points Date Comments]
+    attributes = %w[Name Email Event Type Points Date Comments]
     CSV.generate(headers: true) do |csv|
       csv << attributes
 
@@ -10,6 +10,7 @@ class Point < ApplicationRecord
         # csv << points.attributes.values_at(*attributes)
         curr_user = User.find(point.userID)
         csv << [
+          "#{curr_user.firstName} #{curr_user.lastName}",
           curr_user.email,
           point.eventName,
           point.eventType,
