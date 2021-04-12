@@ -18,6 +18,7 @@
                     <%= link_to "Search Users", users_path%>
                     <%= link_to "View All Points", points_path %>
                     <%= link_to "View All Users", portal_view_members_path %>
+                    <%= link_to "Announcement", new_announcement_path%>
                 <% end %>
             </div>
 
@@ -71,6 +72,16 @@
                                 <td><%= point.submissionDate%></td>
                                 <td>
                                     <%# <%= link_to('Edit', url_for(controller: :points, action: :edit_index, id: point.id))%> 
+                                    <button class="show" id="show" onclick="comment(<%= "\"" + point.id.to_s + "\"" %>)">Show</button>
+                                    <div class="notice" id="<%= point.id.to_s %>">
+                                        <div class="dim"></div>
+                                        <div class="center">
+                                            <p><%= point.comments %></p> 
+                                            <% @temp = "cancelComment(\"" + point.id.to_s + "\")"%>
+                                            <button class="close" id="close" onclick="cancelComment(<%= "\"" + point.id.to_s + "\""  %>)">Close</button>
+                                        </div>
+                                    </div>
+                                    <%= link_to('Edit', url_for(controller: :points, action: :edit_index, id: point.id))%> 
                                     <button class="delete" id="delete" onclick="notice(<%= "\"" + point.id.to_s + "\"" %>)"> Delete </button>
                                     <div class="notice" id="<%= point.id.to_s %>">
                                         <div class="dim"></div>
@@ -136,6 +147,12 @@
                 document.getElementById(a).style.display="block";
             }
             function cancelNotice(a) {
+                document.getElementById(a).style.display="none";
+            }
+            function comment(a) {
+                document.getElementById(a).style.display="block";
+            }
+            function cancelComment(a) {
                 document.getElementById(a).style.display="none";
             }
         </script>
