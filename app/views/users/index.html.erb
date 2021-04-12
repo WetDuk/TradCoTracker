@@ -30,11 +30,14 @@
 
       <div class="background">
 
+
         <div class="points_area">
           <h1>Find User</h1>
           <%= form_tag users_path, :method => 'get' do %>
           <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "Search" %>
+          <%= link_to "Advanced Search", new_search_path%>
+
           <%end%>
         </div>
         <!-- Nav bar -->
@@ -45,8 +48,8 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
-                <th>Total Speaking</th>
                 <th>Total Business</th>
+                <th>Total Speaking</th>
               </tr>
             </thead>
 
