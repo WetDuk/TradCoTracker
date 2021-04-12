@@ -15,13 +15,22 @@
 # gem 'pg'
 #
 default: &default
+
   adapter: postgresql
   encoding: unicode
-  database: d36ejeo6hcsrrr
-  host: ec2-54-166-242-77.compute-1.amazonaws.com
-  username: ruvmjpigzwolfq
-  password: 8cdbb6391f1525c79ec5e275432f6f355f3357ece04b17c367c5985cd3c13bde
+  database: TradCoTrackerDB
+  port: 5432
+  username: postgres
+  password: postgres
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+  # adapter: postgresql
+  # encoding: unicode
+  # database: d36ejeo6hcsrrr
+  # host: ec2-54-166-242-77.compute-1.amazonaws.com
+  # username: ruvmjpigzwolfq
+  # password: 8cdbb6391f1525c79ec5e275432f6f355f3357ece04b17c367c5985cd3c13bde
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default

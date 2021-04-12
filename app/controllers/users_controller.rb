@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   skip_before_action :authorized
   def index
     @current_user = User.find_by(id: session[:user_id])
-    @users = User.where(['email LIKE ?', "%#{params[:search]}%"])
+    @users = User.search(params[:search])
   end
 
   # def index
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
 
   # These are the parameters for the user
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation,
+    params.require(:user).permit(:firstName, :lastName, :email, :password, :password_confirmation,
                                  :isOfficer)
   end
 end

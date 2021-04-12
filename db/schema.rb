@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_23_004450) do
+ActiveRecord::Schema.define(version: 2021_04_11_175217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_03_23_004450) do
     t.decimal "max_points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "event"
   end
 
   create_table "speakings", force: :cascade do |t|
@@ -67,8 +68,8 @@ ActiveRecord::Schema.define(version: 2021_03_23_004450) do
   create_table "users", force: :cascade do |t|
     t.boolean "isOfficer"
     t.string "joinDate"
-    t.string "firstname"
-    t.string "lastname"
+    t.string "firstName"
+    t.string "lastName"
     t.string "email"
     t.string "userID"
     t.string "password_digest"
