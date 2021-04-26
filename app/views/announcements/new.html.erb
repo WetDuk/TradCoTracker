@@ -45,7 +45,7 @@
                             Header:
                         </td> 
                         <td>
-                            <%= f.text_field(:header) %>
+                            <%= f.text_field(:header, required: true) %>
                         </td>
                     </tr> 
                     <tr></tr><tr>
@@ -53,7 +53,7 @@
                             Content:
                         </td> 
                         <td>
-                           <%= f.text_field(:content) %> 
+                           <%= f.text_field(:content, required: true) %> 
                         </td>
                     </tr> 
                     <tr></tr><tr>
@@ -61,7 +61,7 @@
                             Date:
                         </td> 
                         <td>
-                            <%= f.date_field(:announceDate) %>
+                            <%= f.date_field(:announceDate, required: true) %>
                         </td>
                     </tr> 
                     <tr></tr>
