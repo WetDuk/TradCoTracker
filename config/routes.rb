@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get 'portal/view_members'
   get 'portal/home'
   post 'portal/home'
-  
+  get 'portal/delete_all'
+  get 'portal/delete_all_announce'
+  get 'portal/delete_all_points'
+  get 'portal/delete_all_users'
+
   resources :points do
     member do
       get :delete_show

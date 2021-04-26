@@ -1,0 +1,133 @@
+<!DOCTYPE>
+<html>
+
+    <%= stylesheet_link_tag "stylesPoints.css" %>
+
+    <body class="background">
+        <!-- Nav bar -->
+        <div id="mySidebar" class="sidebar">
+            <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <%= link_to "Home", portal_home_path, class: "active" %>
+            <%= link_to "My Points", point_path(session[:user_id]) %>
+            <%= link_to "Submit Points", new_point_path %>
+
+            <!-- Only officers can see these -->
+            <% if(@current_user.isOfficer) %>
+                <%= link_to "View All Points", points_path %>
+                <%= link_to "View All Users", portal_view_members_path %>
+                <%= link_to "Search Users", users_path%>
+                <%= link_to "Announcement", new_announcement_path%>
+                <%= link_to "Delete ALL Page", portal_delete_all_path%>
+            <% end %>
+        </div>
+
+        <!-- Main content -->
+        <div id="main">
+            <!-- Nav bar open button -->
+            <table>
+                <tr>
+                    <td><button class = "openbtn button" onclick = "openNav()"> ☰ Menu </button></td>
+                    <td><div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div></td>
+                </tr>
+            </table>
+            <div class="btn-group">
+                <button class="action delete button" id="delete btn" onclick="notice(<%= 0 %>)"> Delete ALL Announcements</button>
+                
+                <button class="action delete button" id="delete btn" onclick="notice(<%= 1 %>)"> Delete ALL Points</button>
+                
+                <button class="action delete button" id="delete btn" onclick="notice(<%= 2 %>)"> Delete ALL Users</button>
+            
+            </div>
+            <div class="notice" id=0>
+                    <div class="dim"></div>
+                    <div class="center">
+                        <h1>Warning!</h1>
+                        <p>Are you sure you want to delete ALL of the announcements from the database? All their data will be lost.</p> 
+                        <% @temp = "cancelNotice(0)"%>
+                        <table>
+                            <tr>
+                                <td><div align="right"><%= button_to "Confirm", portal_delete_all_announce_path, :class => 'close', :method => :get %></div></td>
+                                <td><button class="close" id="close" onclick="cancelNotice(<%= 0  %>)"> Close </button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="notice" id=1>
+                    <div class="dim"></div>
+                    <div class="center">
+                        <h1>Warning!</h1>
+                        <p>Are you sure you want to delete ALL of the points from the database? All their data will be lost.</p> 
+                        <% @temp = "cancelNotice(0)"%>
+                        <table>
+                            <tr>
+                                <td><div align="right"><%= button_to "Confirm", portal_delete_all_points_path, :class => 'close', :method => :get %></div></td>
+                                <td><button class="close" id="close" onclick="cancelNotice(<%= 1  %>)"> Close </button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="notice" id=2>
+                    <div class="dim"></div>
+                    <div class="center">
+                        <h1>Warning!</h1>
+                        <p>Are you sure you want to delete ALL of the users from the database? All their data will be lost.</p> 
+                        <% @temp = "cancelNotice(0)"%>
+                        <table>
+                            <tr>
+                                <td><div align="right"><%= button_to "Confirm", portal_delete_all_users_path, :class => 'close', :method => :get %></div></td>
+                                <td><button class="close" id="close" onclick="cancelNotice(<%= 2  %>)"> Close </button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+        </div>
+
+        <button class="tutbtn" id="tutbtn" onclick = "expand()"> Help </button>
+        <div class="tutorial" id="tutorial">
+            <div class="expand" id="expand">
+                <h3>Delete Buttons</h3>
+                <p>These buttons wipe the database of either announcements, points, or users for all</p>
+                <p>Click each respective button and a warning sign will confirm your action</p>
+                <div align="right"><button class="tutclose" id="tutclose" onclick = "colapse()"> Close </button></div>
+            </div>
+        </div>
+        <!-- JS is being omega dum >:( !!! Very angry!!! Rails is stupid! I hate this! JS doesn't seem to really work with rails so I had to make a little snippet in html-->
+        <script>
+            /* Open menu */
+            function openNav() {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            /* Close menu */
+            function closeNav() {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+            }
+
+            /* Open tutorial */
+            function expand() {
+                document.getElementById("tutbtn").style.display='none';
+                document.getElementById("tutorial").style.width = "255px";
+                document.getElementById("tutorial").style.height = "255px";
+                document.getElementById("tutorial").style.border = "5px solid grey";
+                document.getElementById("expand").style.display="block";
+            }
+            /* Close tutorial */
+            function colapse() {
+                document.getElementById("tutbtn").style.display="block";
+                document.getElementById("tutorial").style.width = "0";
+                document.getElementById("tutorial").style.height = "0";
+                document.getElementById("tutorial").style.border = "none";
+                document.getElementById("expand").style.display="none";
+            }
+
+            /* Delete notice */
+            function notice(a) {
+                document.getElementById(a).style.display="block";
+            }
+            function cancelNotice(a) {
+                document.getElementById(a).style.display="none";
+            }
+        </script>
+    </body>
+</html>

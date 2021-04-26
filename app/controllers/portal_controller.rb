@@ -39,4 +39,29 @@ class PortalController < ApplicationController
     @_current_user = session[:user_id] = nil
     redirect_to root_path
   end
+
+  def delete_all
+    @current_user = User.find_by(id: session[:user_id])
+  end
+
+  def delete_all_announce
+    @announce = Announcement.order('id ASC')
+    @announce.destroy_all
+    redirect_to portal_home_path
+  end
+
+  def delete_all_points
+    @points = Point.order('id ASC')
+    @points.destroy_all
+    redirect_to points_path
+  end
+
+  def delete_all_users
+    @points = Point.order('id ASC')
+    @points.destroy_all
+    @user = User.order('id ASC')
+    @user.destroy_all
+    @_current_user = session[:user_id] = nil
+    redirect_to root_path
+  end
 end

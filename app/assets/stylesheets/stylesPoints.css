@@ -61,3 +61,24 @@ th
     background-color: gray;
     color: white;
 }
+
+.btn-group{
+    display: block; /* Make the buttons appear below each other */
+    position: fixed;
+    display: block;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 35%;
+    left: 50%;
+  }
+
+#btn{
+    margin: auto;
+    -ms-transform: translateY(350%);
+    transform: translateY(350%);
+    margin-bottom: 10px;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
