@@ -1,4 +1,5 @@
 <!DOCTYPE HTML PUBLIC>
+
 <html>
 
     <%= stylesheet_link_tag "stylesLogin.css" %>
@@ -35,11 +36,34 @@
                 <% end %>
                 <center><%= button_to "Sign up", new_user_path, :class => 'button', :method => :get %></center>
 
-
             </div>
-            
+            <% if @failed == true%>
+                <div class="notice" id="notice">
+                    <div class="dim"></div>
+                    <div class="center">
+                        <h1>Error</h1>
+                        <br>
+                        <p>The username or password you entered is incorrect. Please try again.</p> 
+                        <table>
+                            <tr>
+                                <td><center><button class="close" id="close" onclick=cancelNotice()> Retry </button></center></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <% session["FAILED"] = false%>
+                <% @failed = false%>
+            <% end %>
         </div>
-
+        <script>
+        /* Delete notice */
+            function notice() {
+                document.getElementById("notice").style.display="none";
+            }
+            function cancelNotice() {
+                document.getElementById("notice").style.display="none";
+            }
+        </script>
     </body>
 
 </html>
