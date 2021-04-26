@@ -46,7 +46,7 @@
                                     First Name: 
                                 </td> 
                                 <td>
-                                    <%= form.text_field :firstName %> 
+                                    <%= form.text_field :firstName, required: true%> 
                                 </td>
                             </tr> 
                             <tr></tr>
@@ -55,7 +55,7 @@
                                         Last Name: 
                                     </td> 
                                     <td>
-                                        <%= form.text_field :lastName %> 
+                                        <%= form.text_field :lastName, required: true %> 
                                     </td>
                             </tr> 
                             <tr></tr>
@@ -64,7 +64,7 @@
                                     Email: 
                                 </td> 
                                 <td>
-                                    <%= form.text_field :email %> 
+                                    <%= form.text_field :email, required: true %> 
                                 </td>
                             </tr> 
                             <tr></tr>

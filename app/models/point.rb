@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class Point < ApplicationRecord
+  validates_presence_of :pointAmount
+  validates_presence_of :eventName
+  validates_presence_of :eventType
+  validates_presence_of :submissionDate
+
   def self.to_csv
     attributes = %w[Name Email Event Type Points Date Comments]
     CSV.generate(headers: true) do |csv|

@@ -4,7 +4,7 @@
             Event:
         </td> 
         <td>
-            <%= f.text_field(:eventName) %> 
+            <%= f.text_field :eventName, required: true%> 
         </td>
     </tr> 
     <tr></tr>
@@ -13,7 +13,7 @@
             Type: 
         </td> 
         <td>
-            <%= f.select :eventType , [["Business","Business"],["Speaking","Speaking"]] %> 
+            <%= f.select :eventType , [["Business","Business"],["Speaking","Speaking"]], required: true%> 
         </td>
     </tr>
     <tr></tr>
@@ -22,7 +22,7 @@
             Points: 
         </td>
         <td>
-            <%= f.number_field :pointAmount %> 
+            <%= f.number_field :pointAmount , required: true%> 
         </td>
     </tr>
     <tr></tr>
@@ -31,7 +31,7 @@
             Date: 
         </td>
         <td>
-            <%= f.date_field :submissionDate %> 
+            <%= f.date_field :submissionDate, required: true%> 
         </td>
     </tr>
     <tr></tr>

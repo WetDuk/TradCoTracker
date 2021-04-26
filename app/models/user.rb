@@ -2,6 +2,9 @@
 
 class User < ApplicationRecord
   validates_uniqueness_of :email
+  validates_presence_of :firstName
+  validates_presence_of :lastName
+
   has_secure_password
   def self.to_csv
     attributes = %w[Name Email Officer Business Speaking]

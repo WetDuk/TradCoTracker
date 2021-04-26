@@ -7,31 +7,25 @@ class GroupsController < ApplicationController
     @point = Point.new
   end
 
+  def create
+    @test = 0
+    @current_user = User.find_by(id: session[:user_id])
+    # Instantiate a new object using form parameters
+    # @id = session[:user_id]
+    # @user = User.find(@id)
+    @userstring = point_params[:userID]
+    @userarray = @userstring.split(',')
+    @userarray.each do |i|
+      @point = Point.new(point_params)
+      @users = User.find_by email: i
+      next if @users.nil?
 
-    def create
-        @test = 0
-        @current_user = User.find_by(id: session[:user_id])
-        # Instantiate a new object using form parameters
-       # @id = session[:user_id]
-        #@user = User.find(@id)
-        @userstring = point_params[:userID]
-        @userarray = @userstring.split(",")
-        for i in @userarray
-            @point = Point.new(point_params)
-            @users = User.find_by email: i
-            if (@users != nil)
-                @point.userID = @users.id
-                if(@point.save)
-                   @test=1
-                else
-                end
-            end
-        end
-        # Save the object
-        if(@test==1)
-        redirect_to(portal_view_members_path)
-        end
+      @point.userID = @users.id
+      @test = 1 if @point.save
     end
+    # Save the object
+    redirect_to(portal_view_members_path) if @test == 1
+  end
 
   private
 

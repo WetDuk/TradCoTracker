@@ -32,6 +32,7 @@ class PointsController < ApplicationController
 
   def create
     # Instantiate a new object using form parameters
+    @current_user = User.find_by(id: session[:user_id])
     @id = session[:user_id]
     @user = User.find(@id)
     @point = Point.new(point_params)
