@@ -12,15 +12,14 @@
                 <%= link_to "My Points", point_path(session[:user_id]) %>
                 <%= link_to "Submit Points", new_point_path %>
 
-
                 <!-- Only officers can see these -->
                 <% if(@current_user.isOfficer) %>
+                    <%= link_to "Multiple Submit", new_group_path%>
+                    <%= link_to "Search Users", users_path%>
                     <%= link_to "View All Points", points_path %>
                     <%= link_to "View All Users", portal_view_members_path %>
-                    <%= link_to "Search Users", users_path%>
                     <%= link_to "Announcement", new_announcement_path%>
                     <%= link_to "Delete ALL Page", portal_delete_all_path%>
-                    <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
                 <% end %>
             </div>
 

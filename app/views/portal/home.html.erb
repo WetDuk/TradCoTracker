@@ -6,7 +6,6 @@
     <%# <%= javascript_pack_tag "navBarJS.js" %>
 
     <body class="background">
-
         <!-- Nav bar -->
         <div id="mySidebar" class="sidebar">
             <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -16,6 +15,7 @@
 
             <!-- Only officers can see these -->
             <% if(@current_user.isOfficer) %>
+                <%= link_to "Multiple Submit", new_group_path%>
                 <%= link_to "View All Points", points_path %>
                 <%= link_to "View All Users", portal_view_members_path %>
                 <%= link_to "Search Users", users_path%>

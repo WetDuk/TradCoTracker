@@ -1,0 +1,34 @@
+<%= link_to("<< Back to List", users_path, :class => 'back-link') %>
+
+<div class="User show">
+  <h2>Show User</h2>
+    <% @business_points = Point.where([eventType: 'Business', userID: user.id])%>
+    <% @speaking_points = Point.where([eventType: 'Speaking', userID: user.id])%>
+
+  <table summary="User detail view">
+    <tr>
+      <th>Email</th>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th>Business Points</th>
+
+      <td><%= @user.author %></td>
+    </tr>
+    <tr>
+      <th>Speaking Points</th>
+      <%= for speaking in speaking_points%>
+        <td><%= speaking</td>
+        <%end%>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td><%= @book.price %></td>
+    </tr>
+    <tr>
+      <th>Published Date</th>
+      <td><%= @book.published_date %></td>
+    </tr>
+  </table>
+
+</div>

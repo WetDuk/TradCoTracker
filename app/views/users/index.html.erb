@@ -1,22 +1,23 @@
 <html>
+<p id="notice"><%= notice %></p>
+
   <%= stylesheet_link_tag "stylesHome.css" %>
 
   <body class="background">
     <div id="mySidebar" class="sidebar">
       <a href = "javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <%= link_to "Home", portal_home_path, class: "nav_active" %>
+      <%= link_to "Home", portal_home_path, class: "active" %>
       <%= link_to "My Points", point_path(session[:user_id]) %>
       <%= link_to "Submit Points", new_point_path %>
-      
 
       <!-- Only officers can see these -->
       <% if(@current_user.isOfficer) %>
+        <%= link_to "Multiple Submit", new_group_path%>
+        <%= link_to "Search Users", users_path%>
         <%= link_to "View All Points", points_path %>
         <%= link_to "View All Users", portal_view_members_path %>
-        <%= link_to "Search Users", users_path%>
         <%= link_to "Announcement", new_announcement_path%>
         <%= link_to "Delete ALL Page", portal_delete_all_path%>
-      <%# <li> link_to "Edit Calender", --- </li> %> <!-- Fill this in later when calender is done :) -->
       <% end %>
     </div>
 
@@ -51,6 +52,7 @@
                 <th>Email</th>
                 <th>Total Business</th>
                 <th>Total Speaking</th>
+                <th>Actions </th>
               </tr>
             </thead>
 
@@ -64,6 +66,26 @@
                 <td><%= user.email %></td>
                 <td><%= @business_sum%></td>
                 <td><%= @speaking_sum%></td>
+                <td class="actions">
+                  <%if user.id != session[:user_id]%>
+                      <button class="actions delete" id="delete" onclick="notice(<%= "\"" + user.email + "\"" %>)"> Delete </button>
+                      <div class="notice" id="<%= user.email %>">
+                          <div class="dim"></div>
+                          <div class="center">
+                              <h1>Warning!</h1>
+                              <p>Are you sure you want to delete the user <b>"<%= user.email %>"</b> from the database? All their data will be lost.</p> 
+                              <table>
+                                <tr>
+                                  <td><div align="right"><%= button_to "Confirm", delete_user_path(user.id), :class => 'close', :method => :get %></div></td>
+                                  <td><button class="close" id="close" onclick="cancelNotice(<%= "\"" + user.email + "\""  %>)"> Close </button></td>
+                                </tr>
+                              </table>
+                          </div>
+                      </div>
+                  <%else%>
+                      <%= button_to "Edit", edit_user_path(user.id), :class => 'actions edit', :method => :get %>
+                  <%end%>
+                </td>
               </tr> 
               <%end%>
             <tbody>
@@ -111,6 +133,19 @@
           document.getElementById("tutorial").style.height = "0";
           document.getElementById("tutorial").style.border = "none";
           document.getElementById("expand").style.display="none";
+      }
+
+      function notice(a) {
+          document.getElementById(a).style.display="block";
+      }
+      function cancelNotice(a) {
+          document.getElementById(a).style.display="none";
+      }
+      function comment(a) {
+          document.getElementById("show"+a).style.display="block";
+      }
+      function cancelComment(a) {
+          document.getElementById("show"+a).style.display="none";
       }
     </script>
   </body>
