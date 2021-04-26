@@ -2,7 +2,7 @@
 
 class PortalController < ApplicationController
   skip_before_action :authorized, only: %i[login new create destroy]
-  @failed = true;
+  @failed = true
   def home
     @current_user = User.find_by(id: session[:user_id])
     @announcements = Announcement.order('id ASC')
@@ -19,26 +19,26 @@ class PortalController < ApplicationController
     end
   end
 
-  def new 
-    @failed = true; 
+  def new
+    @failed = true
   end
 
   def login
-    @failed = session["FAILED"];
+    @failed = session['FAILED']
   end
 
   # creates a new session when the username is in the database and has the same password
   def create
-    @failed = false;
+    @failed = false
     @user = User.find_by(email: params[:email])
     # Sudo global variables
     if @user&.authenticate(params[:password])
-      session["FAILED"] = false
+      session['FAILED'] = false
       session[:user_id] = @user.id
       session[:user_isOfficer] = @user.isOfficer
       redirect_to portal_home_path
     else
-      session["FAILED"] = true
+      session['FAILED'] = true
       redirect_to root_path(true)
     end
   end
