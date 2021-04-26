@@ -53,7 +53,7 @@ class PortalController < ApplicationController
   def delete_all_points
     @points = Point.order('id ASC')
     @points.destroy_all
-    redirect_to points_path()
+    redirect_to points_path
   end
 
   def delete_all_users
