@@ -62,8 +62,14 @@ th
     color: white;
 }
 
-.btn-group button {
+.btn-group{
     display: block; /* Make the buttons appear below each other */
+    position: fixed;
+    display: block;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 35%;
+    left: 50%;
   }
 
 #btn{

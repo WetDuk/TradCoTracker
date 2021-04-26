@@ -31,18 +31,63 @@
                 </tr>
             </table>
             <div class="btn-group">
-                <%= link_to("Delete ALL Announcements", portal_delete_all_announce_path, :class => 'action button', :id => 'btn') %>
-                <%= link_to("Delete ALL Points", portal_delete_all_points_path, :class => 'action button', :id => 'btn') %>
-                <%= link_to("Delete ALL Users _   (WILL LOGOUT)", portal_delete_all_users_path, :class => 'action button', :id => 'btn') %>
+                <button class="action delete button" id="delete btn" onclick="notice(<%= 0 %>)"> Delete ALL Announcements</button>
+                
+                <button class="action delete button" id="delete btn" onclick="notice(<%= 1 %>)"> Delete ALL Points</button>
+                
+                <button class="action delete button" id="delete btn" onclick="notice(<%= 2 %>)"> Delete ALL Users</button>
+            
             </div>
+            <div class="notice" id=0>
+                    <div class="dim"></div>
+                    <div class="center">
+                        <h1>Warning!</h1>
+                        <p>Are you sure you want to delete ALL of the announcements from the database? All their data will be lost.</p> 
+                        <% @temp = "cancelNotice(0)"%>
+                        <table>
+                            <tr>
+                                <td><div align="right"><%= button_to "Confirm", portal_delete_all_announce_path, :class => 'close', :method => :get %></div></td>
+                                <td><button class="close" id="close" onclick="cancelNotice(<%= 0  %>)"> Close </button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="notice" id=1>
+                    <div class="dim"></div>
+                    <div class="center">
+                        <h1>Warning!</h1>
+                        <p>Are you sure you want to delete ALL of the points from the database? All their data will be lost.</p> 
+                        <% @temp = "cancelNotice(0)"%>
+                        <table>
+                            <tr>
+                                <td><div align="right"><%= button_to "Confirm", portal_delete_all_points_path, :class => 'close', :method => :get %></div></td>
+                                <td><button class="close" id="close" onclick="cancelNotice(<%= 1  %>)"> Close </button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="notice" id=2>
+                    <div class="dim"></div>
+                    <div class="center">
+                        <h1>Warning!</h1>
+                        <p>Are you sure you want to delete ALL of the users from the database? All their data will be lost.</p> 
+                        <% @temp = "cancelNotice(0)"%>
+                        <table>
+                            <tr>
+                                <td><div align="right"><%= button_to "Confirm", portal_delete_all_users_path, :class => 'close', :method => :get %></div></td>
+                                <td><button class="close" id="close" onclick="cancelNotice(<%= 2  %>)"> Close </button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
         </div>
 
         <button class="tutbtn" id="tutbtn" onclick = "expand()"> Help </button>
         <div class="tutorial" id="tutorial">
             <div class="expand" id="expand">
-                <h3>All Points</h3>
-                <p>This is where you can see all users currently on the website. From here, you are able to delete or edit any of the accounts listed.</p>
-                <p>To download this list into an excel file, just click "Export to CSV"</p>
+                <h3>Delete Buttons</h3>
+                <p>These buttons wipe the database of either announcements, points, or users for all</p>
+                <p>Click each respective button and a warning sign will confirm your action</p>
                 <div align="right"><button class="tutclose" id="tutclose" onclick = "colapse()"> Close </button></div>
             </div>
         </div>
