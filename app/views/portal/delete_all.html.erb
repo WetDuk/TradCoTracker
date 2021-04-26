@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
 
-    <%= stylesheet_link_tag "stylesMembers.css" %>
+    <%= stylesheet_link_tag "stylesPoints.css" %>
 
     <body class="background">
         <!-- Nav bar -->
@@ -30,63 +30,10 @@
                     <td><div align="right"><%= button_to "Logout", "/logout", :class => 'button', :method => :get %></div></td>
                 </tr>
             </table>
-
-            <div class="user_area">
-                <h2 class="header" style="text-align:center;">
-                    Users
-                <span style="float:right;">
-                    <a href="/portal/view_members.csv">Export to CSV</a>
-                </span>
-                </h2>                
-                <div>
-                    <table>
-                        <!-- Table header -->
-                        <tr>
-
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Is Officer</th>
-                            <th>Total Business</th>
-                            <th>Total Speaking</th>
-                            <th>Actions</th>
-                        </tr>
-
-
-                        <% @users.each do |user| %> 
-
-                            <% @business_sum = Point.where(eventType: 'Business', userID: user.id).sum(:pointAmount) %>
-                            <% @speaking_sum = Point.where(eventType: 'Speaking', userID: user.id).sum(:pointAmount) %>
-                            
-                            <tr>
-                                <td> <%= user.firstName.to_s + " " + user.lastName.to_s %> </td>  
-                                <td> <%= user.email %> </td> 
-                                <td> <%= user.isOfficer %> </td> 
-                                <td> <%= @business_sum %> </td>
-                                <td> <%= @speaking_sum %> </td>
-                                <td>
-                                    <%if user.id != session[:user_id]%>
-                                        <button class="actions delete" id="delete" onclick="notice(<%= "\"" + user.email + "\"" %>)"> Delete </button>
-                                        <div class="notice" id="<%= user.email %>">
-                                            <div class="dim"></div>
-                                            <div class="center">
-                                                <h1>Warning!</h1>
-                                                <p>Are you sure you want to delete the user <b>"<%= user.email %>"</b> from the database? All their data will be lost.</p> 
-                                                <table>
-                                                    <tr>
-                                                        <td><div align="right"><%= button_to "Confirm", delete_user_path(user.id), :class => 'close', :method => :get %></div></td>
-                                                        <td><button class="close" id="close" onclick="cancelNotice(<%= "\"" + user.email + "\""  %>)"> Close </button></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    <%else%>
-                                        <%= button_to "Edit", edit_user_path(user.id), :class => 'actions edit', :method => :get %>
-                                    <%end%>
-                                </td>
-                            </tr> 
-                        <% end %>
-                    </table>
-                </div>
+            <div class="btn-group">
+                <%= link_to("Delete ALL Announcements", portal_delete_all_announce_path, :class => 'action button', :id => 'btn') %>
+                <%= link_to("Delete ALL Points", portal_delete_all_points_path, :class => 'action button', :id => 'btn') %>
+                <%= link_to("Delete ALL Users _   (WILL LOGOUT)", portal_delete_all_users_path, :class => 'action button', :id => 'btn') %>
             </div>
         </div>
 
