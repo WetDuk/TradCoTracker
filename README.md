@@ -48,13 +48,11 @@ The tasks that are preformed are listed in the jobs which include
   - requires rubocop-test to pass
   - builds to the heroku if code is pushed to the master branch
 
-# A more detailed tutorial that helped when making this app:
+# Helpful CI/CD tutorial:
 
 https://docs.github.com/en/actions/learn-github-actions
 
-# Deployment instructions
-
-# other details needed to know to maintain the code
+# Other details needed to know to maintain the code
 
 - To run rubocop on the code just run the command rubocop in the root directory
 - To run rspec tests just run the command rspec in the root directory. Also all the test code can be found under the “spec” folder
