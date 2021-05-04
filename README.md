@@ -1,32 +1,43 @@
-<<<<<<< HEAD
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# How to execute code:
 
-Things you may want to cover:
+Make sure ruby is installed: https://rubyinstaller.org/
+Open command prompt from folder holder project
+$ bundle install
+$ Rails s
+Open localhost:3000 on a browser like Chrome
 
-* Ruby version
+# How to deploy to the app to Heroku:
 
-* System dependencies
+A more detailed tutorial is: https://devcenter.heroku.com/articles/getting-started-with-rails6
+Deploy the rails demo app to Heroku:
+prerequisites: install Rails, Git and the Heroku CLI.
+Open the command prompt from github desktop (ignore the $)
+$ heroku login (or $ heroku login -i if you want to stay in the terminal)
+$ heroku git:clone -a “heroku name”
+$ git add . (the dot is necessary)
+$ git commit -m “write your message here”
+$ git push heroku master {master is default unless changed in heroku}
+$ heroku run rake db:migrate (since you will be using database)
 
-* Configuration
+# How to do the CI/CD process
 
-* Database creation
+These processes are maintained by Github through their actions tab in the repo
 
-* Database initialization
+# The CI/CD process is contained in, “.github/workflows”, located inside the current directory
 
-* How to run the test suite
+Inside the folder you will find the master.yml which contains all the jobs that will be run upon a push or pull request in the repo.
 
-* Services (job queues, cache servers, search engines, etc.)
+# A more detailed tutorial that helped when making this app:
 
-* Deployment instructions
+https://developer.servicenow.com/blog.do?p=/post/cicd-pipeline-github-actions/
 
-* ...
-=======
-# Intial Instructions to get started:
-1. Clone this repository to your local host ```$ git clone <url>```
-2. Add your group project code in the repository. Make sure to add it to the staging area. ```$ git add .```
-3. Commit your changes ```$ git commit -m "your commit message"```
-4. To Push the changes for a branch ```$ git push <remote> <branch>```
->>>>>>> cee282adcb54dd6ad7e3cb11052bde77395e5a29
+- Deployment instructions
+
+- # ...
+  #Any other details we need to know to maintain the code
+  -To run rubocop on the code just run the command rubocop in the root directory
+  -To run rspec tests just run the command rspec in the root directory. Also all the test code can be found under the “spec” folder
+  -All style sheets are in the under “app/assets/stylesheets”
+  -All images used are under “app/assets/images”
